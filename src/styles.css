@@ -9,6 +9,10 @@
 @theme inline {
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Inter', sans-serif;
+  --color-ink: var(--ink);
+  --color-warm-cream: var(--warm-cream);
+  --color-warm-stone: var(--warm-stone);
+  --color-warm-clay: var(--warm-clay);
 }
 
 /*
