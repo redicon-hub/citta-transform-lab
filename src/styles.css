@@ -180,5 +180,4 @@
     to { transform: scale(1.15); }
   }
   .animate-slow-zoom { animation: slow-zoom 20s ease-in-out infinite alternate; }
-  }
 }
