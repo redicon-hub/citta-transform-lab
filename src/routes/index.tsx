@@ -10,6 +10,7 @@ import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
 import projectKitchen from "@/assets/project-kitchen.jpg";
+import showroom from "@/assets/showroom.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -456,35 +457,42 @@ function CTA() {
     <section id="contatto" className="bg-ink text-white py-32 md:py-48 px-6 md:px-16">
       <div className="max-w-[1600px] mx-auto">
         <Reveal>
-          <div className="text-eyebrow text-white/50 mb-12">— 08 Iniziamo a progettare</div>
-          <h2 className="font-display text-[10vw] md:text-[7vw] leading-[0.95] font-extralight max-w-6xl">
-            Raccontateci<br />il vostro <span className="italic">spazio</span>.
-          </h2>
-          <p className="mt-12 text-white/70 text-lg md:text-xl font-light max-w-xl leading-relaxed">
-            Una consulenza dedicata, un sopralluogo, una proposta progettuale. Senza impegno, con la cura che riserviamo a ogni progetto.
-          </p>
-          <div className="mt-16 grid md:grid-cols-2 gap-px bg-white/10 max-w-4xl">
-            <a href="#" className="bg-ink p-10 hover:bg-white hover:text-foreground transition-colors duration-500 group">
-              <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-8">Primo contatto</div>
-              <div className="font-display text-3xl md:text-4xl font-light">Prenota una consulenza →</div>
-            </a>
-            <a href="#" className="bg-ink p-10 hover:bg-white hover:text-foreground transition-colors duration-500 group">
-              <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-8">Veloce</div>
-              <div className="font-display text-3xl md:text-4xl font-light">Inviateci pianta e misure →</div>
-            </a>
-          </div>
-          <div className="mt-16 flex flex-col md:flex-row gap-8 md:gap-16 text-sm text-white/60 font-light">
-            <div>
-              <div className="text-eyebrow text-white/40 mb-2">Studio</div>
-              Via Esempio 12, Milano
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
+            <div className="relative overflow-hidden min-h-[420px] md:min-h-[640px]">
+              <img src={showroom} alt="Showroom Artigiani in Città a Milano" className="absolute inset-0 w-full h-full object-cover" />
             </div>
-            <div>
-              <div className="text-eyebrow text-white/40 mb-2">Telefono</div>
-              +39 02 0000 0000
-            </div>
-            <div>
-              <div className="text-eyebrow text-white/40 mb-2">WhatsApp</div>
-              Risposta entro 2 ore
+            <div className="flex flex-col justify-center">
+              <div className="text-eyebrow text-white/50 mb-12">— 08 Iniziamo a progettare</div>
+              <h2 className="font-display text-[10vw] md:text-[5.5vw] leading-[0.95] font-extralight">
+                Raccontateci<br />il vostro <span className="italic">spazio</span>.
+              </h2>
+              <p className="mt-10 text-white/70 text-lg font-light max-w-xl leading-relaxed">
+                Una consulenza dedicata, un sopralluogo, una proposta progettuale. Senza impegno, con la cura che riserviamo a ogni progetto.
+              </p>
+              <div className="mt-12 grid sm:grid-cols-2 gap-px bg-white/10">
+                <a href="#" className="bg-ink p-8 hover:bg-white hover:text-foreground transition-colors duration-500 group">
+                  <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-6">Primo contatto</div>
+                  <div className="font-display text-2xl md:text-3xl font-light">Prenota una consulenza →</div>
+                </a>
+                <a href="#" className="bg-ink p-8 hover:bg-white hover:text-foreground transition-colors duration-500 group">
+                  <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-6">Veloce</div>
+                  <div className="font-display text-2xl md:text-3xl font-light">Inviateci pianta e misure →</div>
+                </a>
+              </div>
+              <div className="mt-12 flex flex-col sm:flex-row gap-8 sm:gap-12 text-sm text-white/60 font-light">
+                <div>
+                  <div className="text-eyebrow text-white/40 mb-2">Studio</div>
+                  Via Esempio 12, Milano
+                </div>
+                <div>
+                  <div className="text-eyebrow text-white/40 mb-2">Telefono</div>
+                  +39 02 0000 0000
+                </div>
+                <div>
+                  <div className="text-eyebrow text-white/40 mb-2">WhatsApp</div>
+                  Risposta entro 2 ore
+                </div>
+              </div>
             </div>
           </div>
         </Reveal>
