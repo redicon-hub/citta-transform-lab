@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Artigiani in CIttà" },
+      { name: "description", content: "Nuovo Sito Artigiani in Città" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Artigiani in CIttà" },
+      { property: "og:description", content: "Nuovo Sito Artigiani in Città" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Artigiani in CIttà" },
+      { name: "twitter:description", content: "Nuovo Sito Artigiani in Città" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/36621a06-daf5-42b1-966d-4052af182cf5/id-preview-9f7a2ae9--e7c5d782-4c88-49c7-8578-69fc7ba703ee.lovable.app-1778157740213.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/36621a06-daf5-42b1-966d-4052af182cf5/id-preview-9f7a2ae9--e7c5d782-4c88-49c7-8578-69fc7ba703ee.lovable.app-1778157740213.png" },
     ],
     links: [
       {
