@@ -42,7 +42,7 @@ function Nav() {
               <svg viewBox="0 0 24 24" className="w-3 h-3" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
               WhatsApp
             </a>
-            <a href="mailto:info@artigianiincitta.it" className="flex items-center gap-2 hover:opacity-60 transition"><Mail className="w-3 h-3" /> info@artigianiincitta.it</a>
+            <a href="mailto:info@artigianiincitta.it" className="flex items-center gap-2 hover:opacity-60 transition"><Mail className="w-3 h-3" /><span>info@artigianiincitta.it</span></a>
           </div>
           <div className="flex items-center gap-4 opacity-90">
             <a href="#" aria-label="Instagram" className="hover:opacity-60 transition"><Instagram className="w-3.5 h-3.5" /></a>
