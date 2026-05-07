@@ -201,35 +201,34 @@ function Projects() {
           </div>
         </div>
 
-        <div className="space-y-32 md:space-y-48">
+        <div className="space-y-24 md:space-y-40">
           {projects.map((p, i) => (
-            <div key={p.title} className={`grid md:grid-cols-12 gap-8 md:gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-              <div className="md:col-span-7 overflow-hidden">
-                <Reveal>
-                  <motion.img
-                    src={p.img}
-                    alt={p.title}
-                    loading="lazy"
-                    className="w-full aspect-[4/5] object-cover"
-                    initial={{ scale: 1.15 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                </Reveal>
+            <Reveal key={p.title}>
+              <div className="relative w-full overflow-hidden h-[80vh] md:h-[92vh] min-h-[600px]">
+                <motion.img
+                  src={p.img}
+                  alt={p.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ scale: 1.15 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
+                <div className={`relative z-10 h-full flex p-6 md:p-20 ${i % 2 === 1 ? "justify-end items-end" : "justify-start items-end"}`}>
+                  <div className="bg-background max-w-md w-full p-10 md:p-14 shadow-2xl">
+                    <div className="text-eyebrow text-warm-clay mb-6">— Progetto {String(i + 1).padStart(2, "0")}</div>
+                    <div className="text-eyebrow text-muted-foreground mb-4">{p.subtitle}</div>
+                    <h3 className="font-display text-4xl md:text-5xl mb-6 font-light italic leading-tight">{p.title}</h3>
+                    <p className="text-muted-foreground text-base leading-relaxed font-light">{p.desc}</p>
+                    <a href="#" className="inline-block mt-8 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
+                      Scopri il progetto →
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="md:col-span-5 md:px-8">
-                <Reveal delay={0.2}>
-                  <div className="text-eyebrow text-warm-clay mb-6">— Progetto {String(i + 1).padStart(2, "0")}</div>
-                  <div className="text-eyebrow text-muted-foreground mb-4">{p.subtitle}</div>
-                  <h3 className="font-display text-5xl md:text-6xl mb-8 font-light italic">{p.title}</h3>
-                  <p className="text-muted-foreground text-base leading-relaxed font-light max-w-md">{p.desc}</p>
-                  <a href="#" className="inline-block mt-10 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
-                    Scopri il progetto →
-                  </a>
-                </Reveal>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
