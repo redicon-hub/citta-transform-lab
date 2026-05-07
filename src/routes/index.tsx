@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, Menu } from "lucide-react";
 import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
 import heroBed from "@/assets/hero-bed.jpg";
@@ -29,21 +30,67 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/40" : "bg-transparent"}`}>
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3">
-          <img src={logo} alt="Artigiani in Città" className={`h-7 md:h-8 transition-all ${scrolled ? "" : "invert brightness-0"}`} />
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-md border-b border-border/40 text-foreground" : "bg-transparent text-white"}`}>
+      {/* Top utility bar */}
+      <div className={`hidden md:block border-b transition-colors ${scrolled ? "border-border/40 bg-background/60" : "border-white/15 bg-black/20"}`}>
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 h-9 flex items-center justify-between text-[11px] tracking-[0.14em] uppercase">
+          <div className="flex items-center gap-6 opacity-90">
+            <a href="tel:+390212345678" className="flex items-center gap-2 hover:opacity-60 transition"><Phone className="w-3 h-3" /> 02 1234 5678</a>
+            <a href="tel:+393331234567" className="flex items-center gap-2 hover:opacity-60 transition"><Smartphone className="w-3 h-3" /> 333 123 4567</a>
+            <a href="https://wa.me/393331234567" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:opacity-60 transition">
+              <svg viewBox="0 0 24 24" className="w-3 h-3" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+              WhatsApp
+            </a>
+            <a href="mailto:info@artigianiincitta.it" className="flex items-center gap-2 hover:opacity-60 transition"><Mail className="w-3 h-3" /> info@artigianiincitta.it</a>
+          </div>
+          <div className="flex items-center gap-4 opacity-90">
+            <a href="#" aria-label="Instagram" className="hover:opacity-60 transition"><Instagram className="w-3.5 h-3.5" /></a>
+            <a href="#" aria-label="Facebook" className="hover:opacity-60 transition"><Facebook className="w-3.5 h-3.5" /></a>
+            <a href="#" aria-label="YouTube" className="hover:opacity-60 transition"><Youtube className="w-3.5 h-3.5" /></a>
+            <span className="opacity-40">|</span>
+            <a href="#showroom" className="hover:opacity-60 transition">Showroom Milano</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main bar */}
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 py-4 md:py-5 flex items-center gap-6">
+        <a href="/" className="flex items-center gap-3 shrink-0">
+          <img src={logo} alt="Artigiani in Città" className={`h-7 md:h-9 transition-all ${scrolled ? "" : "invert brightness-0"}`} />
         </a>
-        <nav className={`hidden lg:flex items-center gap-10 text-[12px] tracking-[0.18em] uppercase ${scrolled ? "text-foreground" : "text-white"}`}>
+
+        <nav className={`hidden lg:flex items-center gap-8 text-[12px] tracking-[0.18em] uppercase ml-6`}>
           <a href="#progetti" className="hover:opacity-60 transition">Progetti</a>
           <a href="#consulenza" className="hover:opacity-60 transition">Consulenza</a>
           <a href="#artigianato" className="hover:opacity-60 transition">Artigianato</a>
           <a href="#soluzioni" className="hover:opacity-60 transition">Soluzioni</a>
           <a href="#catalogo" className="hover:opacity-60 transition">Catalogo</a>
         </nav>
-        <a href="#contatto" className={`text-[11px] tracking-[0.22em] uppercase border px-5 py-3 transition ${scrolled ? "border-foreground text-foreground hover:bg-foreground hover:text-background" : "border-white text-white hover:bg-white hover:text-foreground"}`}>
-          Prenota consulenza
-        </a>
+
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={`hidden md:flex items-center flex-1 max-w-md ml-auto h-10 px-4 rounded-full border transition ${scrolled ? "border-border bg-background/60" : "border-white/30 bg-white/10 backdrop-blur"}`}
+        >
+          <Search className="w-4 h-4 opacity-70" />
+          <input
+            type="search"
+            placeholder="Cerca letti a scomparsa, mobili trasformabili…"
+            className="bg-transparent outline-none px-3 text-[12px] tracking-wide w-full placeholder:opacity-60"
+          />
+        </form>
+
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
+          <a href="#contatto" className={`hidden xl:inline-flex text-[11px] tracking-[0.22em] uppercase border px-5 py-3 transition ${scrolled ? "border-foreground hover:bg-foreground hover:text-background" : "border-white hover:bg-white hover:text-foreground"}`}>
+            Prenota consulenza
+          </a>
+          <button aria-label="Carrello" className={`relative h-10 w-10 inline-flex items-center justify-center rounded-full border transition ${scrolled ? "border-border hover:bg-foreground hover:text-background" : "border-white/40 hover:bg-white hover:text-foreground"}`}>
+            <ShoppingBag className="w-4 h-4" />
+            <span className="absolute -top-1 -right-1 h-4 min-w-4 px-1 rounded-full bg-warm-clay text-white text-[9px] font-medium flex items-center justify-center">0</span>
+          </button>
+          <button aria-label="Menu" className={`lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border ${scrolled ? "border-border" : "border-white/40"}`}>
+            <Menu className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </header>
   );
@@ -123,7 +170,7 @@ function Manifesto() {
         <div className="md:col-span-9">
           <Reveal>
             <h2 className="font-display text-[7vw] md:text-[3.8vw] leading-[1.05] max-w-5xl font-extralight">
-              Non vendiamo mobili. <span className="text-muted-foreground">Risolviamo problemi complessi di spazio</span> con intelligenza progettuale e produzione artigianale italiana.
+              Non vendiamo solo mobili. <span className="text-muted-foreground">Risolviamo problemi complessi di spazio</span> con intelligenza progettuale e produzione artigianale italiana.
             </h2>
           </Reveal>
         </div>
