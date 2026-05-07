@@ -9,6 +9,7 @@ import craftsmanship from "@/assets/craftsmanship.jpg";
 import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
+import projectKitchen from "@/assets/project-kitchen.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,7 +42,7 @@ function Nav() {
               <svg viewBox="0 0 24 24" className="w-3 h-3" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
               WhatsApp
             </a>
-            <a href="mailto:info@artigianiincitta.it" className="flex items-center gap-2 hover:opacity-60 transition"><Mail className="w-3 h-3" /> info@artigianiincitta.it</a>
+            <a href="mailto:info@artigianiincitta.it" className="flex items-center gap-2 hover:opacity-60 transition"><Mail className="w-3 h-3" /><span>info@artigianiincitta.it</span></a>
           </div>
           <div className="flex items-center gap-4 opacity-90">
             <a href="#" aria-label="Instagram" className="hover:opacity-60 transition"><Instagram className="w-3.5 h-3.5" /></a>
@@ -226,6 +227,7 @@ const projects = [
   { img: projectStudio, title: "Brera, 28 mq", subtitle: "Monolocale", desc: "Un unico ambiente che diventa salotto, camera, studio e cucina senza compromessi formali." },
   { img: projectChildren, title: "Porta Romana, 14 mq", subtitle: "Camera bambini", desc: "Letto a castello su misura con scrivania, armadio e zona gioco integrati nella parete." },
   { img: projectOffice, title: "Città Studi, 9 mq", subtitle: "Home office", desc: "Studio professionale che scompare a fine giornata, restituendo l'ambiente alla vita domestica." },
+  { img: projectKitchen, title: "Navigli, 11 mq", subtitle: "Cucina trasformabile", desc: "Una cucina compatta che si apre in zona pranzo per sei, poi torna invisibile dietro il legno." },
 ];
 
 function Projects() {
@@ -248,10 +250,10 @@ function Projects() {
           </div>
         </div>
 
-        <div className="space-y-24 md:space-y-40">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
           {projects.map((p, i) => (
             <Reveal key={p.title}>
-              <div className="relative w-full overflow-hidden h-[80vh] md:h-[92vh] min-h-[600px]">
+              <div className="relative w-full overflow-hidden aspect-[3/4] group">
                 <motion.img
                   src={p.img}
                   alt={p.title}
@@ -262,14 +264,14 @@ function Projects() {
                   viewport={{ once: true }}
                   transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
-                <div className={`relative z-10 h-full flex p-6 md:p-20 ${i % 2 === 1 ? "justify-end items-end" : "justify-start items-end"}`}>
-                  <div className="bg-background max-w-md w-full p-10 md:p-14 shadow-2xl">
-                    <div className="text-eyebrow text-warm-clay mb-6">— Progetto {String(i + 1).padStart(2, "0")}</div>
-                    <div className="text-eyebrow text-muted-foreground mb-4">{p.subtitle}</div>
-                    <h3 className="font-display text-4xl md:text-5xl mb-6 font-light italic leading-tight">{p.title}</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed font-light">{p.desc}</p>
-                    <a href="#" className="inline-block mt-8 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex justify-center p-6 md:p-10">
+                  <div className="bg-background w-full max-w-sm p-8 md:p-10 shadow-2xl text-center">
+                    <div className="text-eyebrow text-warm-clay mb-4">— Progetto {String(i + 1).padStart(2, "0")}</div>
+                    <div className="text-eyebrow text-muted-foreground mb-3">{p.subtitle}</div>
+                    <h3 className="font-display text-3xl md:text-4xl mb-4 font-light italic leading-tight">{p.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed font-light">{p.desc}</p>
+                    <a href="#" className="inline-block mt-6 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
                       Scopri il progetto →
                     </a>
                   </div>
