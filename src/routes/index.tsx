@@ -204,8 +204,8 @@ function Projects() {
         <div className="space-y-32 md:space-y-48">
           {projects.map((p, i) => (
             <div key={p.title} className={`grid md:grid-cols-12 gap-8 md:gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-              <Reveal>
-                <div className="md:col-span-7 overflow-hidden">
+              <div className="md:col-span-7 overflow-hidden">
+                <Reveal>
                   <motion.img
                     src={p.img}
                     alt={p.title}
@@ -216,10 +216,10 @@ function Projects() {
                     viewport={{ once: true }}
                     transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
                   />
-                </div>
-              </Reveal>
-              <Reveal delay={0.2}>
-                <div className="md:col-span-5 md:px-8">
+                </Reveal>
+              </div>
+              <div className="md:col-span-5 md:px-8">
+                <Reveal delay={0.2}>
                   <div className="text-eyebrow text-warm-clay mb-6">— Progetto {String(i + 1).padStart(2, "0")}</div>
                   <div className="text-eyebrow text-muted-foreground mb-4">{p.subtitle}</div>
                   <h3 className="font-display text-5xl md:text-6xl mb-8 font-light italic">{p.title}</h3>
@@ -227,8 +227,8 @@ function Projects() {
                   <a href="#" className="inline-block mt-10 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
                     Scopri il progetto →
                   </a>
-                </div>
-              </Reveal>
+                </Reveal>
+              </div>
             </div>
           ))}
         </div>
