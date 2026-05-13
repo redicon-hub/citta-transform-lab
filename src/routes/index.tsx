@@ -9,7 +9,6 @@ import craftsmanship from "@/assets/craftsmanship.jpg";
 import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
-import projectKitchen from "@/assets/project-kitchen.jpg";
 import showroom from "@/assets/showroom.webp";
 
 export const Route = createFileRoute("/")({
@@ -164,14 +163,14 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 function Manifesto() {
   return (
-    <section className="py-32 md:py-48 px-6 md:px-16 max-w-[1600px] mx-auto">
-      <div className="grid md:grid-cols-12 gap-8">
+    <section className="py-32 md:py-48 px-6 md:px-16">
+      <div className="max-w-[1600px] mx-auto grid md:grid-cols-12 gap-8">
         <div className="md:col-span-3">
           <div className="text-eyebrow text-muted-foreground">— 01 Manifesto</div>
         </div>
         <div className="md:col-span-9">
           <Reveal>
-            <h2 className="font-display text-[7vw] md:text-[3.8vw] leading-[1.05] max-w-5xl font-extralight">
+            <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] max-w-5xl font-extralight">
               Non vendiamo solo mobili. <span className="text-muted-foreground">Risolviamo problemi complessi di spazio</span> con intelligenza progettuale e produzione artigianale italiana.
             </h2>
           </Reveal>
@@ -228,12 +227,11 @@ const projects = [
   { img: projectStudio, title: "Brera, 28 mq", subtitle: "Monolocale", desc: "Un unico ambiente che diventa salotto, camera, studio e cucina senza compromessi formali." },
   { img: projectChildren, title: "Porta Romana, 14 mq", subtitle: "Camera bambini", desc: "Letto a castello su misura con scrivania, armadio e zona gioco integrati nella parete." },
   { img: projectOffice, title: "Città Studi, 9 mq", subtitle: "Home office", desc: "Studio professionale che scompare a fine giornata, restituendo l'ambiente alla vita domestica." },
-  { img: projectKitchen, title: "Navigli, 11 mq", subtitle: "Cucina trasformabile", desc: "Una cucina compatta che si apre in zona pranzo per sei, poi torna invisibile dietro il legno." },
 ];
 
 function Projects() {
   return (
-    <section id="progetti" className="py-32 md:py-48 px-6 md:px-16">
+    <section id="progetti" className="bg-warm-cream py-32 md:py-48 px-6 md:px-16">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-24">
           <div className="md:col-span-3">
@@ -251,7 +249,7 @@ function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {projects.map((p, i) => (
             <Reveal key={p.title}>
               <div className="relative w-full overflow-hidden aspect-[3/4] group">
@@ -266,13 +264,13 @@ function Projects() {
                   transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex justify-center p-6 md:p-10">
-                  <div className="bg-background w-full max-w-sm p-8 md:p-10 shadow-2xl text-center">
+                <div className="absolute inset-x-0 bottom-0 flex justify-center p-4 md:p-6">
+                  <div className="bg-background w-full max-w-sm p-6 md:p-8 shadow-2xl text-center">
                     <div className="text-eyebrow text-warm-clay mb-4">— Progetto {String(i + 1).padStart(2, "0")}</div>
                     <div className="text-eyebrow text-muted-foreground mb-3">{p.subtitle}</div>
-                    <h3 className="font-display text-3xl md:text-4xl mb-4 font-light italic leading-tight">{p.title}</h3>
+                    <h3 className="font-display text-2xl md:text-3xl mb-4 font-light italic leading-tight">{p.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed font-light">{p.desc}</p>
-                    <a href="#" className="inline-block mt-6 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
+                    <a href="#" className="inline-block mt-5 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
                       Scopri il progetto →
                     </a>
                   </div>
