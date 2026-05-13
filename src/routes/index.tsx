@@ -196,7 +196,7 @@ function Problems() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-white/50">— 02 Problemi che risolviamo</div>
+            <div className="text-eyebrow text-white/50">— 05 Problemi che risolviamo</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
