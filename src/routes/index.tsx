@@ -237,7 +237,7 @@ function Projects() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-24">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 03 Progetti recenti</div>
+            <div className="text-eyebrow text-muted-foreground">— 02 Progetti recenti</div>
           </div>
           <div className="md:col-span-9 flex justify-between items-end">
             <Reveal>
