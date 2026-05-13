@@ -240,7 +240,7 @@ function Projects() {
           <div className="md:col-span-9 flex justify-between items-end">
             <Reveal>
               <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] font-extralight max-w-3xl">
-                Trasformazioni reali in case reali.
+                Trasformiamo idee in spazio.
               </h2>
             </Reveal>
             <a href="#" className="hidden md:inline-block text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60 transition">
@@ -344,9 +344,19 @@ function Reviews() {
   return (
     <section className="py-32 md:py-48 px-6 md:px-16 bg-warm-cream">
       <div className="max-w-[1600px] mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
-          <div className="text-eyebrow text-muted-foreground">— 03 Testimonianze</div>
-          <a
+        <div className="grid md:grid-cols-12 gap-8 mb-16 items-end">
+          <div className="md:col-span-3">
+            <div className="text-eyebrow text-muted-foreground">— 03 Testimonianze</div>
+          </div>
+          <div className="md:col-span-6">
+            <Reveal>
+              <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] font-extralight max-w-3xl">
+                Scopri chi siamo dalle recensioni dei nostri clienti.
+              </h2>
+            </Reveal>
+          </div>
+          <div className="md:col-span-3 flex md:justify-end">
+            <a
             href="https://www.google.com/search?q=Artigiani+in+Citt%C3%A0+Milano+recensioni"
             target="_blank"
             rel="noreferrer"
@@ -366,7 +376,8 @@ function Reviews() {
               </div>
               <span className="text-eyebrow text-muted-foreground mt-1">Google Reviews · 180+ recensioni</span>
             </div>
-          </a>
+            </a>
+          </div>
         </div>
         <div className="grid md:grid-cols-3 gap-12 md:gap-16">
           {reviews.map((r, i) => (
