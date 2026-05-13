@@ -9,7 +9,6 @@ import craftsmanship from "@/assets/craftsmanship.jpg";
 import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
-import projectKitchen from "@/assets/project-kitchen.jpg";
 import showroom from "@/assets/showroom.webp";
 
 export const Route = createFileRoute("/")({
