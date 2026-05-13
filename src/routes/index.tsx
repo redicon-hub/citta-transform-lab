@@ -469,7 +469,7 @@ function Catalog() {
             </Reveal>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {collections.map((c, i) => (
             <Reveal key={c.t} delay={i * 0.08}>
               <a href="#" className="block bg-background border border-border h-full group hover:border-foreground transition-colors duration-500 overflow-hidden">
@@ -477,7 +477,7 @@ function Catalog() {
                   <img src={c.img} alt={c.t} loading="lazy" width={1280} height={960} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
                 </div>
                 <div className="p-10">
-                  <div className="text-eyebrow text-warm-clay mb-6">— Collezione 0{i + 1}</div>
+                  <div className="text-eyebrow text-warm-clay mb-6">—</div>
                   <h3 className="font-display text-3xl md:text-4xl font-light mb-4">{c.t}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed font-light mb-10">{c.d}</p>
                   <div className="text-[11px] tracking-[0.22em] uppercase border-b border-foreground inline-block pb-1 group-hover:opacity-60">Esplora →</div>
