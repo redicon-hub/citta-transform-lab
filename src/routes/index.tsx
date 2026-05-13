@@ -304,12 +304,12 @@ function Craftsmanship() {
         </div>
         <div className="px-6 md:px-16 py-24 md:py-32 flex flex-col justify-center">
           <Reveal>
-            <div className="text-eyebrow text-white/50 mb-8">— 04 Produzione interna</div>
+            <div className="text-eyebrow text-white/50 mb-8">— 04 Perché sceglierci</div>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10">
-              Ogni pezzo nasce<br />nel <span className="italic">nostro laboratorio</span>.
+              Falegnameria<br />in città <span className="italic">dal 1977</span>.
             </h2>
             <p className="text-white/70 text-base md:text-lg leading-relaxed font-light max-w-md mb-12">
-              Non assembliamo prodotti di terzi. Disegniamo, costruiamo e installiamo internamente. Questo controllo totale è ciò che permette progetti veramente su misura, meccanismi premium e una qualità che si tramanda.
+              Quasi cinquant'anni di mestiere, tre generazioni di artigiani, un solo laboratorio a Milano. Disegniamo, costruiamo e installiamo internamente: nessun intermediario, nessun compromesso sulla qualità.
             </p>
             <div className="grid grid-cols-2 gap-10 max-w-md border-t border-white/15 pt-10">
               <div>
