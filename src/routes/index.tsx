@@ -57,7 +57,7 @@ function Nav() {
       {/* Main bar */}
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 py-4 md:py-5 flex items-center gap-6">
         <a href="/" className="flex items-center gap-3 shrink-0">
-          <img src={logo} alt="Artigiani in Città" className={`h-7 md:h-9 transition-all ${scrolled ? "" : "invert brightness-0"}`} />
+          <img src={logo} alt="Artigiani in Città" className={`h-10 md:h-14 transition-all ${scrolled ? "" : "invert brightness-0"}`} />
         </a>
 
         <nav className={`hidden lg:flex items-center gap-8 text-[12px] tracking-[0.18em] uppercase ml-6`}>
