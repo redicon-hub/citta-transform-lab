@@ -10,6 +10,12 @@ import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
 import showroom from "@/assets/showroom.webp";
+import catLetti from "@/assets/cat-letti-scomparsa.jpg";
+import catDivaniLetto from "@/assets/cat-divani-letto.jpg";
+import catDivaniPouff from "@/assets/cat-divani-pouff.jpg";
+import catTavoli from "@/assets/cat-tavoli-consolle.jpg";
+import catCucine from "@/assets/cat-cucine-scomparsa.jpg";
+import catBagni from "@/assets/cat-bagni-lavanderie.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -438,9 +444,12 @@ function Process() {
 }
 
 const collections = [
-  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium." },
-  { t: "Pareti attrezzate", d: "Architetture integrate su misura millimetrica." },
-  { t: "Mobili trasformabili", d: "Tavoli, scrivanie e sedute multifunzione." },
+  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti },
+  { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto },
+  { t: "Divani, pouff e poltrone", d: "Imbottiti su misura, tessuti selezionati.", img: catDivaniPouff },
+  { t: "Tavoli e consolle", d: "Allungabili e trasformabili, in legno massello.", img: catTavoli },
+  { t: "Cucine a scomparsa", d: "Blocchi cucina integrati dietro ante filomuro.", img: catCucine },
+  { t: "Bagni e lavanderie", d: "Mobili contenitori e zone lavaggio su misura.", img: catBagni },
 ];
 
 function Catalog() {
@@ -460,14 +469,19 @@ function Catalog() {
             </Reveal>
           </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {collections.map((c, i) => (
             <Reveal key={c.t} delay={i * 0.08}>
-              <a href="#" className="block bg-background border border-border p-10 h-full group hover:border-foreground transition-colors duration-500">
-                <div className="text-eyebrow text-warm-clay mb-12">— Collezione 0{i + 1}</div>
-                <h3 className="font-display text-3xl md:text-4xl font-light mb-4">{c.t}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed font-light mb-12">{c.d}</p>
-                <div className="text-[11px] tracking-[0.22em] uppercase border-b border-foreground inline-block pb-1 group-hover:opacity-60">Esplora →</div>
+              <a href="#" className="block bg-background border border-border h-full group hover:border-foreground transition-colors duration-500 overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+                  <img src={c.img} alt={c.t} loading="lazy" width={1280} height={960} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                </div>
+                <div className="p-10">
+                  <div className="text-eyebrow text-warm-clay mb-6">— Collezione 0{i + 1}</div>
+                  <h3 className="font-display text-3xl md:text-4xl font-light mb-4">{c.t}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed font-light mb-10">{c.d}</p>
+                  <div className="text-[11px] tracking-[0.22em] uppercase border-b border-foreground inline-block pb-1 group-hover:opacity-60">Esplora →</div>
+                </div>
               </a>
             </Reveal>
           ))}
