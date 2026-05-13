@@ -477,7 +477,6 @@ function Catalog() {
                   <img src={c.img} alt={c.t} loading="lazy" width={1280} height={960} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
                 </div>
                 <div className="p-10">
-                  <div className="text-eyebrow text-warm-clay mb-6">—</div>
                   <h3 className="font-display text-3xl md:text-4xl font-light mb-4">{c.t}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed font-light mb-10">{c.d}</p>
                   <div className="text-[11px] tracking-[0.22em] uppercase border-b border-foreground inline-block pb-1 group-hover:opacity-60">Esplora →</div>
