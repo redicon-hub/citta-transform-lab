@@ -170,7 +170,7 @@ function Manifesto() {
         </div>
         <div className="md:col-span-9">
           <Reveal>
-            <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] max-w-5xl font-extralight">
+            <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] max-w-5xl font-extralight">
               Non vendiamo solo mobili. <span className="text-muted-foreground">Risolviamo problemi complessi di spazio</span> con intelligenza progettuale e produzione artigianale italiana.
             </h2>
           </Reveal>
@@ -199,7 +199,7 @@ function Problems() {
           </div>
           <div className="md:col-span-9">
             <Reveal>
-              <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] font-extralight max-w-4xl">
+              <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-4xl">
                 Ogni progetto nasce da un vincolo reale.
               </h2>
             </Reveal>
@@ -239,7 +239,7 @@ function Projects() {
           </div>
           <div className="md:col-span-9 flex justify-between items-end">
             <Reveal>
-              <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] font-extralight max-w-3xl">
+              <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-3xl">
                 Trasformiamo idee in spazio.
               </h2>
             </Reveal>
@@ -304,27 +304,20 @@ function Craftsmanship() {
           <Reveal>
             <div className="text-eyebrow text-white/50 mb-8">— 04 Perché sceglierci</div>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10">
-              Falegnameria<br />in città <span className="italic">dal 1977</span>.
+              Falegnameria<br />in città <span className="italic">dal 1977</span>.<br />
+              <span className="italic">Shop online dal 2011.</span>
             </h2>
             <p className="text-white/70 text-base md:text-lg leading-relaxed font-light max-w-md mb-12">
               Quasi cinquant'anni di mestiere, tre generazioni di artigiani, un solo laboratorio a Milano. Disegniamo, costruiamo e installiamo internamente: nessun intermediario, nessun compromesso sulla qualità.
             </p>
             <div className="grid grid-cols-2 gap-10 max-w-md border-t border-white/15 pt-10">
               <div>
-                <div className="font-display text-5xl font-extralight mb-2">17</div>
-                <div className="text-eyebrow text-white/50">Anni di studio</div>
-              </div>
-              <div>
-                <div className="font-display text-5xl font-extralight mb-2">800+</div>
+                <div className="font-display text-5xl font-extralight mb-2">1000+</div>
                 <div className="text-eyebrow text-white/50">Progetti consegnati</div>
               </div>
               <div>
                 <div className="font-display text-5xl font-extralight mb-2">100%</div>
-                <div className="text-eyebrow text-white/50">Produzione interna</div>
-              </div>
-              <div>
-                <div className="font-display text-5xl font-extralight mb-2">Milano</div>
-                <div className="text-eyebrow text-white/50">Laboratorio</div>
+                <div className="text-eyebrow text-white/50">Produzione interna made in Italy</div>
               </div>
             </div>
           </Reveal>
@@ -350,7 +343,7 @@ function Reviews() {
           </div>
           <div className="md:col-span-9">
             <Reveal>
-              <h2 className="font-display text-[8vw] md:text-[4vw] leading-[1.05] font-extralight">
+              <h2 className="font-display text-[8vw] md:text-[4.5vw] leading-[1.05] font-extralight">
                 Scopri chi siamo dalle recensioni dei nostri clienti.
               </h2>
             </Reveal>
@@ -418,7 +411,7 @@ function Process() {
           </div>
           <div className="md:col-span-9">
             <Reveal>
-              <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] font-extralight max-w-4xl">
+              <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-4xl">
                 Cinque tempi per <span className="italic">trasformare</span> uno spazio.
               </h2>
             </Reveal>
@@ -460,7 +453,7 @@ function Catalog() {
           </div>
           <div className="md:col-span-9">
             <Reveal>
-              <h2 className="font-display text-[6vw] md:text-[3.2vw] leading-[1.05] font-extralight max-w-4xl">
+              <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-4xl">
                 Esplorate le soluzioni.
               </h2>
               <p className="text-muted-foreground mt-6 max-w-xl font-light">Una selezione delle tipologie disponibili. Ogni progetto è poi modellato sui vostri spazi, materiali e necessità.</p>
