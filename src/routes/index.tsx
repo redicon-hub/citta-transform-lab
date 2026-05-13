@@ -518,10 +518,10 @@ function Home() {
       <Nav />
       <Hero />
       <Manifesto />
-      <Problems />
       <Projects />
-      <Craftsmanship />
       <Reviews />
+      <Craftsmanship />
+      <Problems />
       <Process />
       <Catalog />
       <CTA />
