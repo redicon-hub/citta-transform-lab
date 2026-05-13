@@ -196,7 +196,7 @@ function Problems() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-white/50">— 02 Problemi che risolviamo</div>
+            <div className="text-eyebrow text-white/50">— 05 Problemi che risolviamo</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
@@ -237,7 +237,7 @@ function Projects() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-24">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 03 Progetti recenti</div>
+            <div className="text-eyebrow text-muted-foreground">— 02 Progetti recenti</div>
           </div>
           <div className="md:col-span-9 flex justify-between items-end">
             <Reveal>
@@ -304,12 +304,12 @@ function Craftsmanship() {
         </div>
         <div className="px-6 md:px-16 py-24 md:py-32 flex flex-col justify-center">
           <Reveal>
-            <div className="text-eyebrow text-white/50 mb-8">— 04 Produzione interna</div>
+            <div className="text-eyebrow text-white/50 mb-8">— 04 Perché sceglierci</div>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10">
-              Ogni pezzo nasce<br />nel <span className="italic">nostro laboratorio</span>.
+              Falegnameria<br />in città <span className="italic">dal 1977</span>.
             </h2>
             <p className="text-white/70 text-base md:text-lg leading-relaxed font-light max-w-md mb-12">
-              Non assembliamo prodotti di terzi. Disegniamo, costruiamo e installiamo internamente. Questo controllo totale è ciò che permette progetti veramente su misura, meccanismi premium e una qualità che si tramanda.
+              Quasi cinquant'anni di mestiere, tre generazioni di artigiani, un solo laboratorio a Milano. Disegniamo, costruiamo e installiamo internamente: nessun intermediario, nessun compromesso sulla qualità.
             </p>
             <div className="grid grid-cols-2 gap-10 max-w-md border-t border-white/15 pt-10">
               <div>
@@ -346,7 +346,30 @@ function Reviews() {
   return (
     <section className="py-32 md:py-48 px-6 md:px-16 bg-warm-cream">
       <div className="max-w-[1600px] mx-auto">
-        <div className="text-eyebrow text-muted-foreground mb-16">— 05 Testimonianze</div>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+          <div className="text-eyebrow text-muted-foreground">— 03 Testimonianze</div>
+          <a
+            href="https://www.google.com/search?q=Artigiani+in+Citt%C3%A0+Milano+recensioni"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-4 bg-background border border-border px-5 py-3 hover:border-foreground transition-colors"
+            aria-label="Recensioni Google"
+          >
+            <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" aria-hidden="true">
+              <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.44c-.28 1.48-1.12 2.73-2.39 3.57v2.97h3.86c2.26-2.08 3.58-5.15 3.58-8.78z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-2.97c-1.07.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.27 14.32c-.24-.72-.38-1.49-.38-2.32s.14-1.6.38-2.32V6.59H1.29C.47 8.23 0 10.06 0 12s.47 3.77 1.29 5.41l3.98-3.09z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.59l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"/>
+            </svg>
+            <div className="flex flex-col leading-tight">
+              <div className="flex items-center gap-2">
+                <span className="font-display text-2xl font-light">4,9</span>
+                <span className="text-warm-clay tracking-widest text-sm">★★★★★</span>
+              </div>
+              <span className="text-eyebrow text-muted-foreground mt-1">Google Reviews · 180+ recensioni</span>
+            </div>
+          </a>
+        </div>
         <div className="grid md:grid-cols-3 gap-12 md:gap-16">
           {reviews.map((r, i) => (
             <Reveal key={i} delay={i * 0.1}>
@@ -518,10 +541,10 @@ function Home() {
       <Nav />
       <Hero />
       <Manifesto />
-      <Problems />
       <Projects />
-      <Craftsmanship />
       <Reviews />
+      <Craftsmanship />
+      <Problems />
       <Process />
       <Catalog />
       <CTA />
