@@ -139,11 +139,11 @@ function Hero() {
             Trasformiamo appartamenti urbani di pregio con soluzioni salvaspazio su misura, progettate intorno alla vostra vita e prodotte interamente nei nostri laboratori.
           </div>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center">
-            <Cta href="#contatto" tone="dark" variant="solid">
-              Richiedi il tuo progetto gratuito
+            <Cta href="#appuntamento" tone="dark" variant="solid">
+              Prenota un appuntamento
             </Cta>
-            <Cta href="#contatto" tone="dark" variant="outline">
-              Chiedi a un esperto
+            <Cta href="#contatti" tone="dark" variant="outline">
+              Scrivici
             </Cta>
           </div>
         </motion.div>
@@ -354,8 +354,8 @@ function Problems() {
               </h3>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <Cta href="#contatti" tone="light" variant="solid">Parliamone</Cta>
-              <Cta href="#contatti" tone="light" variant="outline">Progetto gratuito</Cta>
+              <Cta href="#appuntamento" tone="light" variant="solid">Prenota un appuntamento</Cta>
+              <Cta href="#contatti" tone="light" variant="outline">Scrivici</Cta>
             </div>
           </div>
         </Reveal>
@@ -525,45 +525,94 @@ function Catalog() {
 
 function CTA() {
   return (
-    <section id="contatto" className="bg-ink text-white py-32 md:py-48 px-6 md:px-16">
+    <section id="appuntamento" className="bg-ink text-white py-32 md:py-48 px-6 md:px-16">
       <div className="max-w-[1600px] mx-auto">
         <Reveal>
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
             <div className="relative overflow-hidden min-h-[420px] md:min-h-[640px]">
               <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink to-transparent">
+                <div className="text-eyebrow text-white/70 mb-2">Studio · Milano</div>
+                <div className="text-white font-display text-2xl font-light">Ti rispondiamo di persona, sempre.</div>
+              </div>
             </div>
             <div className="flex flex-col justify-center">
-              <div className="text-eyebrow text-white/50 mb-12">— 08 Iniziamo a progettare</div>
+              <div className="text-eyebrow text-white/50 mb-12 text-sm md:text-base">— 08 Iniziamo a progettare</div>
               <h2 className="font-display text-[10vw] md:text-[5.5vw] leading-[0.95] font-extralight">
-                Raccontateci<br />il vostro <span className="italic">spazio</span>.
+                Prenota un<br /><span className="italic">appuntamento</span>.
               </h2>
-              <p className="mt-10 text-white/70 text-lg font-light max-w-xl leading-relaxed">
-                Una consulenza dedicata, un sopralluogo, una proposta progettuale. Senza impegno, con la cura che riserviamo a ogni progetto.
+              <p className="mt-8 text-white/70 text-lg font-light max-w-xl leading-relaxed">
+                Indicaci il giorno e la fascia oraria che preferisci. Ti contattiamo entro 24h per confermare.
               </p>
-              <div className="mt-12 grid sm:grid-cols-2 gap-px bg-white/10">
-                <a href="#" className="bg-ink p-8 hover:bg-white hover:text-foreground transition-colors duration-500 group">
-                  <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-6">Primo contatto</div>
-                  <div className="font-display text-2xl md:text-3xl font-light">Prenota una consulenza →</div>
-                </a>
-                <a href="#" className="bg-ink p-8 hover:bg-white hover:text-foreground transition-colors duration-500 group">
-                  <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-6">Gratuito</div>
-                  <div className="font-display text-2xl md:text-3xl font-light">Vuoi un vero progetto gratuito? →</div>
-                </a>
-              </div>
-              <div className="mt-12 flex flex-col sm:flex-row gap-8 sm:gap-12 text-sm text-white/60 font-light">
-                <div>
-                  <div className="text-eyebrow text-white/40 mb-2">Studio</div>
-                  Via Esempio 12, Milano
+              <form
+                onSubmit={(e) => { e.preventDefault(); }}
+                className="mt-10 flex flex-col gap-8"
+              >
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-eyebrow text-white/50">Giorno preferito</label>
+                    <input
+                      required
+                      type="date"
+                      min={new Date().toISOString().split("T")[0]}
+                      className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label className="text-eyebrow text-white/50">Fascia oraria</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {["9–13", "14–17", "17–19"].map((slot) => (
+                        <label
+                          key={slot}
+                          className="cursor-pointer border border-white/20 rounded-sm py-4 px-2 text-center text-sm font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                        >
+                          <input type="radio" name="slot" value={slot} className="sr-only" required />
+                          {slot}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-eyebrow text-white/40 mb-2">Telefono</div>
-                  +39 02 0000 0000
+
+                <div className="flex flex-col gap-3">
+                  <label className="text-eyebrow text-white/50">Come vuoi essere contattato?</label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {["Telefono", "WhatsApp", "Email"].map((ch) => (
+                      <label
+                        key={ch}
+                        className="cursor-pointer border border-white/20 rounded-sm py-4 px-2 text-center text-sm font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                      >
+                        <input type="radio" name="channel" value={ch} className="sr-only" required />
+                        {ch}
+                      </label>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <div className="text-eyebrow text-white/40 mb-2">WhatsApp</div>
-                  Risposta entro 2 ore
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <input
+                    required
+                    type="text"
+                    placeholder="Nome e cognome"
+                    className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  />
+                  <input
+                    required
+                    type="text"
+                    placeholder="Telefono o email"
+                    className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  />
                 </div>
-              </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-2">
+                  <Cta type="submit" tone="dark" variant="solid">
+                    Richiedi l'appuntamento
+                  </Cta>
+                  <p className="text-xs text-white/50 font-light leading-relaxed max-w-xs">
+                    Ti ricontattiamo entro 24h per confermare giorno e ora. Nessun impegno.
+                  </p>
+                </div>
+              </form>
             </div>
           </div>
         </Reveal>
