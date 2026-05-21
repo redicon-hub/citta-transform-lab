@@ -6,6 +6,7 @@ import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
 import heroBed from "@/assets/hero-bed.jpg";
 import craftsmanship from "@/assets/craftsmanship.jpg";
+import perchePhoto from "@/assets/perche-sceglierci.png";
 import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
@@ -366,8 +367,8 @@ function Craftsmanship() {
       <div className="grid md:grid-cols-2">
         <div className="relative h-[60vh] md:h-[100vh] overflow-hidden">
           <motion.img
-            src={craftsmanship}
-            alt="Artigianato italiano nel laboratorio interno"
+            src={perchePhoto}
+            alt="Consulenza nello showroom di letti a scomparsa a Milano"
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
             initial={{ scale: 1.2 }}
