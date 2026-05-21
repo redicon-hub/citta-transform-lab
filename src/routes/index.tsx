@@ -207,12 +207,12 @@ function Projects() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-24">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 02 Progetti recenti</div>
+            <div className="text-eyebrow text-muted-foreground">— 02 Progetti realizzati</div>
           </div>
           <div className="md:col-span-9 flex justify-between items-end">
             <Reveal>
               <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-3xl">
-                Trasformiamo idee in spazio.
+                Progetti realizzati <span className="italic">= problemi risolti</span>
               </h2>
             </Reveal>
             <a href="#" className="hidden md:inline-block text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60 transition">
@@ -251,6 +251,19 @@ function Projects() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <div className="mt-20 md:mt-24 flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
+            {problems.map((p) => (
+              <span
+                key={p.n}
+                className="inline-flex items-center px-5 py-2.5 border border-foreground/20 rounded-full text-sm font-light text-foreground/80 hover:bg-foreground hover:text-background transition-colors duration-500"
+              >
+                {p.t}
+              </span>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
