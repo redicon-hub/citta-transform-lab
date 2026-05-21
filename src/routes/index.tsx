@@ -309,23 +309,26 @@ function Craftsmanship() {
         <div className="px-6 md:px-16 py-24 md:py-32 flex flex-col justify-center">
           <Reveal>
             <div className="text-eyebrow text-white/50 mb-8">— 02 Perché sceglierci</div>
-            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10">
-              Falegnameria<br />in città <span className="italic">dal 1977</span>.<br />
-              <span className="italic">Shop online dal 2011.</span>
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-12">
+              Cinque ragioni <span className="italic">solide</span>.
             </h2>
-            <p className="text-white/70 text-base md:text-lg leading-relaxed font-light max-w-md mb-12">
-              Quasi cinquant'anni di mestiere, tre generazioni di artigiani, un solo laboratorio a Milano. Disegniamo, costruiamo e installiamo internamente: nessun intermediario, nessun compromesso sulla qualità.
-            </p>
-            <div className="grid grid-cols-2 gap-10 max-w-md border-t border-white/15 pt-10">
-              <div>
-                <div className="font-display text-5xl font-extralight mb-2">1000+</div>
-                <div className="text-eyebrow text-white/50">Progetti consegnati</div>
-              </div>
-              <div>
-                <div className="font-display text-5xl font-extralight mb-2">100%</div>
-                <div className="text-eyebrow text-white/50">Produzione interna made in Italy</div>
-              </div>
-            </div>
+            <ul className="divide-y divide-white/15 border-y border-white/15">
+              {[
+                { n: "01", t: "Falegnameria dal 1977", d: "Quasi cinquant'anni di mestiere e tre generazioni di artigiani." },
+                { n: "02", t: "Shop online da 15 anni", d: "Pionieri dell'arredo su misura in rete, dal 2011." },
+                { n: "03", t: "600 mq di showroom", d: "Materiali, finiture e progetti da toccare con mano." },
+                { n: "04", t: "Consulenza reale", d: "Architetti e artigiani al tuo fianco, non venditori." },
+                { n: "05", t: "Consegna in tutta Europa", d: "Logistica e installazione gestite direttamente da noi." },
+              ].map((r) => (
+                <li key={r.n} className="py-6 flex gap-6 items-start">
+                  <div className="text-eyebrow text-warm-clay pt-1 shrink-0">{r.n}</div>
+                  <div>
+                    <div className="font-display text-2xl md:text-3xl font-light leading-tight">{r.t}</div>
+                    <div className="text-white/60 text-sm md:text-base font-light mt-2 max-w-md">{r.d}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </div>
