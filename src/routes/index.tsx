@@ -278,10 +278,11 @@ function Problems() {
             {problems.map((p) => (
               <div
                 key={p.n}
-                className="border-r border-b border-foreground/15 p-6 md:p-8 group hover:bg-foreground hover:text-background transition-colors duration-500"
+                className="relative border-r border-b border-foreground/15 p-6 md:p-8 group cursor-pointer overflow-hidden transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-foreground hover:text-background hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)] hover:z-10"
               >
-                <div className="text-eyebrow text-warm-clay group-hover:text-background/70 mb-4">— {p.n}</div>
-                <h3 className="font-display text-xl md:text-2xl font-light leading-tight">{p.t}</h3>
+                <div className="text-eyebrow text-warm-clay group-hover:text-warm-stone mb-4 transition-colors duration-[900ms]">— {p.n}</div>
+                <h3 className="font-display text-xl md:text-2xl font-light leading-tight transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">{p.t}</h3>
+                <div className="absolute bottom-0 left-0 h-px w-0 bg-warm-clay transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
               </div>
             ))}
           </div>
@@ -597,12 +598,12 @@ function Contact() {
                 Raccontaci il tuo <span className="italic">spazio</span>.
               </h3>
               <div className="grid sm:grid-cols-2 gap-5">
-                <input required type="text" placeholder="Nome" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
-                <input required type="text" placeholder="Cognome" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
-                <input required type="email" placeholder="Email" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
-                <input required type="tel" placeholder="Telefono" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
+                <input required type="text" placeholder="Nome" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
+                <input required type="text" placeholder="Cognome" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
+                <input required type="email" placeholder="Email" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
+                <input required type="tel" placeholder="Telefono" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
               </div>
-              <textarea rows={3} placeholder="Due righe sul tuo progetto (facoltativo)" className="mt-5 bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition resize-none" />
+              <textarea rows={3} placeholder="Due righe sul tuo progetto (facoltativo)" className="mt-5 bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition resize-none" />
               <button type="submit" className="mt-10 bg-ink text-white py-5 px-8 text-eyebrow hover:bg-foreground transition-colors">
                 Richiedi una consulenza gratuita →
               </button>
