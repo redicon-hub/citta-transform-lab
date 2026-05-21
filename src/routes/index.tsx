@@ -472,50 +472,6 @@ function Reviews() {
   );
 }
 
-const steps = [
-  { n: "01", t: "Ascoltiamo", d: "Comprendere come vivete il vostro spazio è il primo passo. Ogni progetto nasce da una conversazione approfondita." },
-  { n: "02", t: "Analizziamo", d: "Sopralluogo tecnico, rilievo completo, studio dei flussi e dei vincoli architettonici dell'appartamento." },
-  { n: "03", t: "Progettiamo", d: "Render fotorealistici, disegni esecutivi, scelta dei materiali e dei meccanismi su misura per voi." },
-  { n: "04", t: "Produciamo", d: "Ogni elemento prende forma nel nostro laboratorio milanese, sotto il controllo diretto dei maestri artigiani." },
-  { n: "05", t: "Installiamo", d: "Posa professionale a regola d'arte, collaudo dei meccanismi e consegna chiavi in mano." },
-];
-
-function Process() {
-  return (
-    <section id="consulenza" className="py-32 md:py-48 px-6 md:px-16">
-      <div className="max-w-[1600px] mx-auto">
-        <div className="grid md:grid-cols-12 gap-8 mb-24">
-          <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 06 Il metodo</div>
-          </div>
-          <div className="md:col-span-9">
-            <Reveal>
-              <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-4xl">
-                Cinque tempi per <span className="italic">trasformare</span> uno spazio.
-              </h2>
-            </Reveal>
-          </div>
-        </div>
-        <div className="border-t border-border">
-          {steps.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.05}>
-              <div className="grid md:grid-cols-12 gap-8 py-10 md:py-14 border-b border-border group hover:bg-warm-cream/40 transition-colors duration-700 px-2">
-                <div className="md:col-span-2 font-display text-4xl md:text-5xl font-extralight text-warm-clay">{s.n}</div>
-                <div className="md:col-span-3">
-                  <h3 className="font-display text-3xl md:text-4xl font-light">{s.t}</h3>
-                </div>
-                <div className="md:col-span-7">
-                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed font-light max-w-2xl">{s.d}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const collections = [
   { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti },
   { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto },
