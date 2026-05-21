@@ -557,6 +557,7 @@ function Home() {
       <Hero />
       <Manifesto />
       <Projects />
+      <Problems />
       <Reviews />
       <Craftsmanship />
       <Process />
