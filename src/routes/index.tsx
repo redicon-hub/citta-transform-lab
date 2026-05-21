@@ -390,7 +390,7 @@ function Reviews() {
                 <span className="font-display text-2xl font-light">4,9</span>
                 <span className="text-warm-clay tracking-widest text-sm">★★★★★</span>
               </div>
-              <span className="text-eyebrow text-ink/60 mt-1">Google Reviews · 180+ recensioni</span>
+              <span className="text-eyebrow text-muted-foreground mt-1">Google Reviews · 180+ recensioni</span>
             </div>
           </a>
         </div>
