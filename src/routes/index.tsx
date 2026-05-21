@@ -341,11 +341,11 @@ const reviews = [
 
 function Reviews() {
   return (
-    <section className="py-32 md:py-48 px-6 md:px-16 bg-ink text-warm-cream">
+    <section className="py-32 md:py-48 px-6 md:px-16 bg-warm-cream">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-warm-clay">— 05 Testimonianze</div>
+            <div className="text-eyebrow text-muted-foreground">— 05 Testimonianze</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
@@ -363,9 +363,9 @@ function Reviews() {
                 <p className="font-display text-2xl md:text-[26px] leading-[1.4] font-light italic mb-10 flex-1">
                   "{r.t}"
                 </p>
-                <div className="border-t border-warm-cream/20 pt-6">
+                <div className="border-t border-border pt-6">
                   <div className="font-medium text-sm">{r.a}</div>
-                  <div className="text-eyebrow text-warm-cream/60 mt-2">{r.l}</div>
+                  <div className="text-eyebrow text-muted-foreground mt-2">{r.l}</div>
                 </div>
               </div>
             </Reveal>
@@ -376,7 +376,7 @@ function Reviews() {
             href="https://www.google.com/search?q=Artigiani+in+Citt%C3%A0+Milano+recensioni"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-4 bg-warm-cream text-ink border border-warm-cream/20 px-6 py-4 hover:border-warm-clay transition-colors"
+            className="inline-flex items-center gap-4 bg-background border border-border px-6 py-4 hover:border-foreground transition-colors"
             aria-label="Recensioni Google"
           >
             <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" aria-hidden="true">
@@ -390,7 +390,7 @@ function Reviews() {
                 <span className="font-display text-2xl font-light">4,9</span>
                 <span className="text-warm-clay tracking-widest text-sm">★★★★★</span>
               </div>
-              <span className="text-eyebrow text-ink/60 mt-1">Google Reviews · 180+ recensioni</span>
+              <span className="text-eyebrow text-muted-foreground mt-1">Google Reviews · 180+ recensioni</span>
             </div>
           </a>
         </div>
