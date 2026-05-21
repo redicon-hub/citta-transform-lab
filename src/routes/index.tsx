@@ -168,6 +168,60 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
+type CtaProps = {
+  children: React.ReactNode;
+  href?: string;
+  type?: "button" | "submit";
+  variant?: "solid" | "outline";
+  tone?: "light" | "dark";
+  className?: string;
+  target?: string;
+  rel?: string;
+};
+
+function Cta({
+  children,
+  href,
+  type,
+  variant = "solid",
+  tone = "light",
+  className = "",
+  target,
+  rel,
+}: CtaProps) {
+  const base =
+    "group inline-flex items-center justify-center gap-3 px-8 py-5 text-[12px] tracking-[0.22em] uppercase font-normal transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]";
+
+  const styles: Record<string, string> = {
+    "light-solid": "bg-ink text-warm-cream hover:bg-warm-clay",
+    "light-outline": "border border-ink/30 text-ink hover:border-ink hover:bg-ink/5",
+    "dark-solid": "bg-warm-cream text-ink hover:bg-white",
+    "dark-outline": "border border-white/40 text-white hover:border-white hover:bg-white/10",
+  };
+
+  const cls = `${base} ${styles[`${tone}-${variant}`]} ${className}`;
+
+  const content = (
+    <>
+      <span>{children}</span>
+      <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a href={href} target={target} rel={rel} className={cls}>
+        {content}
+      </a>
+    );
+  }
+  return (
+    <button type={type ?? "button"} className={cls}>
+      {content}
+    </button>
+  );
+}
+
 function Manifesto() {
   return (
     <section className="py-32 md:py-48 px-6 md:px-16">
