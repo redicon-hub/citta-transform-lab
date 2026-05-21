@@ -253,14 +253,15 @@ function Projects() {
         </div>
 
         <Reveal>
-          <div className="mt-20 md:mt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 max-w-5xl mx-auto">
+          <div className="mt-20 md:mt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/15 max-w-6xl mx-auto">
             {problems.map((p) => (
-              <span
+              <div
                 key={p.n}
-                className="inline-flex items-center justify-center text-center px-6 py-4 md:px-8 md:py-5 border border-foreground/20 rounded-full text-base md:text-lg font-light text-foreground/80 hover:bg-foreground hover:text-background transition-colors duration-500"
+                className="border-r border-b border-foreground/15 p-6 md:p-8 group hover:bg-foreground hover:text-background transition-colors duration-500"
               >
-                {p.t}
-              </span>
+                <div className="text-eyebrow text-warm-clay group-hover:text-background/70 mb-4">— {p.n}</div>
+                <h3 className="font-display text-xl md:text-2xl font-light leading-tight">{p.t}</h3>
+              </div>
             ))}
           </div>
         </Reveal>
