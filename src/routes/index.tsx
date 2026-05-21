@@ -672,9 +672,11 @@ function Contact() {
                 <input required type="tel" placeholder="Telefono" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
               </div>
               <textarea rows={3} placeholder="Due righe sul tuo progetto (facoltativo)" className="mt-5 bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition resize-none" />
-              <button type="submit" className="mt-10 bg-ink text-white py-5 px-8 text-eyebrow hover:bg-foreground transition-colors">
-                Richiedi una consulenza gratuita →
-              </button>
+              <div className="mt-10">
+                <Cta type="submit" tone="light" variant="solid">
+                  Richiedi una consulenza gratuita
+                </Cta>
+              </div>
               <p className="mt-5 text-xs text-muted-foreground font-light leading-relaxed">
                 Nessun impegno, nessun preventivo automatico. Ti risponde una persona del nostro studio, di solito in giornata. I tuoi dati restano tra noi.
               </p>
