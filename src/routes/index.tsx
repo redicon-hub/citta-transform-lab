@@ -333,9 +333,12 @@ function Problems() {
             {problems.map((p) => (
               <div
                 key={p.n}
-                className="relative border-r border-b border-foreground/15 p-6 md:p-8 group cursor-pointer overflow-hidden transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-foreground hover:text-background hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.35)] hover:z-10"
+                className="relative border-r border-b border-foreground/15 p-6 md:p-8 group cursor-pointer overflow-hidden transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay/8 hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(120,70,40,0.18)] hover:z-10"
               >
-                <div className="text-eyebrow text-warm-clay group-hover:text-warm-stone mb-4 transition-colors duration-[900ms]">— {p.n}</div>
+                <div className="mb-5 flex items-center gap-2 transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                  <span className="block w-2 h-2 rounded-full bg-warm-clay" />
+                  <span className="block h-px w-8 bg-warm-clay/60 transition-all duration-[900ms] group-hover:w-14" />
+                </div>
                 <h3 className="font-display text-xl md:text-2xl font-light leading-tight transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">{p.t}</h3>
                 <div className="absolute bottom-0 left-0 h-px w-0 bg-warm-clay transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
               </div>
