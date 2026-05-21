@@ -665,7 +665,6 @@ function Home() {
       <Projects />
       <Problems />
       <Reviews />
-      <Process />
       <Catalog />
       <CTA />
       <Contact />
