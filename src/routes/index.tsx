@@ -195,40 +195,6 @@ const problems = [
   { n: "06", t: "Airbnb di alto livello", d: "Massimizzare la capienza senza sacrificare l'eleganza percepita dall'ospite." },
 ];
 
-function Problems() {
-  return (
-    <section id="soluzioni" className="bg-ink text-white/90 py-32 md:py-48 px-6 md:px-16">
-      <div className="max-w-[1600px] mx-auto">
-        <div className="grid md:grid-cols-12 gap-8 mb-20">
-          <div className="md:col-span-3">
-            <div className="text-eyebrow text-white/50">— 05 Problemi che risolviamo</div>
-          </div>
-          <div className="md:col-span-9">
-            <Reveal>
-              <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-4xl">
-                Ogni progetto nasce da un vincolo reale.
-              </h2>
-            </Reveal>
-          </div>
-        </div>
-        <div className="grid md:grid-cols-3 gap-px bg-white/10">
-          {problems.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.05}>
-              <div className="bg-ink p-10 md:p-12 h-full min-h-[280px] flex flex-col justify-between hover:bg-white/[0.03] transition-colors duration-700">
-                <div className="text-eyebrow text-white/40">{p.n}</div>
-                <div>
-                  <h3 className="font-display text-3xl md:text-4xl mb-4 font-light">{p.t}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed font-light">{p.d}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const projects = [
   { img: projectStudio, title: "Brera, 28 mq", subtitle: "Monolocale", desc: "Un unico ambiente che diventa salotto, camera, studio e cucina senza compromessi formali." },
   { img: projectChildren, title: "Porta Romana, 14 mq", subtitle: "Camera bambini", desc: "Letto a castello su misura con scrivania, armadio e zona gioco integrati nella parete." },
