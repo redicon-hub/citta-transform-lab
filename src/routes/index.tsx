@@ -308,7 +308,7 @@ function Craftsmanship() {
         </div>
         <div className="px-6 md:px-16 py-24 md:py-32 flex flex-col justify-center">
           <Reveal>
-            <div className="text-eyebrow text-white/50 mb-8">— 04 Perché sceglierci</div>
+            <div className="text-eyebrow text-white/50 mb-8">— 05 Perché sceglierci</div>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10">
               Falegnameria<br />in città <span className="italic">dal 1977</span>.<br />
               <span className="italic">Shop online dal 2011.</span>
