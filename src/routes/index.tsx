@@ -287,6 +287,31 @@ function Problems() {
             ))}
           </div>
         </Reveal>
+        <Reveal>
+          <div className="mt-20 md:mt-24 max-w-6xl mx-auto border-t border-foreground/15 pt-12 md:pt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div className="max-w-xl">
+              <div className="text-eyebrow text-warm-clay mb-4">— Ti riconosci in uno di questi?</div>
+              <h3 className="font-display text-3xl md:text-4xl font-extralight leading-[1.1]">
+                Raccontaci il tuo spazio. <span className="italic">Ti diciamo come risolverlo</span>.
+              </h3>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+              <a
+                href="#contatti"
+                className="group inline-flex items-center justify-center gap-3 bg-ink text-warm-cream px-8 py-5 text-sm tracking-[0.2em] uppercase font-normal transition-all duration-500 hover:bg-warm-clay"
+              >
+                Parliamone
+                <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+              </a>
+              <a
+                href="#contatti"
+                className="group inline-flex items-center justify-center gap-3 border border-ink/30 text-ink px-8 py-5 text-sm tracking-[0.2em] uppercase font-normal transition-all duration-500 hover:border-ink hover:bg-ink/5"
+              >
+                Progetto gratuito
+              </a>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
