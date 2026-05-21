@@ -525,7 +525,6 @@ function Home() {
       <Projects />
       <Reviews />
       <Craftsmanship />
-      <Problems />
       <Process />
       <Catalog />
       <CTA />
