@@ -392,7 +392,7 @@ function Craftsmanship() {
                 { n: "05", t: "Consegna in tutta Europa", d: "Logistica e installazione gestite direttamente da noi." },
               ].map((r) => (
                 <li key={r.n} className="py-6 flex gap-6 items-start">
-                  <div className="text-eyebrow text-warm-clay pt-1 shrink-0">{r.n}</div>
+                  <div className="shrink-0 pt-3"><span className="block w-2.5 h-2.5 rounded-full bg-warm-clay" /></div>
                   <div>
                     <div className="font-display text-2xl md:text-3xl font-light leading-tight">{r.t}</div>
                     <div className="text-white/60 text-sm md:text-base font-light mt-2 max-w-md">{r.d}</div>
