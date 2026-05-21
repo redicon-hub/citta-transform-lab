@@ -207,7 +207,7 @@ function Projects() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-24">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 02 Progetti realizzati</div>
+            <div className="text-eyebrow text-muted-foreground">— 03 Progetti realizzati</div>
           </div>
           <div className="md:col-span-9 flex justify-between items-end">
             <Reveal>
@@ -262,7 +262,7 @@ function Problems() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 03 Problemi che risolviamo</div>
+            <div className="text-eyebrow text-muted-foreground">— 04 Problemi che risolviamo</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
@@ -308,7 +308,7 @@ function Craftsmanship() {
         </div>
         <div className="px-6 md:px-16 py-24 md:py-32 flex flex-col justify-center">
           <Reveal>
-            <div className="text-eyebrow text-white/50 mb-8">— 05 Perché sceglierci</div>
+            <div className="text-eyebrow text-white/50 mb-8">— 02 Perché sceglierci</div>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10">
               Falegnameria<br />in città <span className="italic">dal 1977</span>.<br />
               <span className="italic">Shop online dal 2011.</span>
@@ -345,7 +345,7 @@ function Reviews() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-warm-clay">— 04 Testimonianze</div>
+            <div className="text-eyebrow text-warm-clay">— 05 Testimonianze</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
@@ -556,10 +556,10 @@ function Home() {
       <Nav />
       <Hero />
       <Manifesto />
+      <Craftsmanship />
       <Projects />
       <Problems />
       <Reviews />
-      <Craftsmanship />
       <Process />
       <Catalog />
       <CTA />
