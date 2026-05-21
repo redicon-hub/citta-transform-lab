@@ -212,7 +212,7 @@ function Projects() {
           <div className="md:col-span-9 flex justify-between items-end">
             <Reveal>
               <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-3xl">
-                Progetti realizzati <span className="italic">= problemi risolti</span>
+                Progetti <span className="italic">realizzati</span>
               </h2>
             </Reveal>
             <a href="#" className="hidden md:inline-block text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60 transition">
@@ -251,9 +251,29 @@ function Projects() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
 
+function Problems() {
+  return (
+    <section className="py-32 md:py-48 px-6 md:px-16">
+      <div className="max-w-[1600px] mx-auto">
+        <div className="grid md:grid-cols-12 gap-8 mb-20">
+          <div className="md:col-span-3">
+            <div className="text-eyebrow text-muted-foreground">— 03 Problemi che risolviamo</div>
+          </div>
+          <div className="md:col-span-9">
+            <Reveal>
+              <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-4xl">
+                Sei sfide ricorrenti, <span className="italic">una risposta su misura</span>.
+              </h2>
+            </Reveal>
+          </div>
+        </div>
         <Reveal>
-          <div className="mt-20 md:mt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/15 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/15 max-w-6xl mx-auto">
             {problems.map((p) => (
               <div
                 key={p.n}
@@ -288,7 +308,7 @@ function Craftsmanship() {
         </div>
         <div className="px-6 md:px-16 py-24 md:py-32 flex flex-col justify-center">
           <Reveal>
-            <div className="text-eyebrow text-white/50 mb-8">— 04 Perché sceglierci</div>
+            <div className="text-eyebrow text-white/50 mb-8">— 05 Perché sceglierci</div>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10">
               Falegnameria<br />in città <span className="italic">dal 1977</span>.<br />
               <span className="italic">Shop online dal 2011.</span>
@@ -325,7 +345,7 @@ function Reviews() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-warm-clay">— 03 Testimonianze</div>
+            <div className="text-eyebrow text-warm-clay">— 04 Testimonianze</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
@@ -537,6 +557,7 @@ function Home() {
       <Hero />
       <Manifesto />
       <Projects />
+      <Problems />
       <Reviews />
       <Craftsmanship />
       <Process />
