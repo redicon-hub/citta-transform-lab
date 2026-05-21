@@ -139,11 +139,11 @@ function Hero() {
             Trasformiamo appartamenti urbani di pregio con soluzioni salvaspazio su misura, progettate intorno alla vostra vita e prodotte interamente nei nostri laboratori.
           </div>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center">
-            <Cta href="#contatto" tone="dark" variant="solid">
-              Richiedi il tuo progetto gratuito
+            <Cta href="#appuntamento" tone="dark" variant="solid">
+              Prenota un appuntamento
             </Cta>
-            <Cta href="#contatto" tone="dark" variant="outline">
-              Chiedi a un esperto
+            <Cta href="#contatti" tone="dark" variant="outline">
+              Scrivici
             </Cta>
           </div>
         </motion.div>
@@ -354,8 +354,8 @@ function Problems() {
               </h3>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <Cta href="#contatti" tone="light" variant="solid">Parliamone</Cta>
-              <Cta href="#contatti" tone="light" variant="outline">Progetto gratuito</Cta>
+              <Cta href="#appuntamento" tone="light" variant="solid">Prenota un appuntamento</Cta>
+              <Cta href="#contatti" tone="light" variant="outline">Scrivici</Cta>
             </div>
           </div>
         </Reveal>
