@@ -138,12 +138,12 @@ function Hero() {
             Trasformiamo appartamenti urbani di pregio con soluzioni salvaspazio su misura, progettate intorno alla vostra vita e prodotte interamente nei nostri laboratori.
           </div>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center">
-            <a href="#contatto" className="inline-flex items-center justify-center bg-white text-foreground px-8 py-5 text-[12px] tracking-[0.22em] uppercase hover:bg-warm-cream transition">
-              Richiedi ora il tuo progetto gratuito
-            </a>
-            <a href="#contatto" className="inline-flex items-center text-white text-[12px] tracking-[0.22em] uppercase border-b border-white/40 pb-2 hover:border-white transition w-fit">
-              Chiedi a un esperto →
-            </a>
+            <Cta href="#contatto" tone="dark" variant="solid">
+              Richiedi il tuo progetto gratuito
+            </Cta>
+            <Cta href="#contatto" tone="dark" variant="outline">
+              Chiedi a un esperto
+            </Cta>
           </div>
         </motion.div>
       </div>
@@ -165,6 +165,60 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
     >
       {children}
     </motion.div>
+  );
+}
+
+type CtaProps = {
+  children: React.ReactNode;
+  href?: string;
+  type?: "button" | "submit";
+  variant?: "solid" | "outline";
+  tone?: "light" | "dark";
+  className?: string;
+  target?: string;
+  rel?: string;
+};
+
+function Cta({
+  children,
+  href,
+  type,
+  variant = "solid",
+  tone = "light",
+  className = "",
+  target,
+  rel,
+}: CtaProps) {
+  const base =
+    "group inline-flex items-center justify-center gap-3 px-8 py-5 text-[12px] tracking-[0.22em] uppercase font-normal transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]";
+
+  const styles: Record<string, string> = {
+    "light-solid": "bg-ink text-warm-cream hover:bg-warm-clay",
+    "light-outline": "border border-ink/30 text-ink hover:border-ink hover:bg-ink/5",
+    "dark-solid": "bg-warm-cream text-ink hover:bg-white",
+    "dark-outline": "border border-white/40 text-white hover:border-white hover:bg-white/10",
+  };
+
+  const cls = `${base} ${styles[`${tone}-${variant}`]} ${className}`;
+
+  const content = (
+    <>
+      <span>{children}</span>
+      <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a href={href} target={target} rel={rel} className={cls}>
+        {content}
+      </a>
+    );
+  }
+  return (
+    <button type={type ?? "button"} className={cls}>
+      {content}
+    </button>
   );
 }
 
@@ -296,19 +350,8 @@ function Problems() {
               </h3>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <a
-                href="#contatti"
-                className="group inline-flex items-center justify-center gap-3 bg-ink text-warm-cream px-8 py-5 text-sm tracking-[0.2em] uppercase font-normal transition-all duration-500 hover:bg-warm-clay"
-              >
-                Parliamone
-                <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
-              </a>
-              <a
-                href="#contatti"
-                className="group inline-flex items-center justify-center gap-3 border border-ink/30 text-ink px-8 py-5 text-sm tracking-[0.2em] uppercase font-normal transition-all duration-500 hover:border-ink hover:bg-ink/5"
-              >
-                Progetto gratuito
-              </a>
+              <Cta href="#contatti" tone="light" variant="solid">Parliamone</Cta>
+              <Cta href="#contatti" tone="light" variant="outline">Progetto gratuito</Cta>
             </div>
           </div>
         </Reveal>
@@ -629,9 +672,11 @@ function Contact() {
                 <input required type="tel" placeholder="Telefono" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
               </div>
               <textarea rows={3} placeholder="Due righe sul tuo progetto (facoltativo)" className="mt-5 bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition resize-none" />
-              <button type="submit" className="mt-10 bg-ink text-white py-5 px-8 text-eyebrow hover:bg-foreground transition-colors">
-                Richiedi una consulenza gratuita →
-              </button>
+              <div className="mt-10">
+                <Cta type="submit" tone="light" variant="solid">
+                  Richiedi una consulenza gratuita
+                </Cta>
+              </div>
               <p className="mt-5 text-xs text-muted-foreground font-light leading-relaxed">
                 Nessun impegno, nessun preventivo automatico. Ti risponde una persona del nostro studio, di solito in giornata. I tuoi dati restano tra noi.
               </p>
