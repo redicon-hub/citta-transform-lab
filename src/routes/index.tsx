@@ -556,10 +556,10 @@ function Home() {
       <Nav />
       <Hero />
       <Manifesto />
+      <Craftsmanship />
       <Projects />
       <Problems />
       <Reviews />
-      <Craftsmanship />
       <Process />
       <Catalog />
       <CTA />
