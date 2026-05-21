@@ -501,7 +501,7 @@ function CTA() {
         <Reveal>
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
             <div className="relative overflow-hidden min-h-[420px] md:min-h-[640px]">
-              <img src={showroom} alt="Showroom Artigiani in Città a Milano" className="absolute inset-0 w-full h-full object-cover" />
+              <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
             </div>
             <div className="flex flex-col justify-center">
               <div className="text-eyebrow text-white/50 mb-12">— 08 Iniziamo a progettare</div>
@@ -517,8 +517,8 @@ function CTA() {
                   <div className="font-display text-2xl md:text-3xl font-light">Prenota una consulenza →</div>
                 </a>
                 <a href="#" className="bg-ink p-8 hover:bg-white hover:text-foreground transition-colors duration-500 group">
-                  <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-6">Veloce</div>
-                  <div className="font-display text-2xl md:text-3xl font-light">Inviateci pianta e misure →</div>
+                  <div className="text-eyebrow text-white/40 group-hover:text-foreground/60 mb-6">Gratuito</div>
+                  <div className="font-display text-2xl md:text-3xl font-light">Vuoi un vero progetto gratuito? →</div>
                 </a>
               </div>
               <div className="mt-12 flex flex-col sm:flex-row gap-8 sm:gap-12 text-sm text-white/60 font-light">
@@ -538,6 +538,80 @@ function CTA() {
             </div>
           </div>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contatti" className="bg-warm-cream text-foreground py-32 md:py-48 px-6 md:px-16">
+      <div className="max-w-[1600px] mx-auto">
+        <Reveal>
+          <div className="text-eyebrow text-muted-foreground mb-12">— 09 Parliamone</div>
+          <h2 className="font-display text-[10vw] md:text-[5.5vw] leading-[0.95] font-extralight max-w-5xl">
+            Tre modi per <span className="italic">iniziare</span>.
+          </h2>
+          <p className="mt-8 text-lg md:text-xl text-muted-foreground font-light max-w-2xl leading-relaxed">
+            Scrivici, chiamaci o passa in showroom. Rispondiamo sempre, di persona, entro poche ore.
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="mt-16 grid md:grid-cols-3 gap-px bg-border border border-border">
+            <a href="tel:+390200000000" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
+              <div className="text-eyebrow text-muted-foreground mb-4">Telefono</div>
+              <div className="font-display text-3xl md:text-4xl font-light leading-tight">+39 02 0000 0000</div>
+              <div className="mt-4 text-sm text-muted-foreground">Lun–Sab · 9:30 – 19:30</div>
+            </a>
+            <a href="https://wa.me/393000000000" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
+              <div className="text-eyebrow text-muted-foreground mb-4">WhatsApp</div>
+              <div className="font-display text-3xl md:text-4xl font-light leading-tight">+39 300 000 0000</div>
+              <div className="mt-4 text-sm text-muted-foreground">Risposta entro 2 ore</div>
+            </a>
+            <a href="mailto:info@artigianiincitta.it" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
+              <div className="text-eyebrow text-muted-foreground mb-4">Email</div>
+              <div className="font-display text-3xl md:text-4xl font-light leading-tight break-all">info@artigianiincitta.it</div>
+              <div className="mt-4 text-sm text-muted-foreground">Risposta in giornata</div>
+            </a>
+          </div>
+        </Reveal>
+
+        <div className="mt-20 grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
+          <Reveal>
+            <div className="relative overflow-hidden h-full min-h-[420px] md:min-h-[640px]">
+              <img src={showroom} alt="Showroom Artigiani in Città a Milano" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
+                <div className="text-eyebrow text-white/70 mb-2">Showroom</div>
+                <div className="text-white font-display text-2xl font-light">600 mq · Milano</div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <form
+              onSubmit={(e) => { e.preventDefault(); }}
+              className="bg-background border border-border p-8 md:p-12 flex flex-col justify-center h-full"
+            >
+              <div className="text-eyebrow text-muted-foreground mb-6">Scrivici</div>
+              <h3 className="font-display text-3xl md:text-4xl font-light leading-tight mb-8">
+                Raccontaci il tuo <span className="italic">spazio</span>.
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-5">
+                <input required type="text" placeholder="Nome" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
+                <input required type="text" placeholder="Cognome" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
+                <input required type="email" placeholder="Email" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
+                <input required type="tel" placeholder="Telefono" className="bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition" />
+              </div>
+              <textarea rows={3} placeholder="Due righe sul tuo progetto (facoltativo)" className="mt-5 bg-transparent border-b border-border py-3 px-1 text-base font-light placeholder:text-muted-foreground/60 focus:outline-none focus:border-ink transition resize-none" />
+              <button type="submit" className="mt-10 bg-ink text-white py-5 px-8 text-eyebrow hover:bg-foreground transition-colors">
+                Richiedi una consulenza gratuita →
+              </button>
+              <p className="mt-5 text-xs text-muted-foreground font-light leading-relaxed">
+                Nessun impegno, nessun preventivo automatico. Ti risponde una persona del nostro studio, di solito in giornata. I tuoi dati restano tra noi.
+              </p>
+            </form>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -567,6 +641,7 @@ function Home() {
       <Process />
       <Catalog />
       <CTA />
+      <Contact />
       <Footer />
     </div>
   );
