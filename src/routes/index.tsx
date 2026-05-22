@@ -699,10 +699,99 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="bg-ink text-white/60 border-t border-white/10 py-12 px-6 md:px-16">
-      <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <img src={logo} alt="Artigiani in Città" className="h-6 invert brightness-0" />
-        <div className="text-eyebrow text-white/40">© Artigiani in Città — Studio di trasformazione, Milano</div>
+    <footer className="bg-ink text-white/70 border-t border-white/10">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-16 pt-24 pb-12">
+        {/* Top: brand + columns */}
+        <div className="grid gap-16 md:gap-12 md:grid-cols-12">
+          {/* Brand */}
+          <div className="md:col-span-4">
+            <img src={logo} alt="Artigiani in Città" className="h-8 invert brightness-0" />
+            <p className="mt-6 text-sm leading-relaxed text-white/60 font-light max-w-sm">
+              Studio di trasformazione degli spazi urbani. Da quasi 50 anni progettiamo
+              e produciamo arredi salvaspazio su misura, con falegnameria interna a Milano.
+            </p>
+            <div className="mt-8 flex items-center gap-4">
+              <a href="https://instagram.com" aria-label="Instagram" className="w-10 h-10 border border-white/15 flex items-center justify-center hover:border-warm-clay hover:text-warm-clay transition-colors">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="https://facebook.com" aria-label="Facebook" className="w-10 h-10 border border-white/15 flex items-center justify-center hover:border-warm-clay hover:text-warm-clay transition-colors">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="https://youtube.com" aria-label="YouTube" className="w-10 h-10 border border-white/15 flex items-center justify-center hover:border-warm-clay hover:text-warm-clay transition-colors">
+                <Youtube className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="md:col-span-2">
+            <div className="text-eyebrow text-white/40 mb-5">Naviga</div>
+            <ul className="space-y-3 text-sm font-light">
+              <li><a href="#manifesto" className="hover:text-warm-clay transition-colors">Manifesto</a></li>
+              <li><a href="#perche" className="hover:text-warm-clay transition-colors">Perché sceglierci</a></li>
+              <li><a href="#progetti" className="hover:text-warm-clay transition-colors">Progetti</a></li>
+              <li><a href="#problemi" className="hover:text-warm-clay transition-colors">Problemi che risolviamo</a></li>
+              <li><a href="#testimonianze" className="hover:text-warm-clay transition-colors">Testimonianze</a></li>
+              <li><a href="#catalogo" className="hover:text-warm-clay transition-colors">Catalogo tecnico</a></li>
+            </ul>
+          </div>
+
+          {/* Catalogo */}
+          <div className="md:col-span-3">
+            <div className="text-eyebrow text-white/40 mb-5">Catalogo</div>
+            <ul className="space-y-3 text-sm font-light">
+              <li><a href="#catalogo" className="hover:text-warm-clay transition-colors">Letti a scomparsa</a></li>
+              <li><a href="#catalogo" className="hover:text-warm-clay transition-colors">Divani letto</a></li>
+              <li><a href="#catalogo" className="hover:text-warm-clay transition-colors">Cucine su misura</a></li>
+              <li><a href="#catalogo" className="hover:text-warm-clay transition-colors">Tavoli e consolle</a></li>
+              <li><a href="#catalogo" className="hover:text-warm-clay transition-colors">Camerette e camere</a></li>
+              <li><a href="#catalogo" className="hover:text-warm-clay transition-colors">Bagni e lavanderie</a></li>
+            </ul>
+          </div>
+
+          {/* Contatti */}
+          <div className="md:col-span-3">
+            <div className="text-eyebrow text-white/40 mb-5">Contatti</div>
+            <ul className="space-y-4 text-sm font-light">
+              <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 mt-1 text-warm-clay shrink-0" />
+                <div>
+                  <a href="tel:0239930866" className="block hover:text-warm-clay transition-colors">02 3993 0866</a>
+                  <a href="tel:3475078626" className="block text-white/50 hover:text-warm-clay transition-colors">347 507 8626</a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 mt-1 text-warm-clay shrink-0" />
+                <a href="mailto:info@artigianiincitta.it" className="hover:text-warm-clay transition-colors break-all">info@artigianiincitta.it</a>
+              </li>
+              <li className="pt-2 border-t border-white/10">
+                <div className="text-eyebrow text-white/40 mb-2">Showroom</div>
+                <a href="https://goo.gl/maps/67FrnGtLnQQvN7qR6" target="_blank" rel="noreferrer" className="hover:text-warm-clay transition-colors">
+                  Viale Italia 10<br />20094 Corsico (MI)
+                </a>
+              </li>
+              <li>
+                <div className="text-eyebrow text-white/40 mb-2">Orari</div>
+                <div className="text-white/60">
+                  Lun–Sab 9:30–12:30 / 14:00–19:00<br />
+                  <span className="text-white/40">Domenica chiuso</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider + bottom bar */}
+        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="text-xs text-white/40 font-light">
+            © {new Date().getFullYear()} Artigiani in Città · P.IVA 00000000000 · Tutti i diritti riservati
+          </div>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-xs font-light">
+            <a href="#" className="text-white/50 hover:text-warm-clay transition-colors">Privacy Policy</a>
+            <a href="#" className="text-white/50 hover:text-warm-clay transition-colors">Cookie Policy</a>
+            <a href="#" className="text-white/50 hover:text-warm-clay transition-colors">Termini e condizioni</a>
+          </div>
+        </div>
       </div>
     </footer>
   );
