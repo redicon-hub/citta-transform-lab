@@ -855,9 +855,9 @@ function Home() {
       <Craftsmanship />
       <Projects />
       <Problems />
+      <CTA />
       <Reviews />
       <Catalog />
-      <CTA />
       <Contact />
       <Footer />
     </div>
