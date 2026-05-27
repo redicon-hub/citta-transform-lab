@@ -539,126 +539,126 @@ function Catalog() {
 
 function CTA() {
   return (
-    <section id="appuntamento" className="bg-ink text-white py-32 md:py-48 px-6 md:px-16">
-      <div className="max-w-[1600px] mx-auto">
+    <section id="appuntamento" className="bg-ink text-white py-20 md:py-28 px-6 md:px-16">
+      <div className="max-w-[1500px] mx-auto">
         <Reveal>
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
-            <div className="relative overflow-hidden min-h-[420px] md:min-h-[640px]">
-              <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink to-transparent">
-                <div className="text-eyebrow text-white/70 mb-2">Studio · Milano</div>
-                <div className="text-white font-display text-2xl font-light">Ti rispondiamo di persona, sempre.</div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center">
-              <div className="text-eyebrow text-white/50 mb-12 text-sm md:text-base">— 08 Una consulenza, non un preventivo</div>
-              <h2 className="font-display text-[10vw] md:text-[5.5vw] leading-[0.95] font-extralight">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
+            {/* Colonna sinistra: testo sopra, foto sotto */}
+            <div className="flex flex-col">
+              <div className="text-eyebrow text-white/50 mb-6 text-sm">— 08 Una consulenza, non un preventivo</div>
+              <h2 className="font-display text-[9vw] md:text-[4vw] leading-[0.95] font-extralight">
                 Parliamo della<br /><span className="italic">tua casa</span>.
               </h2>
-              <p className="mt-8 text-white/70 text-lg font-light max-w-xl leading-relaxed">
+              <p className="mt-6 text-white/70 text-base font-light leading-relaxed">
                 Non vendiamo mobili a catalogo: progettiamo soluzioni su misura partendo dalle tue esigenze reali, dagli spazi e da come vivi la casa. Un nostro esperto ti accompagna nella scelta, nella progettazione e nella valutazione di ogni dettaglio.
               </p>
-              <p className="mt-4 text-white/50 text-sm font-light max-w-xl leading-relaxed">
-                Scegli come preferisci essere seguito: ti ricontattiamo entro 24h per confermare modalità, giorno e ora.
+              <p className="mt-3 text-white/50 text-sm font-light leading-relaxed">
+                Ti ricontattiamo entro 24h per confermare modalità, giorno e ora. Nessun impegno.
               </p>
-              <form
-                onSubmit={(e) => { e.preventDefault(); }}
-                className="mt-10 flex flex-col gap-8"
-              >
-                <div className="flex flex-col gap-2">
-                  <label className="text-eyebrow text-white/50">Tipo di consulenza</label>
+              <div className="relative overflow-hidden mt-8 aspect-[4/3] lg:aspect-auto lg:h-[340px]">
+                <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink to-transparent">
+                  <div className="text-eyebrow text-white/70 mb-1 text-[10px]">Studio · Milano</div>
+                  <div className="text-white font-display text-lg font-light">Ti rispondiamo di persona, sempre.</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Colonna destra: form compatto */}
+            <form
+              onSubmit={(e) => { e.preventDefault(); }}
+              className="flex flex-col gap-5 lg:pl-4"
+            >
+              <div className="flex flex-col gap-1.5">
+                <label className="text-eyebrow text-white/50">Tipo di consulenza</label>
+                <select
+                  required
+                  defaultValue=""
+                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                >
+                  <option value="" disabled>Seleziona un'opzione…</option>
+                  <option value="telefono">Primo contatto telefonico con un esperto</option>
+                  <option value="showroom">Appuntamento in showroom a Corsico</option>
+                  <option value="online">Richiedo un progetto online</option>
+                  <option value="casa">Richiedi un esperto a casa tua</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-eyebrow text-white/50">Raccontaci il tuo progetto</label>
+                <textarea
+                  rows={3}
+                  placeholder="Spazi, esigenze della famiglia, mobili che immagini…"
+                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
+                />
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-eyebrow text-white/50">Giorno preferito</label>
                   <select
                     required
                     defaultValue=""
-                    className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                    className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
                   >
-                    <option value="" disabled>Seleziona un'opzione…</option>
-                    <option value="telefono">Primo contatto telefonico con un esperto</option>
-                    <option value="showroom">Appuntamento in showroom a Corsico</option>
-                    <option value="online">Richiedo un progetto online</option>
-                    <option value="casa">Richiedi un esperto a casa tua</option>
+                    <option value="" disabled>Seleziona un giorno…</option>
+                    {["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"].map((d) => (
+                      <option key={d} value={d}>{d}</option>
+                    ))}
                   </select>
                 </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-eyebrow text-white/50">Raccontaci il tuo progetto</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Descrivi gli spazi, le esigenze della famiglia, i mobili che immagini o qualsiasi dettaglio utile…"
-                    className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
-                  />
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-2">
-                    <label className="text-eyebrow text-white/50">Giorno preferito</label>
-                    <select
-                      required
-                      defaultValue=""
-                      className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
-                    >
-                      <option value="" disabled>Seleziona un giorno…</option>
-                      {["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"].map((d) => (
-                        <option key={d} value={d}>{d}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className="text-eyebrow text-white/50">Fascia oraria</label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {["9:30 / 12:30", "14:00 / 19:00"].map((slot) => (
-                        <label
-                          key={slot}
-                          className="cursor-pointer border border-white/20 rounded-sm py-4 px-2 text-center text-sm font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
-                        >
-                          <input type="radio" name="slot" value={slot} className="sr-only" required />
-                          {slot}
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <label className="text-eyebrow text-white/50">Come vuoi essere contattato?</label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {["Telefono", "WhatsApp", "Email"].map((ch) => (
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-eyebrow text-white/50">Fascia oraria</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {["9:30 / 12:30", "14:00 / 19:00"].map((slot) => (
                       <label
-                        key={ch}
-                        className="cursor-pointer border border-white/20 rounded-sm py-4 px-2 text-center text-sm font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                        key={slot}
+                        className="cursor-pointer border border-white/20 rounded-sm py-3 px-2 text-center text-xs font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                       >
-                        <input type="radio" name="channel" value={ch} className="sr-only" required />
-                        {ch}
+                        <input type="radio" name="slot" value={slot} className="sr-only" required />
+                        {slot}
                       </label>
                     ))}
                   </div>
                 </div>
+              </div>
 
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <input
-                    required
-                    type="text"
-                    placeholder="Nome e cognome"
-                    className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
-                  />
-                  <input
-                    required
-                    type="text"
-                    placeholder="Telefono o email"
-                    className="bg-white/5 border border-white/20 rounded-sm py-4 px-4 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
-                  />
+              <div className="flex flex-col gap-1.5">
+                <label className="text-eyebrow text-white/50">Come vuoi essere contattato?</label>
+                <div className="grid grid-cols-3 gap-2">
+                  {["Telefono", "WhatsApp", "Email"].map((ch) => (
+                    <label
+                      key={ch}
+                      className="cursor-pointer border border-white/20 rounded-sm py-3 px-2 text-center text-xs font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                    >
+                      <input type="radio" name="channel" value={ch} className="sr-only" required />
+                      {ch}
+                    </label>
+                  ))}
                 </div>
+              </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-2">
-                  <Cta type="submit" tone="dark" variant="solid">
-                    Richiedi la consulenza
-                  </Cta>
-                  <p className="text-xs text-white/50 font-light leading-relaxed max-w-xs">
-                    Ti ricontattiamo entro 24h per confermare modalità, giorno e ora. Nessun impegno.
-                  </p>
-                </div>
-              </form>
-            </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <input
+                  required
+                  type="text"
+                  placeholder="Nome e cognome"
+                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                />
+                <input
+                  required
+                  type="text"
+                  placeholder="Telefono o email"
+                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                />
+              </div>
+
+              <div className="pt-1">
+                <Cta type="submit" tone="dark" variant="solid">
+                  Richiedi la consulenza
+                </Cta>
+              </div>
+            </form>
           </div>
         </Reveal>
       </div>
