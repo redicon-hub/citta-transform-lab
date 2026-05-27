@@ -421,7 +421,7 @@ function Reviews() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 06 Testimonianze</div>
+            <div className="text-eyebrow text-muted-foreground">— 05 Testimonianze</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
