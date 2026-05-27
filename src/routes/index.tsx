@@ -568,19 +568,28 @@ function CTA() {
                   required
                   type="text"
                   placeholder="Nome e cognome"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
                 />
                 <input
                   required
                   type="tel"
                   placeholder="Telefono"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
                 />
                 <input
                   required
                   type="email"
                   placeholder="Email"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-eyebrow text-white/50">Raccontaci il tuo progetto</label>
+                <textarea
+                  rows={2}
+                  placeholder="Spazi, esigenze della famiglia, mobili che immagini…"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
                 />
               </div>
 
@@ -589,7 +598,7 @@ function CTA() {
                 <select
                   required
                   defaultValue=""
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
                 >
                   <option value="" disabled>Seleziona un'opzione…</option>
                   <option value="telefono">Primo contatto telefonico con un esperto</option>
@@ -599,22 +608,13 @@ function CTA() {
                 </select>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-eyebrow text-white/50">Raccontaci il tuo progetto</label>
-                <textarea
-                  rows={2}
-                  placeholder="Spazi, esigenze della famiglia, mobili che immagini…"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
-                />
-              </div>
-
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-eyebrow text-white/50">Giorno preferito</label>
                   <select
                     required
                     defaultValue=""
-                    className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                    className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
                   >
                     <option value="" disabled>Seleziona un giorno…</option>
                     {["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"].map((d) => (
@@ -628,7 +628,7 @@ function CTA() {
                     {["9:30 / 12:30", "14:00 / 19:00"].map((slot) => (
                       <label
                         key={slot}
-                        className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-sm font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                        className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-base font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                       >
                         <input type="radio" name="slot" value={slot} className="sr-only" required />
                         {slot}
@@ -644,7 +644,7 @@ function CTA() {
                   {["Telefono", "WhatsApp", "Email"].map((ch) => (
                     <label
                       key={ch}
-                      className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-sm font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                      className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-base font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                     >
                       <input type="radio" name="channel" value={ch} className="sr-only" required />
                       {ch}
