@@ -516,6 +516,21 @@ function Catalog() {
             </Reveal>
           ))}
         </div>
+        <Reveal>
+          <div className="mt-20 md:mt-28 flex flex-col items-center text-center">
+            <p className="text-muted-foreground font-light max-w-lg mb-8">
+              Queste sono solo alcune categorie. Esplora il catalogo completo con tutte le tipologie disponibili.
+            </p>
+            <a
+              href="https://artigianiincitta.it/categorie-prodotto/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 bg-warm-clay text-white px-10 md:px-14 py-5 md:py-6 text-[12px] md:text-[13px] tracking-[0.22em] uppercase hover:bg-warm-clay/90 transition-colors"
+            >
+              Visualizza tutte le categorie →
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
