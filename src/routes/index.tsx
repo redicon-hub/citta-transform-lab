@@ -855,8 +855,8 @@ function Home() {
       <Craftsmanship />
       <Projects />
       <Problems />
-      <CTA />
       <Reviews />
+      <CTA />
       <Catalog />
       <Contact />
       <Footer />
