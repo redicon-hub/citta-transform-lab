@@ -564,24 +564,33 @@ function CTA() {
               >
               {/* Contatti in cima — tre riquadri */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <input
-                  required
-                  type="text"
-                  placeholder="Nome e cognome *"
-                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
-                />
-                <input
-                  required
-                  type="tel"
-                  placeholder="Telefono *"
-                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
-                />
-                <input
-                  required
-                  type="email"
-                  placeholder="Email *"
-                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
-                />
+                <div className="relative">
+                  <input
+                    required
+                    type="text"
+                    placeholder="Nome e cognome"
+                    className="w-full bg-background border border-border rounded-sm py-2.5 pl-3 pr-6 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
+                  />
+                  <span aria-hidden="true" className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                </div>
+                <div className="relative">
+                  <input
+                    required
+                    type="tel"
+                    placeholder="Telefono"
+                    className="w-full bg-background border border-border rounded-sm py-2.5 pl-3 pr-6 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
+                  />
+                  <span aria-hidden="true" className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                </div>
+                <div className="relative">
+                  <input
+                    required
+                    type="email"
+                    placeholder="Email"
+                    className="w-full bg-background border border-border rounded-sm py-2.5 pl-3 pr-6 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
+                  />
+                  <span aria-hidden="true" className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
@@ -596,7 +605,6 @@ function CTA() {
               <div className="flex flex-col gap-1.5">
                 <label className="text-eyebrow text-muted-foreground">Tipo di consulenza</label>
                 <select
-                  required
                   defaultValue=""
                   className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 >
@@ -612,7 +620,6 @@ function CTA() {
                 <div className="flex flex-col gap-1.5">
                   <label className="text-eyebrow text-muted-foreground">Giorno preferito</label>
                   <select
-                    required
                     defaultValue=""
                     className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink focus:outline-none focus:border-warm-clay focus:bg-background transition"
                   >
@@ -630,7 +637,7 @@ function CTA() {
                         key={slot}
                         className="cursor-pointer bg-background border border-border rounded-sm py-2.5 px-2 text-center text-base font-normal text-ink hover:bg-warm-cream has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                       >
-                        <input type="radio" name="slot" value={slot} className="sr-only" required />
+                        <input type="radio" name="slot" value={slot} className="sr-only" />
                         {slot}
                       </label>
                     ))}
@@ -646,7 +653,7 @@ function CTA() {
                       key={ch}
                       className="cursor-pointer bg-background border border-border rounded-sm py-2.5 px-2 text-center text-base font-normal text-ink hover:bg-warm-cream has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                     >
-                      <input type="radio" name="channel" value={ch} className="sr-only" required />
+                      <input type="radio" name="channel" value={ch} className="sr-only" />
                       {ch}
                     </label>
                   ))}
