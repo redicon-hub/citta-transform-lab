@@ -486,7 +486,7 @@ const collections = [
 
 function Catalog() {
   return (
-    <section id="catalogo" className="py-32 md:py-48 px-6 md:px-16 bg-secondary/30">
+    <section id="catalogo" className="py-32 md:py-48 px-6 md:px-16 bg-white">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-3">
