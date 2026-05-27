@@ -558,6 +558,9 @@ function CTA() {
               <h2 className="font-display text-[8vw] md:text-[3.2vw] leading-[1] font-extralight whitespace-nowrap">
                 Parliamo della <span className="italic">tua casa</span>.
               </h2>
+              <p className="text-base md:text-lg font-light text-muted-foreground max-w-2xl leading-relaxed">
+                Compila il form e scegli la modalità più comoda per te: un nostro esperto progettista ti ricontatterà per confermare l'appuntamento e capire insieme le tue esigenze.
+              </p>
               <form
                 onSubmit={(e) => { e.preventDefault(); }}
                 className="flex flex-col gap-6 mt-2"
