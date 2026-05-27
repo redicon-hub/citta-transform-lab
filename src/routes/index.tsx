@@ -539,14 +539,14 @@ function Catalog() {
 
 function CTA() {
   return (
-    <section id="appuntamento" className="bg-ink text-white py-20 md:py-28 px-6 md:px-16">
+    <section id="appuntamento" className="bg-warm-cream text-foreground py-20 md:py-28 px-6 md:px-16">
       <div className="max-w-[1500px] mx-auto">
         <Reveal>
           <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-stretch">
             {/* Colonna sinistra: foto */}
             <div className="relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-full">
               <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/90 to-transparent">
                 <div className="text-eyebrow text-white/70 mb-1 text-[10px]">Studio · Milano</div>
                 <div className="text-white font-display text-xl font-light">Ti rispondiamo di persona, sempre.</div>
               </div>
@@ -554,7 +554,7 @@ function CTA() {
 
             {/* Colonna destra: titolo, testo e form */}
             <div className="flex flex-col gap-5 lg:pl-4">
-              <div className="text-eyebrow text-white/50 text-sm">— 05 Una consulenza, non un preventivo</div>
+              <div className="text-eyebrow text-muted-foreground text-sm">— 06 Una consulenza, non un preventivo</div>
               <h2 className="font-display text-[8vw] md:text-[3.2vw] leading-[1] font-extralight whitespace-nowrap">
                 Parliamo della <span className="italic">tua casa</span>.
               </h2>
@@ -568,37 +568,37 @@ function CTA() {
                   required
                   type="text"
                   placeholder="Nome e cognome"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 />
                 <input
                   required
                   type="tel"
                   placeholder="Telefono"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 />
                 <input
                   required
                   type="email"
                   placeholder="Email"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-eyebrow text-white/50">Raccontaci il tuo progetto</label>
+                <label className="text-eyebrow text-muted-foreground">Raccontaci il tuo progetto</label>
                 <textarea
                   rows={4}
                   placeholder="Spazi, esigenze della famiglia, mobili che immagini…"
-                  className="bg-white/5 border border-white/20 rounded-sm py-2 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
+                  className="bg-background border border-border rounded-sm py-2 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition resize-none"
                 />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-eyebrow text-white/50">Tipo di consulenza</label>
+                <label className="text-eyebrow text-muted-foreground">Tipo di consulenza</label>
                 <select
                   required
                   defaultValue=""
-                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 >
                   <option value="" disabled>Seleziona un'opzione…</option>
                   <option value="telefono">Primo contatto telefonico con un esperto</option>
@@ -610,11 +610,11 @@ function CTA() {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-eyebrow text-white/50">Giorno preferito</label>
+                  <label className="text-eyebrow text-muted-foreground">Giorno preferito</label>
                   <select
                     required
                     defaultValue=""
-                    className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-base font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                    className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink focus:outline-none focus:border-warm-clay focus:bg-background transition"
                   >
                     <option value="" disabled>Seleziona un giorno…</option>
                     {["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"].map((d) => (
@@ -623,12 +623,12 @@ function CTA() {
                   </select>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-eyebrow text-white/50">Fascia oraria</label>
+                  <label className="text-eyebrow text-muted-foreground">Fascia oraria</label>
                   <div className="grid grid-cols-2 gap-2">
                     {["9:30 / 12:30", "14:00 / 19:00"].map((slot) => (
                       <label
                         key={slot}
-                        className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-base font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                        className="cursor-pointer bg-background border border-border rounded-sm py-2.5 px-2 text-center text-base font-normal text-ink hover:bg-warm-cream has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                       >
                         <input type="radio" name="slot" value={slot} className="sr-only" required />
                         {slot}
@@ -639,12 +639,12 @@ function CTA() {
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-eyebrow text-white/50">Come vuoi essere contattato?</label>
+                <label className="text-eyebrow text-muted-foreground">Come vuoi essere contattato?</label>
                 <div className="grid grid-cols-3 gap-2">
                   {["Telefono", "WhatsApp", "Email"].map((ch) => (
                     <label
                       key={ch}
-                      className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-base font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                      className="cursor-pointer bg-background border border-border rounded-sm py-2.5 px-2 text-center text-base font-normal text-ink hover:bg-warm-cream has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                     >
                       <input type="radio" name="channel" value={ch} className="sr-only" required />
                       {ch}
@@ -654,10 +654,10 @@ function CTA() {
               </div>
 
               <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-4">
-                <Cta type="submit" tone="dark" variant="solid">
+                <Cta type="submit" tone="light" variant="solid">
                   Richiedi la consulenza
                 </Cta>
-                <p className="text-white/50 text-xs font-light leading-relaxed">
+                <p className="text-muted-foreground text-xs font-light leading-relaxed">
                   Ti ricontattiamo entro 24h. Nessun impegno.
                 </p>
               </div>
