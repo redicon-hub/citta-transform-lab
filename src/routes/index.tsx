@@ -417,7 +417,7 @@ const reviews = [
 
 function Reviews() {
   return (
-    <section className="py-32 md:py-48 px-6 md:px-16 bg-warm-cream">
+    <section className="pt-32 md:pt-48 pb-16 md:pb-20 px-6 md:px-16 bg-warm-cream">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
@@ -539,7 +539,7 @@ function Catalog() {
 
 function CTA() {
   return (
-    <section id="appuntamento" className="bg-warm-cream text-foreground py-20 md:py-28 px-6 md:px-16">
+    <section id="appuntamento" className="bg-warm-cream text-foreground pt-6 md:pt-8 pb-20 md:pb-28 px-6 md:px-16">
       <div className="max-w-[1500px] mx-auto">
         <Reveal>
           <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-stretch">
@@ -567,19 +567,19 @@ function CTA() {
                 <input
                   required
                   type="text"
-                  placeholder="Nome e cognome"
+                  placeholder="Nome e cognome *"
                   className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 />
                 <input
                   required
                   type="tel"
-                  placeholder="Telefono"
+                  placeholder="Telefono *"
                   className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 />
                 <input
                   required
                   type="email"
-                  placeholder="Email"
+                  placeholder="Email *"
                   className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 />
               </div>
