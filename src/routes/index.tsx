@@ -70,9 +70,7 @@ function Nav() {
 
         <nav className={`hidden lg:flex items-center gap-8 text-[12px] tracking-[0.18em] uppercase ml-6`}>
           <a href="#progetti" className="hover:opacity-60 transition">Progetti</a>
-          <a href="#consulenza" className="hover:opacity-60 transition">Consulenza</a>
-          <a href="#artigianato" className="hover:opacity-60 transition">Artigianato</a>
-          <a href="#soluzioni" className="hover:opacity-60 transition">Soluzioni</a>
+          <a href="#contatti" className="hover:opacity-60 transition">Contatti</a>
           <a href="#catalogo" className="hover:opacity-60 transition">Catalogo</a>
         </nav>
 
@@ -89,7 +87,7 @@ function Nav() {
         </form>
 
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
-          <a href="#contatto" className={`hidden xl:inline-flex text-[11px] tracking-[0.22em] uppercase border px-5 py-3 transition ${scrolled ? "border-foreground hover:bg-foreground hover:text-background" : "border-white hover:bg-white hover:text-foreground"}`}>
+          <a href="#appuntamento" className={`inline-flex text-[10px] md:text-[11px] tracking-[0.18em] md:tracking-[0.22em] uppercase px-3 md:px-5 py-2.5 md:py-3 transition bg-warm-clay text-white border border-warm-clay hover:bg-warm-clay/90 whitespace-nowrap`}>
             Prenota consulenza
           </a>
           <button aria-label="Carrello" className={`relative h-10 w-10 inline-flex items-center justify-center rounded-full border transition ${scrolled ? "border-border hover:bg-foreground hover:text-background" : "border-white/40 hover:bg-white hover:text-foreground"}`}>
@@ -518,6 +516,21 @@ function Catalog() {
             </Reveal>
           ))}
         </div>
+        <Reveal>
+          <div className="mt-20 md:mt-28 flex flex-col items-center text-center">
+            <p className="text-muted-foreground font-light max-w-lg mb-8">
+              Queste sono solo alcune categorie. Esplora il catalogo completo con tutte le tipologie disponibili.
+            </p>
+            <a
+              href="https://artigianiincitta.it/categorie-prodotto/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 bg-warm-clay text-white px-10 md:px-14 py-5 md:py-6 text-[12px] md:text-[13px] tracking-[0.22em] uppercase hover:bg-warm-clay/90 transition-colors"
+            >
+              Visualizza tutte le categorie →
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
