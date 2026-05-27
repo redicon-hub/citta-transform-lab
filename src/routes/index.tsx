@@ -560,7 +560,7 @@ function CTA() {
               </h2>
               <form
                 onSubmit={(e) => { e.preventDefault(); }}
-                className="flex flex-col gap-4 mt-1"
+                className="flex flex-col gap-6 mt-2"
               >
               {/* Contatti in cima — tre riquadri */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
