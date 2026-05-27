@@ -587,7 +587,7 @@ function CTA() {
               <div className="flex flex-col gap-1.5">
                 <label className="text-eyebrow text-white/50">Raccontaci il tuo progetto</label>
                 <textarea
-                  rows={2}
+                  rows={4}
                   placeholder="Spazi, esigenze della famiglia, mobili che immagini…"
                   className="bg-white/5 border border-white/20 rounded-sm py-2 px-3 text-base font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
                 />
