@@ -72,6 +72,7 @@ function Nav() {
           <a href="#progetti" className="hover:opacity-60 transition">Progetti</a>
           <a href="#contatti" className="hover:opacity-60 transition">Contatti</a>
           <a href="#catalogo" className="hover:opacity-60 transition">Catalogo</a>
+          <a href="#appuntamento" className="hover:opacity-60 transition">Consulenza</a>
         </nav>
 
         <form
