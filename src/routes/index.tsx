@@ -543,32 +543,31 @@ function CTA() {
       <div className="max-w-[1500px] mx-auto">
         <Reveal>
           <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
-            {/* Colonna sinistra: testo sopra, foto sotto */}
-            <div className="flex flex-col">
-              <div className="text-eyebrow text-white/50 mb-6 text-sm">— 08 Una consulenza, non un preventivo</div>
-              <h2 className="font-display text-[9vw] md:text-[4vw] leading-[0.95] font-extralight">
-                Parliamo della<br /><span className="italic">tua casa</span>.
-              </h2>
-              <p className="mt-6 text-white/70 text-base font-light leading-relaxed">
-                Non vendiamo mobili a catalogo: progettiamo soluzioni su misura partendo dalle tue esigenze reali, dagli spazi e da come vivi la casa. Un nostro esperto ti accompagna nella scelta, nella progettazione e nella valutazione di ogni dettaglio.
-              </p>
-              <p className="mt-3 text-white/50 text-sm font-light leading-relaxed">
-                Ti ricontattiamo entro 24h per confermare modalità, giorno e ora. Nessun impegno.
-              </p>
-              <div className="relative overflow-hidden mt-8 aspect-[4/3] lg:aspect-auto lg:h-[340px]">
-                <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink to-transparent">
-                  <div className="text-eyebrow text-white/70 mb-1 text-[10px]">Studio · Milano</div>
-                  <div className="text-white font-display text-lg font-light">Ti rispondiamo di persona, sempre.</div>
-                </div>
+            {/* Colonna sinistra: foto grande */}
+            <div className="relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[640px]">
+              <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink to-transparent">
+                <div className="text-eyebrow text-white/70 mb-1 text-[10px]">Studio · Milano</div>
+                <div className="text-white font-display text-xl font-light">Ti rispondiamo di persona, sempre.</div>
               </div>
             </div>
 
-            {/* Colonna destra: form compatto */}
-            <form
-              onSubmit={(e) => { e.preventDefault(); }}
-              className="flex flex-col gap-5 lg:pl-4"
-            >
+            {/* Colonna destra: titolo, testo e form */}
+            <div className="flex flex-col gap-6 lg:pl-4">
+              <div className="text-eyebrow text-white/50 text-sm">— 08 Una consulenza, non un preventivo</div>
+              <h2 className="font-display text-[9vw] md:text-[4vw] leading-[0.95] font-extralight">
+                Parliamo della<br /><span className="italic">tua casa</span>.
+              </h2>
+              <p className="text-white/70 text-base font-light leading-relaxed">
+                Non vendiamo mobili a catalogo: progettiamo soluzioni su misura partendo dalle tue esigenze reali, dagli spazi e da come vivi la casa. Un nostro esperto ti accompagna nella scelta, nella progettazione e nella valutazione di ogni dettaglio.
+              </p>
+              <p className="-mt-3 text-white/50 text-sm font-light leading-relaxed">
+                Ti ricontattiamo entro 24h per confermare modalità, giorno e ora. Nessun impegno.
+              </p>
+              <form
+                onSubmit={(e) => { e.preventDefault(); }}
+                className="flex flex-col gap-5 mt-2"
+              >
               <div className="flex flex-col gap-1.5">
                 <label className="text-eyebrow text-white/50">Tipo di consulenza</label>
                 <select
@@ -658,7 +657,8 @@ function CTA() {
                   Richiedi la consulenza
                 </Cta>
               </div>
-            </form>
+              </form>
+            </div>
           </div>
         </Reveal>
       </div>
