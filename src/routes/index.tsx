@@ -542,9 +542,9 @@ function CTA() {
     <section id="appuntamento" className="bg-ink text-white py-20 md:py-28 px-6 md:px-16">
       <div className="max-w-[1500px] mx-auto">
         <Reveal>
-          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
-            {/* Colonna sinistra: foto grande */}
-            <div className="relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[640px]">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-stretch">
+            {/* Colonna sinistra: foto */}
+            <div className="relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-full">
               <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink to-transparent">
                 <div className="text-eyebrow text-white/70 mb-1 text-[10px]">Studio · Milano</div>
@@ -553,27 +553,43 @@ function CTA() {
             </div>
 
             {/* Colonna destra: titolo, testo e form */}
-            <div className="flex flex-col gap-6 lg:pl-4">
+            <div className="flex flex-col gap-5 lg:pl-4">
               <div className="text-eyebrow text-white/50 text-sm">— 08 Una consulenza, non un preventivo</div>
-              <h2 className="font-display text-[9vw] md:text-[4vw] leading-[0.95] font-extralight">
-                Parliamo della<br /><span className="italic">tua casa</span>.
+              <h2 className="font-display text-[8vw] md:text-[3.2vw] leading-[1] font-extralight whitespace-nowrap">
+                Parliamo della <span className="italic">tua casa</span>.
               </h2>
-              <p className="text-white/70 text-base font-light leading-relaxed">
-                Non vendiamo mobili a catalogo: progettiamo soluzioni su misura partendo dalle tue esigenze reali, dagli spazi e da come vivi la casa. Un nostro esperto ti accompagna nella scelta, nella progettazione e nella valutazione di ogni dettaglio.
-              </p>
-              <p className="-mt-3 text-white/50 text-sm font-light leading-relaxed">
-                Ti ricontattiamo entro 24h per confermare modalità, giorno e ora. Nessun impegno.
-              </p>
               <form
                 onSubmit={(e) => { e.preventDefault(); }}
-                className="flex flex-col gap-5 mt-2"
+                className="flex flex-col gap-4 mt-1"
               >
+              {/* Contatti in cima — tre riquadri */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <input
+                  required
+                  type="text"
+                  placeholder="Nome e cognome"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                />
+                <input
+                  required
+                  type="tel"
+                  placeholder="Telefono"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                />
+                <input
+                  required
+                  type="email"
+                  placeholder="Email"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
+                />
+              </div>
+
               <div className="flex flex-col gap-1.5">
                 <label className="text-eyebrow text-white/50">Tipo di consulenza</label>
                 <select
                   required
                   defaultValue=""
-                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
                 >
                   <option value="" disabled>Seleziona un'opzione…</option>
                   <option value="telefono">Primo contatto telefonico con un esperto</option>
@@ -586,9 +602,9 @@ function CTA() {
               <div className="flex flex-col gap-1.5">
                 <label className="text-eyebrow text-white/50">Raccontaci il tuo progetto</label>
                 <textarea
-                  rows={3}
+                  rows={2}
                   placeholder="Spazi, esigenze della famiglia, mobili che immagini…"
-                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
+                  className="bg-white/5 border border-white/20 rounded-sm py-2 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition resize-none"
                 />
               </div>
 
@@ -598,7 +614,7 @@ function CTA() {
                   <select
                     required
                     defaultValue=""
-                    className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
+                    className="bg-white/5 border border-white/20 rounded-sm py-2.5 px-3 text-sm font-light text-white focus:outline-none focus:border-warm-clay focus:bg-white/10 transition [color-scheme:dark]"
                   >
                     <option value="" disabled>Seleziona un giorno…</option>
                     {["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"].map((d) => (
@@ -612,7 +628,7 @@ function CTA() {
                     {["9:30 / 12:30", "14:00 / 19:00"].map((slot) => (
                       <label
                         key={slot}
-                        className="cursor-pointer border border-white/20 rounded-sm py-3 px-2 text-center text-xs font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                        className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-sm font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                       >
                         <input type="radio" name="slot" value={slot} className="sr-only" required />
                         {slot}
@@ -628,7 +644,7 @@ function CTA() {
                   {["Telefono", "WhatsApp", "Email"].map((ch) => (
                     <label
                       key={ch}
-                      className="cursor-pointer border border-white/20 rounded-sm py-3 px-2 text-center text-xs font-light hover:bg-white/5 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
+                      className="cursor-pointer bg-white/5 border border-white/30 rounded-sm py-2.5 px-2 text-center text-sm font-normal text-white hover:bg-white/10 has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                     >
                       <input type="radio" name="channel" value={ch} className="sr-only" required />
                       {ch}
@@ -637,25 +653,13 @@ function CTA() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <input
-                  required
-                  type="text"
-                  placeholder="Nome e cognome"
-                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
-                />
-                <input
-                  required
-                  type="text"
-                  placeholder="Telefono o email"
-                  className="bg-white/5 border border-white/20 rounded-sm py-3 px-3 text-sm font-light text-white placeholder:text-white/40 focus:outline-none focus:border-warm-clay focus:bg-white/10 transition"
-                />
-              </div>
-
-              <div className="pt-1">
+              <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-4">
                 <Cta type="submit" tone="dark" variant="solid">
                   Richiedi la consulenza
                 </Cta>
+                <p className="text-white/50 text-xs font-light leading-relaxed">
+                  Ti ricontattiamo entro 24h. Nessun impegno.
+                </p>
               </div>
               </form>
             </div>
