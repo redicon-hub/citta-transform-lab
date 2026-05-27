@@ -417,7 +417,7 @@ const reviews = [
 
 function Reviews() {
   return (
-    <section className="py-32 md:py-48 px-6 md:px-16 bg-warm-cream">
+    <section className="pt-32 md:pt-48 pb-16 md:pb-20 px-6 md:px-16 bg-warm-cream">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
@@ -539,7 +539,7 @@ function Catalog() {
 
 function CTA() {
   return (
-    <section id="appuntamento" className="bg-warm-cream text-foreground py-20 md:py-28 px-6 md:px-16">
+    <section id="appuntamento" className="bg-warm-cream text-foreground pt-6 md:pt-8 pb-20 md:pb-28 px-6 md:px-16">
       <div className="max-w-[1500px] mx-auto">
         <Reveal>
           <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-stretch">
@@ -564,24 +564,33 @@ function CTA() {
               >
               {/* Contatti in cima — tre riquadri */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <input
-                  required
-                  type="text"
-                  placeholder="Nome e cognome"
-                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
-                />
-                <input
-                  required
-                  type="tel"
-                  placeholder="Telefono"
-                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
-                />
-                <input
-                  required
-                  type="email"
-                  placeholder="Email"
-                  className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
-                />
+                <div className="relative">
+                  <input
+                    required
+                    type="text"
+                    placeholder="Nome e cognome"
+                    className="w-full bg-background border border-border rounded-sm py-2.5 pl-3 pr-6 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
+                  />
+                  <span aria-hidden="true" className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                </div>
+                <div className="relative">
+                  <input
+                    required
+                    type="tel"
+                    placeholder="Telefono"
+                    className="w-full bg-background border border-border rounded-sm py-2.5 pl-3 pr-6 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
+                  />
+                  <span aria-hidden="true" className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                </div>
+                <div className="relative">
+                  <input
+                    required
+                    type="email"
+                    placeholder="Email"
+                    className="w-full bg-background border border-border rounded-sm py-2.5 pl-3 pr-6 text-base font-light text-ink placeholder:text-muted-foreground focus:outline-none focus:border-warm-clay focus:bg-background transition"
+                  />
+                  <span aria-hidden="true" className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
@@ -596,7 +605,6 @@ function CTA() {
               <div className="flex flex-col gap-1.5">
                 <label className="text-eyebrow text-muted-foreground">Tipo di consulenza</label>
                 <select
-                  required
                   defaultValue=""
                   className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink focus:outline-none focus:border-warm-clay focus:bg-background transition"
                 >
@@ -612,7 +620,6 @@ function CTA() {
                 <div className="flex flex-col gap-1.5">
                   <label className="text-eyebrow text-muted-foreground">Giorno preferito</label>
                   <select
-                    required
                     defaultValue=""
                     className="bg-background border border-border rounded-sm py-2.5 px-3 text-base font-light text-ink focus:outline-none focus:border-warm-clay focus:bg-background transition"
                   >
@@ -630,7 +637,7 @@ function CTA() {
                         key={slot}
                         className="cursor-pointer bg-background border border-border rounded-sm py-2.5 px-2 text-center text-base font-normal text-ink hover:bg-warm-cream has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                       >
-                        <input type="radio" name="slot" value={slot} className="sr-only" required />
+                        <input type="radio" name="slot" value={slot} className="sr-only" />
                         {slot}
                       </label>
                     ))}
@@ -646,7 +653,7 @@ function CTA() {
                       key={ch}
                       className="cursor-pointer bg-background border border-border rounded-sm py-2.5 px-2 text-center text-base font-normal text-ink hover:bg-warm-cream has-[:checked]:bg-warm-clay has-[:checked]:border-warm-clay has-[:checked]:text-white transition"
                     >
-                      <input type="radio" name="channel" value={ch} className="sr-only" required />
+                      <input type="radio" name="channel" value={ch} className="sr-only" />
                       {ch}
                     </label>
                   ))}
@@ -724,10 +731,17 @@ function Contact() {
                 Raccontaci il tuo <span className="italic">spazio</span>.
               </h3>
               <div className="grid sm:grid-cols-2 gap-5">
-                <input required type="text" placeholder="Nome" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
-                <input required type="text" placeholder="Cognome" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
-                <input required type="email" placeholder="Email" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
-                <input required type="tel" placeholder="Telefono" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
+                {[
+                  { type: "text", placeholder: "Nome" },
+                  { type: "text", placeholder: "Cognome" },
+                  { type: "email", placeholder: "Email" },
+                  { type: "tel", placeholder: "Telefono" },
+                ].map((f) => (
+                  <div key={f.placeholder} className="relative">
+                    <input required type={f.type} placeholder={f.placeholder} className="w-full bg-warm-cream/60 border border-border rounded-sm py-4 pl-4 pr-8 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
+                    <span aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                  </div>
+                ))}
               </div>
               <textarea rows={3} placeholder="Due righe sul tuo progetto (facoltativo)" className="mt-5 bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition resize-none" />
               <div className="mt-10">
