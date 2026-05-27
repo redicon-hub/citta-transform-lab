@@ -421,7 +421,7 @@ function Reviews() {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
-            <div className="text-eyebrow text-muted-foreground">— 05 Testimonianze</div>
+            <div className="text-eyebrow text-muted-foreground">— 06 Testimonianze</div>
           </div>
           <div className="md:col-span-9">
             <Reveal>
@@ -554,7 +554,7 @@ function CTA() {
 
             {/* Colonna destra: titolo, testo e form */}
             <div className="flex flex-col gap-5 lg:pl-4">
-              <div className="text-eyebrow text-white/50 text-sm">— 08 Una consulenza, non un preventivo</div>
+              <div className="text-eyebrow text-white/50 text-sm">— 05 Una consulenza, non un preventivo</div>
               <h2 className="font-display text-[8vw] md:text-[3.2vw] leading-[1] font-extralight whitespace-nowrap">
                 Parliamo della <span className="italic">tua casa</span>.
               </h2>
@@ -675,7 +675,7 @@ function Contact() {
     <section id="contatti" className="bg-warm-cream text-foreground py-32 md:py-48 px-6 md:px-16">
       <div className="max-w-[1600px] mx-auto">
         <Reveal>
-          <div className="text-eyebrow text-muted-foreground mb-12">— 09 Parliamone</div>
+          <div className="text-eyebrow text-muted-foreground mb-12">— 08 Parliamone</div>
           <h2 className="font-display text-[10vw] md:text-[5.5vw] leading-[0.95] font-extralight max-w-5xl">
             Tre modi per <span className="italic">iniziare</span>.
           </h2>
@@ -855,9 +855,9 @@ function Home() {
       <Craftsmanship />
       <Projects />
       <Problems />
+      <CTA />
       <Reviews />
       <Catalog />
-      <CTA />
       <Contact />
       <Footer />
     </div>
