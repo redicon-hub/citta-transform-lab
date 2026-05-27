@@ -731,10 +731,17 @@ function Contact() {
                 Raccontaci il tuo <span className="italic">spazio</span>.
               </h3>
               <div className="grid sm:grid-cols-2 gap-5">
-                <input required type="text" placeholder="Nome" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
-                <input required type="text" placeholder="Cognome" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
-                <input required type="email" placeholder="Email" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
-                <input required type="tel" placeholder="Telefono" className="bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
+                {[
+                  { type: "text", placeholder: "Nome" },
+                  { type: "text", placeholder: "Cognome" },
+                  { type: "email", placeholder: "Email" },
+                  { type: "tel", placeholder: "Telefono" },
+                ].map((f) => (
+                  <div key={f.placeholder} className="relative">
+                    <input required type={f.type} placeholder={f.placeholder} className="w-full bg-warm-cream/60 border border-border rounded-sm py-4 pl-4 pr-8 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition" />
+                    <span aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-red-600 text-base leading-none">*</span>
+                  </div>
+                ))}
               </div>
               <textarea rows={3} placeholder="Due righe sul tuo progetto (facoltativo)" className="mt-5 bg-warm-cream/60 border border-border rounded-sm py-4 px-4 text-base font-normal text-ink placeholder:text-muted-foreground focus:outline-none focus:border-ink focus:bg-warm-cream focus:ring-2 focus:ring-ink/10 transition resize-none" />
               <div className="mt-10">
