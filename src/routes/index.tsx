@@ -316,7 +316,7 @@ function Projects() {
 
 function Problems() {
   return (
-    <section className="py-32 md:py-48 px-6 md:px-16">
+    <section id="problemi" className="py-32 md:py-48 px-6 md:px-16">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-20">
           <div className="md:col-span-3">
@@ -368,7 +368,7 @@ function Problems() {
 
 function Craftsmanship() {
   return (
-    <section id="artigianato" className="relative bg-ink text-white overflow-hidden">
+    <section id="perche" className="relative bg-ink text-white overflow-hidden">
       <div className="grid md:grid-cols-2">
         <div className="relative h-[60vh] md:h-[100vh] overflow-hidden">
           <motion.img
@@ -420,7 +420,7 @@ const reviews = [
 
 function Reviews() {
   return (
-    <section className="pt-32 md:pt-48 pb-16 md:pb-20 px-6 md:px-16 bg-warm-cream">
+    <section id="testimonianze" className="pt-32 md:pt-48 pb-16 md:pb-20 px-6 md:px-16 bg-warm-cream">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-3">
@@ -719,7 +719,7 @@ function Contact() {
 
         <div className="mt-20 grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
           <Reveal>
-            <div className="relative overflow-hidden h-full min-h-[420px] md:min-h-[640px]">
+            <div id="showroom" className="relative overflow-hidden h-full min-h-[420px] md:min-h-[640px]">
               <img src={showroom} alt="Showroom Artigiani in Città a Milano" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
                 <div className="text-eyebrow text-white/70 mb-2">Showroom</div>
