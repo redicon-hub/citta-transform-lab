@@ -224,7 +224,7 @@ function Cta({
 
 function Manifesto() {
   return (
-    <section className="py-32 md:py-48 px-6 md:px-16">
+    <section id="manifesto" className="py-32 md:py-48 px-6 md:px-16">
       <div className="max-w-[1600px] mx-auto grid md:grid-cols-12 gap-8">
         <div className="md:col-span-3">
           <div className="text-eyebrow text-muted-foreground">— 01 Manifesto</div>
