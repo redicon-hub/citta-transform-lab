@@ -233,6 +233,7 @@ function Manifesto() {
           <Reveal>
             <h2 className="font-display text-[7vw] md:text-[3.5vw] leading-[1.15] max-w-5xl font-extralight">
               Non realizziamo solo mobili su misura,
+              <br />
               <span className="italic font-light">creiamo spazio da vivere.</span>
             </h2>
             <p className="mt-8 md:mt-12 text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">
