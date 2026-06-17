@@ -131,7 +131,7 @@ function Hero() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}>
           <div className="text-eyebrow text-white/70 mb-8">Studio · Milano · dal 2008</div>
           <h1 className="font-display text-white text-[12vw] md:text-[6.5vw] leading-[0.95] max-w-5xl font-extralight">
-            Lo spazio non<br />si aumenta.<br />
+            Lo spazio non aumenta,.<br />
             <span className="italic font-light">Si progetta meglio.</span>
           </h1>
           <div className="mt-12 max-w-md text-white/80 text-base md:text-lg font-light leading-relaxed">
@@ -231,8 +231,11 @@ function Manifesto() {
         </div>
         <div className="md:col-span-9">
           <Reveal>
-            <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] max-w-5xl font-extralight">
-              Non vendiamo solo mobili. <span className="text-muted-foreground">Risolviamo problemi complessi di spazio</span> con intelligenza progettuale e produzione artigianale italiana.
+            <h2 className="font-display text-[7vw] md:text-[3.5vw] leading-[1.15] max-w-5xl font-extralight">
+              Lo spazio che cerchi esiste già.<br />
+              <span className="text-muted-foreground">Va solo progettato meglio.</span><br />
+              Non creiamo solo mobili.<br />
+              <span className="italic font-light">Progettiamo spazio dove sembrava non essercene</span>
             </h2>
           </Reveal>
         </div>
