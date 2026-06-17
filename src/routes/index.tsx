@@ -232,10 +232,8 @@ function Manifesto() {
         <div className="md:col-span-9">
           <Reveal>
             <h2 className="font-display text-[7vw] md:text-[3.5vw] leading-[1.15] max-w-5xl font-extralight">
-              Lo spazio che cerchi esiste già.<br />
-              <span className="text-muted-foreground">Va solo progettato meglio.</span><br />
-              Non creiamo solo mobili.<br />
-              <span className="italic font-light">Progettiamo spazio dove sembrava non essercene</span>
+              Non creiamo solo mobili.
+              <span className="italic font-light">Costruiamo risposte su misura ai problemi di spazio.</span>
             </h2>
           </Reveal>
         </div>
