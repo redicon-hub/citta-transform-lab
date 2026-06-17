@@ -232,8 +232,8 @@ function Manifesto() {
         <div className="md:col-span-9">
           <Reveal>
             <h2 className="font-display text-[7vw] md:text-[3.5vw] leading-[1.15] max-w-5xl font-extralight">
-              Non creiamo solo mobili.
-              <span className="italic font-light">Costruiamo risposte su misura ai problemi di spazio.</span>
+              Non realizziamo solo mobili su misura,
+              <span className="italic font-light">creiamo spazio da vivere.</span>
             </h2>
             <p className="mt-8 md:mt-12 text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">
               Ogni progetto nasce da un'esigenza concreta: recuperare centimetri preziosi, rendere più ordinato un ambiente, valorizzare una parete inutilizzata o trasformare una zona difficile della casa in una soluzione funzionale. Con progettazione su misura e produzione artigianale italiana, realizziamo arredi salvaspazio pensati per migliorare il modo in cui vivi ogni ambiente.
