@@ -14,7 +14,7 @@ import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
 import showroom from "@/assets/showroom.webp";
-import founders from "@/assets/founders.jpg";
+import ritrattoDef2 from "@/assets/ritratto-def2.jpg.asset.json";
 import catLetti from "@/assets/cat-letti-scomparsa.jpg";
 import catDivaniLetto from "@/assets/cat-divani-letto.jpg";
 import catDivaniPouff from "@/assets/cat-divani-pouff.jpg";
