@@ -461,10 +461,60 @@ function Craftsmanship() {
 }
 
 const reviews = [
-  { t: "Hanno trasformato un bilocale di 45 mq in un appartamento che sembra il doppio. Progettazione impeccabile, esecuzione di altissimo livello.", a: "Chiara M.", l: "Brera, Milano" },
-  { t: "Approccio architettonico, non commerciale. Ci hanno ascoltati per ore prima di proporre qualunque soluzione. Il risultato è esattamente la nostra casa.", a: "Andrea & Sofia", l: "Porta Venezia" },
-  { t: "Tre Airbnb di lusso ottimizzati con loro. Ogni metro quadro reso fruttifero senza perdere l'eleganza che i nostri ospiti si aspettano.", a: "Investitore privato", l: "Centro storico" },
+  {
+    n: "sabrina naclerio",
+    i: "S",
+    w: "6 mesi fa",
+    t: "Mi sono affidata ad Artigiani in Città per arredare la mia casa! Fin da subito tutto il team si è dimostrato disponibile ad ascoltare le mie esigenze e a trovare la soluzione migliore per ogni ambiente.",
+  },
+  {
+    n: "Marco Delise",
+    i: "M",
+    w: "6 mesi fa",
+    t: "Professionali",
+  },
+  {
+    n: "Beatrice Tarantola",
+    i: "B",
+    w: "9 mesi fa",
+    t: "Avevamo la necessità di farci fare una cucina su misura dato il poco spazio a disposizione. Siamo assolutamente soddisfatti del risultato e della cura in ogni dettaglio.",
+  },
 ];
+
+const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/search?q=Artigiani+in+Citt%C3%A0+Milano+recensioni";
+
+function GoogleG({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.44c-.28 1.48-1.12 2.73-2.39 3.57v2.97h3.86c2.26-2.08 3.58-5.15 3.58-8.78z"/>
+      <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-2.97c-1.07.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/>
+      <path fill="#FBBC05" d="M5.27 14.32c-.24-.72-.38-1.49-.38-2.32s.14-1.6.38-2.32V6.59H1.29C.47 8.23 0 10.06 0 12s.47 3.77 1.29 5.41l3.98-3.09z"/>
+      <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.59l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"/>
+    </svg>
+  );
+}
+
+function Stars({ value = 5, className = "text-base" }: { value?: number; className?: string }) {
+  return (
+    <div className={`flex items-center gap-0.5 text-warm-clay ${className}`} aria-hidden="true">
+      {[0, 1, 2, 3, 4].map((i) => {
+        const fill = Math.max(0, Math.min(1, value - i));
+        return (
+          <span key={i} className="relative inline-block leading-none">
+            <span className="opacity-25">★</span>
+            <span
+              className="absolute inset-0 overflow-hidden"
+              style={{ width: `${fill * 100}%` }}
+            >
+              ★
+            </span>
+          </span>
+        );
+      })}
+    </div>
+  );
+}
 
 function Reviews() {
   return (
@@ -482,49 +532,59 @@ function Reviews() {
             </Reveal>
           </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-          {reviews.map((r, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div className="flex flex-col h-full">
-                <div className="text-warm-clay text-2xl tracking-widest mb-8">★★★★★</div>
-                <p className="font-display text-2xl md:text-[26px] leading-[1.4] font-light italic mb-10 flex-1">
-                  "{r.t}"
-                </p>
-                <div className="border-t border-border pt-6">
-                  <div className="font-medium text-sm">{r.a}</div>
-                  <div className="text-eyebrow text-muted-foreground mt-2">{r.l}</div>
-                </div>
+
+        <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-center">
+          {/* Media Google */}
+          <Reveal className="md:col-span-3">
+            <div className="text-center md:text-left">
+              <div className="text-eyebrow text-muted-foreground">Eccellente</div>
+              <div className="flex items-baseline gap-3 justify-center md:justify-start mt-3">
+                <span className="font-display text-5xl md:text-6xl font-light leading-none">4,5</span>
+                <Stars value={4.5} className="text-2xl" />
               </div>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-20 flex justify-center">
-          <a
-            href="https://www.google.com/search?q=Artigiani+in+Citt%C3%A0+Milano+recensioni"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-4 bg-background border border-border px-6 py-4 hover:border-foreground transition-colors"
-            aria-label="Recensioni Google"
-          >
-            <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" aria-hidden="true">
-              <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.44c-.28 1.48-1.12 2.73-2.39 3.57v2.97h3.86c2.26-2.08 3.58-5.15 3.58-8.78z"/>
-              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-2.97c-1.07.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/>
-              <path fill="#FBBC05" d="M5.27 14.32c-.24-.72-.38-1.49-.38-2.32s.14-1.6.38-2.32V6.59H1.29C.47 8.23 0 10.06 0 12s.47 3.77 1.29 5.41l3.98-3.09z"/>
-              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.59l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"/>
-            </svg>
-            <div className="flex flex-col leading-tight">
-              <div className="flex items-center gap-2">
-                <span className="font-display text-2xl font-light">4,9</span>
-                <span className="text-warm-clay tracking-widest text-sm">★★★★★</span>
+              <p className="text-sm text-muted-foreground font-light mt-4">
+                In base a <span className="text-foreground font-medium">294 recensioni</span>
+              </p>
+              <div className="flex items-center gap-2 justify-center md:justify-start mt-5">
+                <GoogleG className="w-6 h-6" />
+                <span className="text-eyebrow text-muted-foreground">Google Reviews</span>
               </div>
-              <span className="text-eyebrow text-muted-foreground mt-1">Google Reviews · 180+ recensioni</span>
             </div>
-          </a>
+          </Reveal>
+
+          {/* Recensioni */}
+          <div className="md:col-span-9 grid md:grid-cols-3 gap-6 md:gap-8">
+            {reviews.map((r, i) => (
+              <Reveal key={r.n} delay={i * 0.1}>
+                <div className="h-full bg-background border border-border p-7 flex flex-col transition-all duration-500 hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.35)] hover:-translate-y-1">
+                  <div className="flex items-start gap-4">
+                    <span className="shrink-0 w-11 h-11 rounded-full bg-warm-stone/40 text-foreground flex items-center justify-center font-medium">
+                      {r.i}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-medium text-sm truncate">{r.n}</div>
+                      <div className="text-xs text-muted-foreground font-light mt-0.5">{r.w}</div>
+                    </div>
+                    <GoogleG className="w-5 h-5 shrink-0 mt-1" />
+                  </div>
+                  <Stars className="text-lg mt-5" />
+                  <p className="text-sm md:text-base font-light leading-relaxed mt-4 flex-1">{r.t}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-14 md:mt-20 flex justify-center">
+          <Cta href={GOOGLE_REVIEWS_URL} external>
+            Leggi le nostre recensioni
+          </Cta>
         </div>
       </div>
     </section>
   );
 }
+
 
 const collections = [
   { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti, href: "https://artigianiincitta.it/milano/letti-a-scomparsa/" },
