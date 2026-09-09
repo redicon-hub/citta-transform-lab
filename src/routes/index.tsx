@@ -877,7 +877,10 @@ function Contact() {
         <div className="mt-20 grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
           <Reveal>
             <div id="showroom" className="relative overflow-hidden h-full min-h-[420px] md:min-h-[640px]">
-              <img src={showroom} alt="Showroom Artigiani in Città a Milano" className="absolute inset-0 w-full h-full object-cover" />
+              <ShowroomSlideshow
+                images={[showroom, showroomArredo.url, showroomIngresso.url]}
+                alt="Showroom Artigiani in Città a Milano"
+              />
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
                 <div className="text-eyebrow text-white/70 mb-2">Showroom</div>
                 <div className="text-white font-display text-2xl font-light">600 mq · Milano</div>
