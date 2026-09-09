@@ -319,7 +319,6 @@ function Projects() {
                     <div className="text-eyebrow text-warm-clay mb-4">— Progetto {String(i + 1).padStart(2, "0")}</div>
                     <div className="text-eyebrow text-muted-foreground mb-3">{p.subtitle}</div>
                     <h3 className="font-display text-2xl md:text-3xl mb-4 font-light italic leading-tight">{p.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-light">{p.desc}</p>
                     <a
                       href={p.link ?? "#"}
                       target={p.link ? "_blank" : undefined}
