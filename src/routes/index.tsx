@@ -858,12 +858,12 @@ function Contact() {
           <div className="mt-16 grid md:grid-cols-3 gap-px bg-border border border-border">
             <a href="tel:+390239930866" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
               <div className="text-eyebrow text-muted-foreground mb-4">Telefono</div>
-              <div className="font-display text-3xl md:text-4xl font-light leading-tight">02 39930866</div>
+              <div className="font-readable-numbers text-4xl md:text-5xl font-medium leading-none text-ink">02 39930866</div>
               <div className="mt-4 text-sm text-muted-foreground">Lun–Sab · 9:30 – 12:30  |  14:00 – 19:30</div>
             </a>
             <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
               <div className="text-eyebrow text-muted-foreground mb-4">WhatsApp</div>
-              <div className="font-display text-3xl md:text-4xl font-light leading-tight">347 5078626</div>
+              <div className="font-readable-numbers text-4xl md:text-5xl font-medium leading-none text-ink">347 5078626</div>
               <div className="mt-4 text-sm text-muted-foreground">Risposta entro 2 ore</div>
             </a>
             <a href="mailto:info@artigianiincitta.it" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
