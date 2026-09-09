@@ -302,18 +302,24 @@ function Projects() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {projects.map((p, i) => (
             <Reveal key={p.title}>
-              <div className="relative w-full overflow-hidden aspect-[3/4] group">
+              <a
+                href={p.link ?? "#"}
+                target={p.link ? "_blank" : undefined}
+                rel={p.link ? "noreferrer" : undefined}
+                className="relative w-full overflow-hidden aspect-[3/4] group block"
+              >
                 <motion.img
                   src={p.img}
                   alt={p.title}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
                   initial={{ scale: 1.15 }}
                   whileInView={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20 group-hover:from-black/30 group-hover:to-black/30 transition-colors duration-700" />
 
                 {/* Cartiglio in alto */}
                 <div className="absolute inset-x-0 top-0 flex justify-center p-4 md:p-6">
@@ -326,17 +332,12 @@ function Projects() {
 
                 {/* Bottone in basso */}
                 <div className="absolute inset-x-0 bottom-0 flex justify-center p-4 md:p-6">
-                  <a
-                    href={p.link ?? "#"}
-                    target={p.link ? "_blank" : undefined}
-                    rel={p.link ? "noreferrer" : undefined}
-                    className="group/btn inline-flex items-center gap-3 bg-background/95 backdrop-blur px-6 py-3.5 text-[11px] tracking-[0.22em] uppercase border border-foreground/10 shadow-lg hover:bg-background hover:border-foreground/30 transition-all duration-500"
-                  >
+                  <span className="inline-flex items-center gap-3 bg-background/95 backdrop-blur px-6 py-3.5 text-[11px] tracking-[0.22em] uppercase border border-foreground/10 shadow-lg transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-warm-clay group-hover:text-white group-hover:border-warm-clay group-hover:-translate-y-3 group-hover:shadow-[0_20px_50px_-15px_rgba(120,70,40,0.35)]">
                     <span>Scopri il progetto</span>
-                    <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span>
-                  </a>
+                    <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
+                  </span>
                 </div>
-              </div>
+              </a>
             </Reveal>
           ))}
         </div>
