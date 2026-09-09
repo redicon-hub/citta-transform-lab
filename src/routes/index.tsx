@@ -14,6 +14,8 @@ import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
 import showroom from "@/assets/showroom.webp";
+import showroomArredo from "@/assets/showroom-arredo-salvaspazio-600mq-corsico-milano.webp.asset.json";
+import showroomIngresso from "@/assets/showroom-ingresso-piano-terra-arredamento-completo-su-misura-corsico-milano.webp.asset.json";
 import ritrattoDef2 from "@/assets/ritratto-def2.jpg.asset.json";
 import catLetti from "@/assets/cat-letti-scomparsa.jpg";
 import catDivaniLetto from "@/assets/cat-divani-letto.jpg";
