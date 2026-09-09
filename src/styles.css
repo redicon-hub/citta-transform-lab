@@ -177,6 +177,14 @@
 
   .hairline { height: 1px; background: currentColor; opacity: 0.3; }
 
+  /* Readable serif for phone numbers and numeric contact details. */
+  .font-readable-numbers {
+    font-family: 'Lora', serif;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: 0.02em;
+  }
+
   @keyframes slow-zoom {
     from { transform: scale(1.05); }
     to { transform: scale(1.15); }
