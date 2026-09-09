@@ -535,7 +535,8 @@ function Reviews() {
 
         <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-center">
           {/* Media Google */}
-          <Reveal className="md:col-span-3">
+          <div className="md:col-span-3">
+            <Reveal>
             <div className="text-center md:text-left">
               <div className="text-eyebrow text-muted-foreground">Eccellente</div>
               <div className="flex items-baseline gap-3 justify-center md:justify-start mt-3">
@@ -550,7 +551,8 @@ function Reviews() {
                 <span className="text-eyebrow text-muted-foreground">Google Reviews</span>
               </div>
             </div>
-          </Reveal>
+            </Reveal>
+          </div>
 
           {/* Recensioni */}
           <div className="md:col-span-9 grid md:grid-cols-3 gap-6 md:gap-8">
@@ -576,7 +578,7 @@ function Reviews() {
         </div>
 
         <div className="mt-14 md:mt-20 flex justify-center">
-          <Cta href={GOOGLE_REVIEWS_URL} external>
+          <Cta href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer">
             Leggi le nostre recensioni
           </Cta>
         </div>
