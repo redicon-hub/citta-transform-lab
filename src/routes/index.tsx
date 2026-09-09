@@ -263,17 +263,20 @@ const projects = [
     img: projectCucina.url,
     title: "Brera, 46 mq",
     subtitle: "Prima e dopo · Cucina salvaspazio",
-    desc: "Una cucina attrezzata su misura che risolve tutto: contenimento, funzionalità e un’identità elegante per l’intero ambiente.",
     link: "https://artigianiincitta.it/progetti-realizzati/prima-e-dopo-cucina-angolare-salvaspazio-su-misura/",
   },
   {
     img: projectArmadio.url,
     title: "Porta Romana, 28 mq",
     subtitle: "Prima e dopo · Armadio a muro su misura",
-    desc: "Un armadio a muro su misura che trasforma una parete vuota in un sistema salvaspazio capiente, ordinato e di design.",
     link: "https://artigianiincitta.it/progetti-realizzati/prima-e-dopo-progetto-armadio-a-muro-su-misura-salvaspazio/",
   },
-  { img: projectOffice, title: "Città Studi, 9 mq", subtitle: "Home office", desc: "Studio professionale che scompare a fine giornata, restituendo l'ambiente alla vita domestica." },
+  {
+    img: projectLettoDivano.url,
+    title: "Città Studi, 22 mq",
+    subtitle: "Prima e dopo · Letto a scomparsa con divano",
+    link: "https://artigianiincitta.it/progetti-realizzati/progetto-prima-dopo-letto-a-scomparsa-divano-su-misura/",
+  },
 ];
 
 function Projects() {
