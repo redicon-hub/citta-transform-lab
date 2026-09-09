@@ -522,13 +522,14 @@ function Reviews() {
 }
 
 const collections = [
-  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti },
-  { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto },
-  { t: "Divani, pouff e poltrone", d: "Imbottiti su misura, tessuti selezionati.", img: catDivaniPouff },
-  { t: "Tavoli e consolle", d: "Allungabili e trasformabili, in legno massello.", img: catTavoli },
-  { t: "Cucine a scomparsa", d: "Blocchi cucina integrati dietro ante filomuro.", img: catCucine },
-  { t: "Bagni e lavanderie", d: "Mobili contenitori e zone lavaggio su misura.", img: catBagni },
+  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti, href: "https://artigianiincitta.it/milano/letti-a-scomparsa/" },
+  { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto, href: "https://artigianiincitta.it/milano/divani-letto/" },
+  { t: "Divani, pouff e poltrone", d: "Imbottiti su misura, tessuti selezionati.", img: catDivaniPouff, href: "https://artigianiincitta.it/milano/divani-poltrone-e-pouf/" },
+  { t: "Tavoli e consolle", d: "Allungabili e trasformabili, in legno massello.", img: catTavoli, href: "https://artigianiincitta.it/milano/tavoli-trasformabili/" },
+  { t: "Cucine a scomparsa", d: "Blocchi cucina integrati dietro ante filomuro.", img: catCucine, href: "https://artigianiincitta.it/milano/cucine/cucina-a-scomparsa/" },
+  { t: "Bagni e lavanderie", d: "Mobili contenitori e zone lavaggio su misura.", img: catBagni, href: "https://artigianiincitta.it/milano/bagni-e-lavanderie/" },
 ];
+
 
 function Catalog() {
   return (
@@ -550,7 +551,7 @@ function Catalog() {
         <div className="grid md:grid-cols-3 gap-6">
           {collections.map((c, i) => (
             <Reveal key={c.t} delay={i * 0.08}>
-              <a href="#" className="block bg-background border border-border h-full group hover:border-foreground transition-colors duration-500 overflow-hidden">
+              <a href={c.href} target="_blank" rel="noreferrer" className="block bg-background border border-border h-full group hover:border-foreground transition-colors duration-500 overflow-hidden">
                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                   <img src={c.img} alt={c.t} loading="lazy" width={1280} height={960} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
                 </div>
@@ -569,7 +570,7 @@ function Catalog() {
               Queste sono solo alcune categorie. Esplora il catalogo completo con tutte le tipologie disponibili.
             </p>
             <a
-              href="https://artigianiincitta.it/categorie-prodotto/"
+              href="https://artigianiincitta.it/shop/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-3 bg-warm-clay text-white px-10 md:px-14 py-5 md:py-6 text-[12px] md:text-[13px] tracking-[0.22em] uppercase hover:bg-warm-clay/90 transition-colors"
