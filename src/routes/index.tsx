@@ -815,7 +815,7 @@ function Contact() {
             <a href="tel:+390239930866" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
               <div className="text-eyebrow text-muted-foreground mb-4">Telefono</div>
               <div className="font-display text-3xl md:text-4xl font-light leading-tight">02 39930866</div>
-              <div className="mt-4 text-sm text-muted-foreground">Lun–Sab · 9:30 – 19:30</div>
+              <div className="mt-4 text-sm text-muted-foreground">Lun–Sab · 9:30 – 12:30  |  14:00 – 19:30</div>
             </a>
             <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer" className="bg-warm-cream p-10 hover:bg-background transition-colors group">
               <div className="text-eyebrow text-muted-foreground mb-4">WhatsApp</div>
@@ -955,7 +955,7 @@ function Footer() {
               <li>
                 <div className="text-eyebrow text-white/40 mb-2">Orari</div>
                 <div className="text-white/60">
-                  Lun–Sab 9:30–12:30 / 14:00–19:00<br />
+                  Lun–Sab · 9:30 – 12:30  |  14:00 – 19:30<br />
                   <span className="text-white/40">Domenica chiuso</span>
                 </div>
               </li>
