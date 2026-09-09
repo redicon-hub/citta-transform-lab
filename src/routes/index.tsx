@@ -8,6 +8,7 @@ import heroBed from "@/assets/hero-bed.jpg";
 import craftsmanship from "@/assets/craftsmanship.jpg";
 import perchePhoto from "@/assets/perche-sceglierci.png";
 import projectCucina from "@/assets/cucina-salvaspazio-brera.webp.asset.json";
+import projectArmadio from "@/assets/armadio-muro-porta-romana.webp.asset.json";
 import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
