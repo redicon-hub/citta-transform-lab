@@ -14,6 +14,8 @@ import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
 import showroom from "@/assets/showroom.webp";
+import showroomArredo from "@/assets/showroom-arredo-salvaspazio-600mq-corsico-milano.webp.asset.json";
+import showroomIngresso from "@/assets/showroom-ingresso-piano-terra-arredamento-completo-su-misura-corsico-milano.webp.asset.json";
 import ritrattoDef2 from "@/assets/ritratto-def2.jpg.asset.json";
 import catLetti from "@/assets/cat-letti-scomparsa.jpg";
 import catDivaniLetto from "@/assets/cat-divani-letto.jpg";
@@ -796,6 +798,48 @@ function CTA() {
   );
 }
 
+function ShowroomSlideshow({ images, alt }: { images: string[]; alt: string }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {images.map((src, i) => (
+        <motion.img
+          key={src}
+          src={src}
+          alt={alt}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{
+            opacity: i === index ? 1 : 0,
+            scale: i === index ? 1 : 1.05,
+          }}
+          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ))}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Vedi slide ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              i === index ? "w-8 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Contact() {
   return (
     <section id="contatti" className="bg-warm-cream text-foreground py-32 md:py-48 px-6 md:px-16">
@@ -833,7 +877,10 @@ function Contact() {
         <div className="mt-20 grid md:grid-cols-2 gap-12 md:gap-20 items-stretch">
           <Reveal>
             <div id="showroom" className="relative overflow-hidden h-full min-h-[420px] md:min-h-[640px]">
-              <img src={showroom} alt="Showroom Artigiani in Città a Milano" className="absolute inset-0 w-full h-full object-cover" />
+              <ShowroomSlideshow
+                images={[showroom, showroomArredo.url, showroomIngresso.url]}
+                alt="Showroom Artigiani in Città a Milano"
+              />
               <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-ink/80 to-transparent">
                 <div className="text-eyebrow text-white/70 mb-2">Showroom</div>
                 <div className="text-white font-display text-2xl font-light">600 mq · Milano</div>
