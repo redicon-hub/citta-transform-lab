@@ -257,7 +257,13 @@ const problems = [
 ];
 
 const projects = [
-  { img: projectStudio, title: "Brera, 28 mq", subtitle: "Monolocale", desc: "Un unico ambiente che diventa salotto, camera, studio e cucina senza compromessi formali." },
+  {
+    img: projectCucina.url,
+    title: "Brera, 46 mq",
+    subtitle: "Prima e dopo · Cucina salvaspazio",
+    desc: "Una cucina attrezzata su misura che risolve tutto: contenimento, funzionalità e un’identità elegante per l’intero ambiente.",
+    link: "https://artigianiincitta.it/progetti-realizzati/prima-e-dopo-cucina-angolare-salvaspazio-su-misura/",
+  },
   { img: projectChildren, title: "Porta Romana, 14 mq", subtitle: "Camera bambini", desc: "Letto a castello su misura con scrivania, armadio e zona gioco integrati nella parete." },
   { img: projectOffice, title: "Città Studi, 9 mq", subtitle: "Home office", desc: "Studio professionale che scompare a fine giornata, restituendo l'ambiente alla vita domestica." },
 ];
