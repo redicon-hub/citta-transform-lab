@@ -7,6 +7,7 @@ import heroLiving from "@/assets/hero-living.jpg";
 import heroBed from "@/assets/hero-bed.jpg";
 import craftsmanship from "@/assets/craftsmanship.jpg";
 import perchePhoto from "@/assets/perche-sceglierci.png";
+import projectCucina from "@/assets/cucina-salvaspazio-brera.webp.asset.json";
 import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
@@ -256,7 +257,13 @@ const problems = [
 ];
 
 const projects = [
-  { img: projectStudio, title: "Brera, 28 mq", subtitle: "Monolocale", desc: "Un unico ambiente che diventa salotto, camera, studio e cucina senza compromessi formali." },
+  {
+    img: projectCucina.url,
+    title: "Brera, 46 mq",
+    subtitle: "Prima e dopo · Cucina salvaspazio",
+    desc: "Una cucina attrezzata su misura che risolve tutto: contenimento, funzionalità e un’identità elegante per l’intero ambiente.",
+    link: "https://artigianiincitta.it/progetti-realizzati/prima-e-dopo-cucina-angolare-salvaspazio-su-misura/",
+  },
   { img: projectChildren, title: "Porta Romana, 14 mq", subtitle: "Camera bambini", desc: "Letto a castello su misura con scrivania, armadio e zona gioco integrati nella parete." },
   { img: projectOffice, title: "Città Studi, 9 mq", subtitle: "Home office", desc: "Studio professionale che scompare a fine giornata, restituendo l'ambiente alla vita domestica." },
 ];
@@ -302,7 +309,12 @@ function Projects() {
                     <div className="text-eyebrow text-muted-foreground mb-3">{p.subtitle}</div>
                     <h3 className="font-display text-2xl md:text-3xl mb-4 font-light italic leading-tight">{p.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed font-light">{p.desc}</p>
-                    <a href="#" className="inline-block mt-5 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
+                    <a
+                      href={p.link ?? "#"}
+                      target={p.link ? "_blank" : undefined}
+                      rel={p.link ? "noreferrer" : undefined}
+                      className="inline-block mt-5 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60"
+                    >
                       Scopri il progetto →
                     </a>
                   </div>
