@@ -798,6 +798,48 @@ function CTA() {
   );
 }
 
+function ShowroomSlideshow({ images, alt }: { images: string[]; alt: string }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {images.map((src, i) => (
+        <motion.img
+          key={src}
+          src={src}
+          alt={alt}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{
+            opacity: i === index ? 1 : 0,
+            scale: i === index ? 1 : 1.05,
+          }}
+          transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ))}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Vedi slide ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              i === index ? "w-8 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Contact() {
   return (
     <section id="contatti" className="bg-warm-cream text-foreground py-32 md:py-48 px-6 md:px-16">
