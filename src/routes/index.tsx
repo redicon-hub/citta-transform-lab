@@ -293,7 +293,12 @@ function Projects() {
                 Progetti <span className="italic">realizzati</span>
               </h2>
             </Reveal>
-            <a href="#" className="hidden md:inline-block text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60 transition">
+            <a
+              href="https://artigianiincitta.it/progetti-realizzati/"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden md:inline-block text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60 transition"
+            >
               Tutti i progetti →
             </a>
           </div>
