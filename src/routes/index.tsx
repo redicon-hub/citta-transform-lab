@@ -8,6 +8,7 @@ import heroBed from "@/assets/hero-bed.jpg";
 import craftsmanship from "@/assets/craftsmanship.jpg";
 import perchePhoto from "@/assets/perche-sceglierci.png";
 import projectCucina from "@/assets/cucina-salvaspazio-brera.webp.asset.json";
+import projectArmadio from "@/assets/armadio-muro-porta-romana.webp.asset.json";
 import projectStudio from "@/assets/project-studio.jpg";
 import projectChildren from "@/assets/project-children.jpg";
 import projectOffice from "@/assets/project-office.jpg";
@@ -264,7 +265,13 @@ const projects = [
     desc: "Una cucina attrezzata su misura che risolve tutto: contenimento, funzionalità e un’identità elegante per l’intero ambiente.",
     link: "https://artigianiincitta.it/progetti-realizzati/prima-e-dopo-cucina-angolare-salvaspazio-su-misura/",
   },
-  { img: projectChildren, title: "Porta Romana, 14 mq", subtitle: "Camera bambini", desc: "Letto a castello su misura con scrivania, armadio e zona gioco integrati nella parete." },
+  {
+    img: projectArmadio.url,
+    title: "Porta Romana, 28 mq",
+    subtitle: "Prima e dopo · Armadio a muro su misura",
+    desc: "Un armadio a muro su misura che trasforma una parete vuota in un sistema salvaspazio capiente, ordinato e di design.",
+    link: "https://artigianiincitta.it/progetti-realizzati/prima-e-dopo-progetto-armadio-a-muro-su-misura-salvaspazio/",
+  },
   { img: projectOffice, title: "Città Studi, 9 mq", subtitle: "Home office", desc: "Studio professionale che scompare a fine giornata, restituendo l'ambiente alla vita domestica." },
 ];
 
