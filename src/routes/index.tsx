@@ -594,13 +594,15 @@ function CTA() {
     <section id="appuntamento" className="bg-warm-cream text-foreground pt-6 md:pt-8 pb-20 md:pb-28 px-6 md:px-16">
       <div className="max-w-[1500px] mx-auto">
         <Reveal>
-          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-stretch">
-            {/* Colonna sinistra: foto */}
-            <div className="relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-full">
-              <img src={founders} alt="I fondatori di Artigiani in Città" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/90 to-transparent">
-                <div className="text-eyebrow text-white/70 mb-1 text-[10px]">Studio · Milano</div>
-                <div className="text-white font-display text-xl font-light">Ti rispondiamo di persona, sempre.</div>
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* Colonna sinistra: foto visibile senza tagli, ferma nello scroll desktop */}
+            <div className="lg:sticky lg:top-28 self-start">
+              <div className="relative overflow-hidden bg-warm-cream/40">
+                <img src={ritrattoDef2.url} alt="I fondatori di Artigiani in Città" className="w-full h-auto max-h-[680px] object-contain mx-auto" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent">
+                  <div className="text-eyebrow text-white/70 mb-1 text-[10px]">Studio · Milano</div>
+                  <div className="text-white font-display text-xl font-light">Ti rispondiamo di persona, sempre.</div>
+                </div>
               </div>
             </div>
 
