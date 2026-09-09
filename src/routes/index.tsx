@@ -313,21 +313,28 @@ function Projects() {
                   viewport={{ once: true }}
                   transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex justify-center p-4 md:p-6">
-                  <div className="bg-background w-full max-w-sm p-6 md:p-8 shadow-2xl text-center">
-                    <div className="text-eyebrow text-warm-clay mb-4">— Progetto {String(i + 1).padStart(2, "0")}</div>
-                    <div className="text-eyebrow text-muted-foreground mb-3">{p.subtitle}</div>
-                    <h3 className="font-display text-2xl md:text-3xl mb-4 font-light italic leading-tight">{p.title}</h3>
-                    <a
-                      href={p.link ?? "#"}
-                      target={p.link ? "_blank" : undefined}
-                      rel={p.link ? "noreferrer" : undefined}
-                      className="inline-block mt-5 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60"
-                    >
-                      Scopri il progetto →
-                    </a>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
+
+                {/* Cartiglio in alto */}
+                <div className="absolute inset-x-0 top-0 flex justify-center p-4 md:p-6">
+                  <div className="bg-background w-full max-w-sm p-5 md:p-6 shadow-2xl text-center">
+                    <div className="text-eyebrow text-warm-clay mb-3">— Progetto {String(i + 1).padStart(2, "0")}</div>
+                    <div className="text-eyebrow text-muted-foreground mb-2">{p.subtitle}</div>
+                    <h3 className="font-display text-2xl md:text-3xl font-light italic leading-tight">{p.title}</h3>
                   </div>
+                </div>
+
+                {/* Bottone in basso */}
+                <div className="absolute inset-x-0 bottom-0 flex justify-center p-4 md:p-6">
+                  <a
+                    href={p.link ?? "#"}
+                    target={p.link ? "_blank" : undefined}
+                    rel={p.link ? "noreferrer" : undefined}
+                    className="group/btn inline-flex items-center gap-3 bg-background/95 backdrop-blur px-6 py-3.5 text-[11px] tracking-[0.22em] uppercase border border-foreground/10 shadow-lg hover:bg-background hover:border-foreground/30 transition-all duration-500"
+                  >
+                    <span>Scopri il progetto</span>
+                    <span className="transition-transform duration-500 group-hover/btn:translate-x-1">→</span>
+                  </a>
                 </div>
               </div>
             </Reveal>
