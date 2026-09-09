@@ -287,20 +287,12 @@ function Projects() {
           <div className="md:col-span-3">
             <div className="text-eyebrow text-muted-foreground">— 03 Progetti realizzati</div>
           </div>
-          <div className="md:col-span-9 flex justify-between items-end">
+          <div className="md:col-span-9">
             <Reveal>
               <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-3xl">
                 Progetti <span className="italic">realizzati</span>
               </h2>
             </Reveal>
-            <a
-              href="https://artigianiincitta.it/progetti-realizzati/"
-              target="_blank"
-              rel="noreferrer"
-              className="hidden md:inline-block text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60 transition"
-            >
-              Tutti i progetti →
-            </a>
           </div>
         </div>
 
@@ -346,6 +338,20 @@ function Projects() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <div className="mt-16 md:mt-24 flex justify-center">
+            <Cta
+              href="https://artigianiincitta.it/progetti-realizzati/"
+              target="_blank"
+              rel="noreferrer"
+              tone="light"
+              variant="solid"
+            >
+              Visualizza tutti i progetti
+            </Cta>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
