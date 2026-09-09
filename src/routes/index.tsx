@@ -522,13 +522,14 @@ function Reviews() {
 }
 
 const collections = [
-  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti },
-  { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto },
-  { t: "Divani, pouff e poltrone", d: "Imbottiti su misura, tessuti selezionati.", img: catDivaniPouff },
-  { t: "Tavoli e consolle", d: "Allungabili e trasformabili, in legno massello.", img: catTavoli },
-  { t: "Cucine a scomparsa", d: "Blocchi cucina integrati dietro ante filomuro.", img: catCucine },
-  { t: "Bagni e lavanderie", d: "Mobili contenitori e zone lavaggio su misura.", img: catBagni },
+  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti, href: "https://artigianiincitta.it/milano/letti-a-scomparsa/" },
+  { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto, href: "https://artigianiincitta.it/milano/divani-letto/" },
+  { t: "Divani, pouff e poltrone", d: "Imbottiti su misura, tessuti selezionati.", img: catDivaniPouff, href: "https://artigianiincitta.it/milano/divani-poltrone-e-pouf/" },
+  { t: "Tavoli e consolle", d: "Allungabili e trasformabili, in legno massello.", img: catTavoli, href: "https://artigianiincitta.it/milano/tavoli-trasformabili/" },
+  { t: "Cucine a scomparsa", d: "Blocchi cucina integrati dietro ante filomuro.", img: catCucine, href: "https://artigianiincitta.it/milano/cucine/cucina-a-scomparsa/" },
+  { t: "Bagni e lavanderie", d: "Mobili contenitori e zone lavaggio su misura.", img: catBagni, href: "https://artigianiincitta.it/milano/bagni-e-lavanderie/" },
 ];
+
 
 function Catalog() {
   return (
