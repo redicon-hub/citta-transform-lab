@@ -855,21 +855,27 @@ function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-16 grid md:grid-cols-3 gap-px bg-border border border-border">
-            <a href="tel:+390239930866" className="bg-warm-cream p-8 md:p-10 hover:bg-background transition-colors group flex flex-col min-h-[220px]">
-              <div className="text-eyebrow text-muted-foreground mb-4">Telefono</div>
-              <div className="font-readable-numbers text-3xl md:text-4xl font-medium leading-[0.9] tracking-tight text-ink">02 39930866</div>
-              <div className="mt-auto pt-4 text-sm text-muted-foreground">Lun–Sab · 9:30 – 12:30  |  14:00 – 19:30</div>
+          <div className="mt-16 grid md:grid-cols-3 gap-px bg-border border border-border items-stretch">
+            <a href="tel:+390239930866" className="bg-warm-cream p-8 md:p-10 hover:bg-background transition-colors group flex flex-col justify-between h-full">
+              <div>
+                <div className="text-eyebrow text-muted-foreground mb-4">Telefono</div>
+                <div className="font-readable-numbers text-3xl md:text-4xl font-medium leading-[0.9] tracking-tight text-ink">02 39930866</div>
+              </div>
+              <div className="pt-4 text-sm text-muted-foreground">Lun–Sab · 9:30 – 12:30  |  14:00 – 19:30</div>
             </a>
-            <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer" className="bg-warm-cream p-8 md:p-10 hover:bg-background transition-colors group flex flex-col min-h-[220px]">
-              <div className="text-eyebrow text-muted-foreground mb-4">WhatsApp</div>
-              <div className="font-readable-numbers text-3xl md:text-4xl font-medium leading-[0.9] tracking-tight text-ink">347 5078626</div>
-              <div className="mt-auto pt-4 text-sm text-muted-foreground">Risposta entro 2 ore</div>
+            <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer" className="bg-warm-cream p-8 md:p-10 hover:bg-background transition-colors group flex flex-col justify-between h-full">
+              <div>
+                <div className="text-eyebrow text-muted-foreground mb-4">WhatsApp</div>
+                <div className="font-readable-numbers text-3xl md:text-4xl font-medium leading-[0.9] tracking-tight text-ink">347 5078626</div>
+              </div>
+              <div className="pt-4 text-sm text-muted-foreground">Risposta entro 2 ore</div>
             </a>
-            <a href="mailto:info@artigianiincitta.it" className="bg-warm-cream p-8 md:p-10 hover:bg-background transition-colors group flex flex-col min-h-[220px]">
-              <div className="text-eyebrow text-muted-foreground mb-4">Email</div>
-              <div className="font-readable-numbers text-3xl md:text-4xl font-medium leading-[0.9] tracking-tight text-ink break-words">info@artigianiincitta.it</div>
-              <div className="mt-auto pt-4 text-sm text-muted-foreground">Risposta in giornata</div>
+            <a href="mailto:info@artigianiincitta.it" className="bg-warm-cream p-8 md:p-10 hover:bg-background transition-colors group flex flex-col justify-between h-full">
+              <div>
+                <div className="text-eyebrow text-muted-foreground mb-4">Email</div>
+                <div className="font-readable-numbers text-3xl md:text-4xl font-medium leading-[0.9] tracking-tight text-ink break-all">info@artigianiincitta.it</div>
+              </div>
+              <div className="pt-4 text-sm text-muted-foreground">Risposta in giornata</div>
             </a>
           </div>
         </Reveal>
