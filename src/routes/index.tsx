@@ -250,12 +250,12 @@ function Manifesto() {
 }
 
 const problems = [
-  { n: "01", t: "Monolocali da 25 mq", d: "Spazi compatti che devono accogliere giorno, notte, lavoro e ricevere ospiti." },
-  { n: "02", t: "Camere multifunzione", d: "Stanze che cambiano funzione tra giorno e notte, tra lavoro e relax." },
-  { n: "03", t: "Stanze ospiti occasionali", d: "Ambienti che restano vuoti per mesi e devono trasformarsi in pochi gesti." },
-  { n: "04", t: "Home office discreti", d: "Postazioni di lavoro integrate nell'architettura, invisibili a fine giornata." },
-  { n: "05", t: "Camere bambini in evoluzione", d: "Spazi che crescono con loro: dal gioco allo studio, dal letto singolo al doppio." },
-  { n: "06", t: "Airbnb di alto livello", d: "Massimizzare la capienza senza sacrificare l'eleganza percepita dall'ospite." },
+  { n: "01", t: "Monolocali da 25 mq", d: "Spazi compatti che devono accogliere giorno, notte, lavoro e ricevere ospiti.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/" },
+  { n: "02", t: "Camere multifunzione", d: "Stanze che cambiano funzione tra giorno e notte, tra lavoro e relax.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/letti-a-scomparsa-con-divano/" },
+  { n: "03", t: "Stanze ospiti occasionali", d: "Ambienti che restano vuoti per mesi e devono trasformarsi in pochi gesti.", href: "https://artigianiincitta.it/milano/divani-letto/" },
+  { n: "04", t: "Home office discreti", d: "Postazioni di lavoro integrate nell'architettura, invisibili a fine giornata.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/letti-a-scomparsa-con-scrivania/" },
+  { n: "05", t: "Camere bambini in evoluzione", d: "Spazi che crescono con loro: dal gioco allo studio, dal letto singolo al doppio.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/camerette-salvaspazio/" },
+  { n: "06", t: "Airbnb di alto livello", d: "Massimizzare la capienza senza sacrificare l'eleganza percepita dall'ospite.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/letti-a-scomparsa-con-divano/" },
 ];
 
 const projects = [
