@@ -309,7 +309,12 @@ function Projects() {
                     <div className="text-eyebrow text-muted-foreground mb-3">{p.subtitle}</div>
                     <h3 className="font-display text-2xl md:text-3xl mb-4 font-light italic leading-tight">{p.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed font-light">{p.desc}</p>
-                    <a href="#" className="inline-block mt-5 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60">
+                    <a
+                      href={p.link ?? "#"}
+                      target={p.link ? "_blank" : undefined}
+                      rel={p.link ? "noreferrer" : undefined}
+                      className="inline-block mt-5 text-[11px] tracking-[0.22em] uppercase border-b border-foreground pb-1 hover:opacity-60"
+                    >
                       Scopri il progetto →
                     </a>
                   </div>
