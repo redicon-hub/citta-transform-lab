@@ -338,6 +338,20 @@ function Projects() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <div className="mt-16 md:mt-24 flex justify-center">
+            <Cta
+              href="https://artigianiincitta.it/progetti-realizzati/"
+              target="_blank"
+              rel="noreferrer"
+              tone="light"
+              variant="solid"
+            >
+              Visualizza tutti i progetti
+            </Cta>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
