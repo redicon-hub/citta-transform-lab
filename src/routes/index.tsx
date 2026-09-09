@@ -375,18 +375,23 @@ function Problems() {
         </div>
         <Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border-t border-l border-foreground/15 max-w-6xl mx-auto">
-            {problems.map((p) => (
-              <div
+          {problems.map((p) => (
+              <a
                 key={p.n}
-                className="relative border-r border-b border-foreground/15 p-6 md:p-8 group cursor-pointer overflow-hidden transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay/8 hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(120,70,40,0.18)] hover:z-10"
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                className="relative border-r border-b border-foreground/15 p-6 md:p-8 group cursor-pointer overflow-hidden transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay/[0.06] hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(120,70,40,0.18)] hover:z-10"
               >
                 <div className="mb-5 flex items-center gap-2 transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
                   <span className="block w-2 h-2 rounded-full bg-warm-clay" />
                   <span className="block h-px w-8 bg-warm-clay/60 transition-all duration-[900ms] group-hover:w-14" />
                 </div>
                 <h3 className="font-display text-xl md:text-2xl font-light leading-tight transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">{p.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground font-light leading-relaxed transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">{p.d}</p>
                 <div className="absolute bottom-0 left-0 h-px w-0 bg-warm-clay transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-              </div>
+                <span className="absolute bottom-5 right-5 text-warm-clay text-lg opacity-0 -translate-x-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true">→</span>
+              </a>
             ))}
           </div>
         </Reveal>
