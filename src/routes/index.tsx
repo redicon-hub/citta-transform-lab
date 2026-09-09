@@ -850,7 +850,8 @@ function Contact() {
             Tre modi per <span className="italic">iniziare</span>.
           </h2>
           <p className="mt-8 text-lg md:text-xl text-muted-foreground font-light max-w-2xl leading-relaxed">
-            Scrivici, chiamaci o passa in showroom. Rispondiamo sempre, di persona, entro poche ore.
+            Scrivici, chiamaci o prendi appuntamento.<br />
+            Rispondiamo sempre, di persona, entro poche ore.
           </p>
         </Reveal>
 
