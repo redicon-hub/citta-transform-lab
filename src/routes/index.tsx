@@ -77,7 +77,7 @@ function Nav() {
             <a href="mailto:info@artigianiincitta.it" className="flex items-center gap-2 hover:opacity-60 transition"><Mail className="w-3 h-3" /><span>info@artigianiincitta.it</span></a>
           </div>
           <div className="flex items-center gap-4 opacity-90">
-            <a href="#" aria-label="Instagram" className="hover:opacity-60 transition"><Instagram className="w-3.5 h-3.5" /></a>
+            <a href="https://www.instagram.com/artigianiincitta.it/" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:opacity-60 transition"><Instagram className="w-3.5 h-3.5" /></a>
             <a href="#" aria-label="Facebook" className="hover:opacity-60 transition"><Facebook className="w-3.5 h-3.5" /></a>
             <a href="#" aria-label="YouTube" className="hover:opacity-60 transition"><Youtube className="w-3.5 h-3.5" /></a>
             <span className="opacity-40">|</span>
@@ -1028,7 +1028,7 @@ function Footer() {
               e produciamo arredi salvaspazio su misura, con falegnameria interna a Milano.
             </p>
             <div className="mt-8 flex items-center gap-4">
-              <a href="https://instagram.com" aria-label="Instagram" className="w-10 h-10 border border-white/15 flex items-center justify-center hover:border-warm-clay hover:text-warm-clay transition-colors">
+              <a href="https://www.instagram.com/artigianiincitta.it/" target="_blank" rel="noreferrer" aria-label="Instagram" className="w-10 h-10 border border-white/15 flex items-center justify-center hover:border-warm-clay hover:text-warm-clay transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
               <a href="https://facebook.com" aria-label="Facebook" className="w-10 h-10 border border-white/15 flex items-center justify-center hover:border-warm-clay hover:text-warm-clay transition-colors">
@@ -1101,7 +1101,7 @@ function Footer() {
         {/* Divider + bottom bar */}
         <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="text-xs text-white/40 font-light">
-            © {new Date().getFullYear()} Artigiani in Città · P.IVA 00000000000 · Tutti i diritti riservati
+            © {new Date().getFullYear()} Artigiani in Città · C.F. / P.iva 08929640962 · Tutti i diritti riservati
           </div>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-xs font-light">
             <a href="#" className="text-white/50 hover:text-warm-clay transition-colors">Privacy Policy</a>
