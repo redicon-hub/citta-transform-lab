@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, Menu } from "lucide-react";
+import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, Menu, X, CalendarDays, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
 import heroBed from "@/assets/hero-bed.jpg";
@@ -38,13 +39,31 @@ export const Route = createFileRoute("/")({
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearch, setMobileSearch] = useState("");
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+  const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const query = mobileSearch.trim();
+    if (!query) return;
+    window.location.href = `https://artigianiincitta.it/?s=${encodeURIComponent(query)}&post_type=product`;
+  };
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-md border-b border-border/40 text-foreground" : "bg-transparent text-white"}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-md border-b border-border/40 text-foreground" : "bg-background text-foreground md:bg-transparent md:text-white"}`}>
       {/* Top utility bar */}
       <div className={`hidden md:block border-b transition-colors ${scrolled ? "border-border/40 bg-background/60" : "border-white/15 bg-black/20"}`}>
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 h-9 flex items-center justify-between text-[11px] tracking-[0.14em] uppercase">
@@ -68,9 +87,9 @@ function Nav() {
       </div>
 
       {/* Main bar */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 py-4 md:py-5 flex items-center gap-6">
+      <div className="max-w-[1600px] mx-auto px-4 md:px-12 py-3 md:py-5 grid grid-cols-[minmax(0,1fr)_auto] md:flex items-center gap-3 md:gap-6">
         <a href="/" className="flex items-center gap-3 shrink-0">
-          <img src={logo} alt="Artigiani in Città" className={`h-10 md:h-14 transition-all ${scrolled ? "" : "invert brightness-0"}`} />
+          <img src={logo} alt="Artigiani in Città" className={`h-9 md:h-14 max-w-full transition-all ${scrolled ? "" : "md:invert md:brightness-0"}`} />
         </a>
 
         <nav className={`hidden lg:flex items-center gap-8 text-[12px] tracking-[0.18em] uppercase ml-6`}>
@@ -93,16 +112,78 @@ function Nav() {
         </form>
 
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
-          <a href="#appuntamento" className={`inline-flex text-[10px] md:text-[11px] tracking-[0.18em] md:tracking-[0.22em] uppercase px-3 md:px-5 py-2.5 md:py-3 transition bg-warm-clay text-white border border-warm-clay hover:bg-warm-clay/90 whitespace-nowrap`}>
+          <a href="https://artigianiincitta.it/shop/" className="md:hidden inline-flex h-10 items-center justify-center bg-ink px-3 text-[10px] font-medium uppercase tracking-[0.12em] text-warm-cream">
+            Shop online
+          </a>
+          <a href="#appuntamento" className={`hidden md:inline-flex text-[10px] md:text-[11px] tracking-[0.18em] md:tracking-[0.22em] uppercase px-3 md:px-5 py-2.5 md:py-3 transition bg-warm-clay text-white border border-warm-clay hover:bg-warm-clay/90 whitespace-nowrap`}>
             Prenota consulenza
           </a>
-          <button aria-label="Carrello" className={`relative h-10 w-10 inline-flex items-center justify-center rounded-full border transition ${scrolled ? "border-border hover:bg-foreground hover:text-background" : "border-white/40 hover:bg-white hover:text-foreground"}`}>
+          <Button asChild variant="outline" size="icon" className={`hidden md:inline-flex relative h-10 w-10 rounded-full bg-transparent ${scrolled ? "border-border hover:bg-foreground hover:text-background" : "border-white/40 hover:bg-white hover:text-foreground"}`}>
+            <a href="https://artigianiincitta.it/carrello/" aria-label="Carrello">
             <ShoppingBag className="w-4 h-4" />
             <span className="absolute -top-1 -right-1 h-4 min-w-4 px-1 rounded-full bg-warm-clay text-white text-[9px] font-medium flex items-center justify-center">0</span>
-          </button>
-          <button aria-label="Menu" className={`lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border ${scrolled ? "border-border" : "border-white/40"}`}>
-            <Menu className="w-4 h-4" />
-          </button>
+            </a>
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="lg:hidden h-10 w-10 rounded-sm border-border bg-secondary text-ink hover:bg-warm-stone/30"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </Button>
+        </div>
+      </div>
+
+      <div className="md:hidden border-t border-border bg-secondary px-4 py-3">
+        <form onSubmit={submitSearch} className="grid grid-cols-[minmax(0,1fr)_44px] overflow-hidden border border-border bg-background shadow-sm">
+          <label htmlFor="mobile-product-search" className="sr-only">Cerca prodotti</label>
+          <input
+            id="mobile-product-search"
+            type="search"
+            value={mobileSearch}
+            onChange={(event) => setMobileSearch(event.target.value)}
+            placeholder="Cerca prodotti e soluzioni…"
+            className="min-w-0 bg-transparent px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground"
+          />
+          <Button type="submit" size="icon" className="h-full w-11 rounded-none bg-ink text-warm-cream hover:bg-warm-clay" aria-label="Avvia ricerca">
+            <Search className="h-5 w-5" />
+          </Button>
+        </form>
+      </div>
+
+      <div className={`md:hidden fixed inset-x-0 top-[125px] bottom-0 z-50 bg-background transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
+        <div className="h-full overflow-y-auto px-6 py-8 flex flex-col">
+          <nav aria-label="Navigazione mobile" className="border-t border-border">
+            {[
+              ["Progetti", "#progetti"],
+              ["Contatti", "#contatti"],
+              ["Catalogo", "#catalogo"],
+              ["Consulenza", "#appuntamento"],
+            ].map(([label, href]) => (
+              <a key={label} href={href} onClick={closeMobileMenu} className="group grid grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border py-5 text-xl font-display">
+                <span>{label}</span>
+                <ArrowRight className="h-4 w-4 text-warm-clay transition-transform group-hover:translate-x-1" />
+              </a>
+            ))}
+          </nav>
+
+          <div className="mt-auto pt-8 space-y-3">
+            <a href="https://artigianiincitta.it/shop/" className="flex min-h-14 items-center justify-between bg-ink px-5 text-sm uppercase tracking-[0.16em] text-warm-cream">
+              <span>Visita lo shop online</span>
+              <ShoppingBag className="h-5 w-5" />
+            </a>
+            <a href="#appuntamento" onClick={closeMobileMenu} className="flex min-h-16 items-center justify-between bg-warm-clay px-5 text-warm-cream">
+              <span>
+                <small className="block text-[10px] uppercase tracking-[0.18em] opacity-80">Parla con un esperto</small>
+                <strong className="mt-1 block text-base font-medium">Prenota consulenza</strong>
+              </span>
+              <CalendarDays className="h-6 w-6" />
+            </a>
+          </div>
         </div>
       </div>
     </header>
