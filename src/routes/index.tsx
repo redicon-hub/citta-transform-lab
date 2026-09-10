@@ -86,10 +86,58 @@ function Nav() {
         </div>
       </div>
 
-      {/* Main bar */}
-      <div className="max-w-[1600px] mx-auto px-4 md:px-12 py-3 md:py-5 grid grid-cols-[minmax(0,1fr)_auto] md:flex items-center gap-3 md:gap-6">
-        <a href="/" className="flex items-center gap-3 shrink-0">
-          <img src={logo} alt="Artigiani in Città" className={`h-9 md:h-14 max-w-full transition-all ${scrolled ? "" : "md:invert md:brightness-0"}`} />
+      {/* Mobile editorial bar */}
+      <div className="md:hidden border-b border-border/50 bg-background px-5 pb-4 pt-3 shadow-sm">
+        <div className="grid h-11 grid-cols-[44px_minmax(0,1fr)_auto] items-center gap-3">
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="group h-11 w-11 rounded-full text-ink hover:bg-secondary"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <span className="flex w-7 flex-col items-start gap-1.5" aria-hidden="true">
+                <span className="h-px w-7 bg-current transition-all duration-300 group-hover:w-5" />
+                <span className="h-px w-5 bg-current transition-all duration-300 group-hover:w-7" />
+              </span>
+            )}
+          </Button>
+
+          <a href="/" className="flex min-w-0 justify-center" aria-label="Artigiani in Città — Home">
+            <img src={logo} alt="Artigiani in Città" className="h-10 w-auto max-w-full" />
+          </a>
+
+          <a href="https://artigianiincitta.it/shop/" className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-ink px-3 text-[9px] font-medium uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-warm-cream">
+            Shop online
+          </a>
+        </div>
+
+        <form onSubmit={submitSearch} className="mt-3 grid h-12 grid-cols-[auto_minmax(0,1fr)_40px] items-center rounded-full border border-border bg-muted/65 p-1 pl-4 transition-all duration-300 focus-within:border-warm-clay focus-within:bg-background focus-within:shadow-sm">
+          <Search className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+          <label htmlFor="mobile-product-search" className="sr-only">Cerca prodotti</label>
+          <input
+            id="mobile-product-search"
+            type="search"
+            value={mobileSearch}
+            onChange={(event) => setMobileSearch(event.target.value)}
+            placeholder="Cerca prodotti e soluzioni…"
+            className="min-w-0 bg-transparent px-3 text-sm font-light text-foreground outline-none placeholder:text-muted-foreground"
+          />
+          <Button type="submit" size="icon" className="h-10 w-10 rounded-full bg-ink text-warm-cream hover:bg-warm-clay" aria-label="Avvia ricerca">
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+        </form>
+      </div>
+
+      {/* Desktop main bar */}
+      <div className="mx-auto hidden max-w-[1600px] items-center gap-6 px-12 py-5 md:flex">
+        <a href="/" className="flex shrink-0 items-center gap-3">
+          <img src={logo} alt="Artigiani in Città" className={`h-14 max-w-full transition-all ${scrolled ? "" : "invert brightness-0"}`} />
         </a>
 
         <nav className={`hidden lg:flex items-center gap-8 text-[12px] tracking-[0.18em] uppercase ml-6`}>
@@ -111,52 +159,21 @@ function Nav() {
           />
         </form>
 
-        <div className="flex items-center gap-2 md:gap-3 shrink-0">
-          <a href="https://artigianiincitta.it/shop/" className="md:hidden inline-flex h-10 items-center justify-center bg-ink px-3 text-[10px] font-medium uppercase tracking-[0.12em] text-warm-cream">
-            Shop online
-          </a>
-          <a href="#appuntamento" className={`hidden md:inline-flex text-[10px] md:text-[11px] tracking-[0.18em] md:tracking-[0.22em] uppercase px-3 md:px-5 py-2.5 md:py-3 transition bg-warm-clay text-white border border-warm-clay hover:bg-warm-clay/90 whitespace-nowrap`}>
+        <div className="flex shrink-0 items-center gap-3">
+          <a href="#appuntamento" className="inline-flex whitespace-nowrap border border-warm-clay bg-warm-clay px-5 py-3 text-[11px] uppercase tracking-[0.22em] text-primary-foreground transition hover:bg-warm-clay/90">
             Prenota consulenza
           </a>
-          <Button asChild variant="outline" size="icon" className={`hidden md:inline-flex relative h-10 w-10 rounded-full bg-transparent ${scrolled ? "border-border hover:bg-foreground hover:text-background" : "border-white/40 hover:bg-white hover:text-foreground"}`}>
+          <Button asChild variant="outline" size="icon" className={`relative h-10 w-10 rounded-full bg-transparent ${scrolled ? "border-border hover:bg-foreground hover:text-background" : "border-white/40 hover:bg-primary-foreground hover:text-foreground"}`}>
             <a href="https://artigianiincitta.it/carrello/" aria-label="Carrello">
             <ShoppingBag className="w-4 h-4" />
-            <span className="absolute -top-1 -right-1 h-4 min-w-4 px-1 rounded-full bg-warm-clay text-white text-[9px] font-medium flex items-center justify-center">0</span>
+            <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-warm-clay px-1 text-[9px] font-medium text-primary-foreground">0</span>
             </a>
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            size="icon"
-            aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"}
-            aria-expanded={mobileMenuOpen}
-            onClick={() => setMobileMenuOpen((open) => !open)}
-            className="lg:hidden h-10 w-10 rounded-sm border-border bg-secondary text-ink hover:bg-warm-stone/30"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
         </div>
       </div>
 
-      <div className="md:hidden border-t border-border bg-secondary px-4 py-3">
-        <form onSubmit={submitSearch} className="grid grid-cols-[minmax(0,1fr)_44px] overflow-hidden border border-border bg-background shadow-sm">
-          <label htmlFor="mobile-product-search" className="sr-only">Cerca prodotti</label>
-          <input
-            id="mobile-product-search"
-            type="search"
-            value={mobileSearch}
-            onChange={(event) => setMobileSearch(event.target.value)}
-            placeholder="Cerca prodotti e soluzioni…"
-            className="min-w-0 bg-transparent px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground"
-          />
-          <Button type="submit" size="icon" className="h-full w-11 rounded-none bg-ink text-warm-cream hover:bg-warm-clay" aria-label="Avvia ricerca">
-            <Search className="h-5 w-5" />
-          </Button>
-        </form>
-      </div>
-
-      <div className={`md:hidden fixed inset-x-0 top-[125px] bottom-0 z-50 bg-background transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
-        <div className="h-full overflow-y-auto px-6 py-8 flex flex-col">
+      <div className={`absolute inset-x-0 top-full z-50 h-[calc(100dvh-128px)] border-t border-border/50 bg-background/98 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
+        <div className="flex h-full flex-col overflow-y-auto px-6 py-7">
           <nav aria-label="Navigazione mobile" className="border-t border-border">
             {[
               ["Progetti", "#progetti"],
@@ -164,7 +181,7 @@ function Nav() {
               ["Catalogo", "#catalogo"],
               ["Consulenza", "#appuntamento"],
             ].map(([label, href]) => (
-              <a key={label} href={href} onClick={closeMobileMenu} className="group grid grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border py-5 text-xl font-display">
+              <a key={label} href={href} onClick={closeMobileMenu} className="group grid grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border py-5 font-display text-2xl transition-colors hover:text-warm-clay">
                 <span>{label}</span>
                 <ArrowRight className="h-4 w-4 text-warm-clay transition-transform group-hover:translate-x-1" />
               </a>
@@ -172,11 +189,11 @@ function Nav() {
           </nav>
 
           <div className="mt-auto pt-8 space-y-3">
-            <a href="https://artigianiincitta.it/shop/" className="flex min-h-14 items-center justify-between bg-ink px-5 text-sm uppercase tracking-[0.16em] text-warm-cream">
+            <a href="https://artigianiincitta.it/shop/" className="flex min-h-14 items-center justify-between rounded-full bg-ink px-6 text-sm uppercase tracking-[0.16em] text-warm-cream transition-colors hover:bg-warm-clay">
               <span>Visita lo shop online</span>
               <ShoppingBag className="h-5 w-5" />
             </a>
-            <a href="#appuntamento" onClick={closeMobileMenu} className="flex min-h-16 items-center justify-between bg-warm-clay px-5 text-warm-cream">
+            <a href="#appuntamento" onClick={closeMobileMenu} className="flex min-h-16 items-center justify-between rounded-full bg-warm-clay px-6 text-primary-foreground transition-colors hover:bg-ink">
               <span>
                 <small className="block text-[10px] uppercase tracking-[0.18em] opacity-80">Parla con un esperto</small>
                 <strong className="mt-1 block text-base font-medium">Prenota consulenza</strong>
