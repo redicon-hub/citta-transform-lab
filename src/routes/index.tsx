@@ -77,7 +77,7 @@ function Nav() {
             <a href="mailto:info@artigianiincitta.it" className="flex items-center gap-2 hover:opacity-60 transition"><Mail className="w-3 h-3" /><span>info@artigianiincitta.it</span></a>
           </div>
           <div className="flex items-center gap-4 opacity-90">
-            <a href="#" aria-label="Instagram" className="hover:opacity-60 transition"><Instagram className="w-3.5 h-3.5" /></a>
+            <a href="https://www.instagram.com/artigianiincitta.it/" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:opacity-60 transition"><Instagram className="w-3.5 h-3.5" /></a>
             <a href="#" aria-label="Facebook" className="hover:opacity-60 transition"><Facebook className="w-3.5 h-3.5" /></a>
             <a href="#" aria-label="YouTube" className="hover:opacity-60 transition"><Youtube className="w-3.5 h-3.5" /></a>
             <span className="opacity-40">|</span>
