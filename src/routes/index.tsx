@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, Menu, X, CalendarDays, ArrowRight } from "lucide-react";
+import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
@@ -172,7 +172,7 @@ function Nav() {
         </div>
       </div>
 
-      <div className={`absolute inset-x-0 top-full z-50 h-[calc(100dvh-128px)] border-t border-border/50 bg-background/98 backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
+      <div className={`absolute inset-x-0 top-full z-50 h-[calc(100dvh-128px)] border-t border-border/50 bg-background transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
         <div className="flex h-full flex-col overflow-y-auto px-6 py-7">
           <nav aria-label="Navigazione mobile" className="border-t border-border">
             {[
