@@ -116,7 +116,7 @@ function Nav() {
             <img src={logo} alt="Artigiani in Città" className="h-10 w-auto max-w-full" />
           </a>
 
-          <a href="https://artigianiincitta.it/shop/" className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-ink px-3 text-[9px] font-medium uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-warm-cream">
+          <a href="https://artigianiincitta.it/shop/" className="inline-flex h-9 shrink-0 items-center justify-center rounded-full border border-ink bg-ink px-3 text-[9px] font-medium uppercase tracking-[0.12em] text-warm-cream transition-colors hover:border-warm-clay hover:bg-warm-clay">
             Shop online
           </a>
         </div>
