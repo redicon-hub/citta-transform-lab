@@ -700,6 +700,7 @@ function Reviews() {
               </a>
             </Reveal>
           </div>
+        </div>
       </div>
     </section>
   );
