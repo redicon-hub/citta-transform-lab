@@ -215,6 +215,12 @@
   #catalogo { order: 7; }
   #contatti { order: 8; }
   .home-sections h2 { font-size: 32px; letter-spacing: 0; }
+  .home-sections div, .home-sections form { min-width: 0; }
+  .home-sections input, .home-sections select, .home-sections textarea { min-width: 0; max-width: 100%; }
+  .home-sections button, .home-sections a { overflow-wrap: anywhere; }
+  .home-sections section:not(.mobile-hero) div[style*="opacity"] { opacity: 1 !important; transform: none !important; }
+  #appuntamento form, #contatti form { width: 100%; }
+  #appuntamento form button, #contatti form button { padding-left: 16px; padding-right: 16px; letter-spacing: 0; }
   .home-sections .text-eyebrow { letter-spacing: 0; }
   #progetti > div > div:first-child,
   #problemi > div > div:first-child,
@@ -231,6 +237,7 @@
   #appuntamento h2 { white-space: normal; }
   #catalogo a > div:last-child { padding: 24px; }
   #catalogo a p { margin-bottom: 20px; }
+  #contatti form { padding: 24px; }
   body:has(.home-sections) { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
   .mobile-contact-bar { padding-bottom: env(safe-area-inset-bottom); }
 }
