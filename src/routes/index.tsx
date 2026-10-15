@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, MessageCircle, MapPin } from "lucide-react";
+import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
