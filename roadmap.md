@@ -1,5 +1,7 @@
 # Mobile attention revision
 - [x] Make the mobile contact bar more visible with four actions: phone, WhatsApp, appointment form and showroom directions.
+- [x] Keep the mobile contact bar always visible, with recognisable brand colors: call green, WhatsApp green, Gmail icon, Google Maps pin.
+- [x] Show a single highlighted review with an immediate link to read the others on Google.
 - [x] Make the mobile search field more visible with a defined border and fill.
 - [x] Shorten the mobile opening and anticipate projects without changing desktop.
 - [x] Add clear mobile navigation and direct phone/WhatsApp access.
