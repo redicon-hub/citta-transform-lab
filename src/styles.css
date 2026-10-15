@@ -208,11 +208,11 @@
   .mobile-hero img { animation: none; }
   #progetti { order: 1; }
   #perche { order: 2; padding-top: 0; padding-bottom: 0; }
-  #testimonianze { order: 3; }
-  #manifesto { order: 4; }
-  #problemi { order: 5; }
-  #appuntamento { order: 6; }
-  #catalogo { order: 7; }
+  #catalogo { order: 3; }
+  #testimonianze { order: 4; }
+  #manifesto { order: 5; }
+  #problemi { order: 6; }
+  #appuntamento { order: 7; }
   #contatti { order: 8; }
   .home-sections h2 { font-size: 32px; letter-spacing: 0; }
   .home-sections div, .home-sections form { min-width: 0; }
