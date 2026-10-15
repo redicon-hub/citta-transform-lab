@@ -180,12 +180,13 @@ function Nav() {
         <div className="flex h-full flex-col overflow-y-auto px-6 py-7">
           <nav aria-label="Navigazione mobile" className="border-t border-border">
             {[
+              ["Letti a scomparsa", "https://artigianiincitta.it/milano/letti-a-scomparsa/"],
               ["Soluzioni / Catalogo", "#catalogo"],
               ["Progetti", "#progetti"],
               ["Chi siamo", "#perche"],
               ["Contatti", "#contatti"],
             ].map(([label, href]) => (
-              <a key={label} href={href} onClick={closeMobileMenu} className="group grid grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border py-5 font-display text-2xl transition-colors hover:text-warm-clay">
+              <a key={label} href={href} onClick={closeMobileMenu} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} className="group grid grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border py-5 font-display text-2xl transition-colors hover:text-warm-clay">
                 <span>{label}</span>
                 <ArrowRight className="h-4 w-4 text-warm-clay transition-transform group-hover:translate-x-1" />
               </a>
@@ -774,8 +775,11 @@ function Catalog() {
           {collections.map((c, i) => (
             <Reveal key={c.t} delay={i * 0.08}>
               <a href={c.href} target="_blank" rel="noreferrer" className="block bg-background border border-border h-full group hover:border-foreground transition-colors duration-500 overflow-hidden">
-                <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+                <div className={`relative overflow-hidden bg-secondary ${i === 0 ? "aspect-[3/2] md:aspect-[4/3]" : "aspect-[4/3]"}`}>
                   <img src={c.img} alt={c.t} loading="lazy" width={1280} height={960} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                  {i === 0 && (
+                    <span className="absolute left-4 top-4 bg-warm-clay px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-warm-cream md:hidden">La più richiesta</span>
+                  )}
                 </div>
                 <div className="p-10">
                   <h3 className="font-display text-3xl md:text-4xl font-light mb-4">{c.t}</h3>
