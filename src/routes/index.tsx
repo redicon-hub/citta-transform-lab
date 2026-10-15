@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, MessageCircle, MapPin } from "lucide-react";
+import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
@@ -672,33 +672,34 @@ function Reviews() {
             </Reveal>
           </div>
 
-          {/* Recensioni */}
-          <div className="md:col-span-9 grid md:grid-cols-3 gap-6 md:gap-8">
-            {reviews.map((r, i) => (
-              <Reveal key={r.n} delay={i * 0.1}>
-                <div className="h-full bg-background border border-border p-7 flex flex-col transition-all duration-500 hover:shadow-[0_20px_50px_-30px_rgba(0,0,0,0.35)] hover:-translate-y-1">
-                  <div className="flex items-start gap-4">
-                    <span className="shrink-0 w-11 h-11 rounded-full bg-warm-stone/40 text-foreground flex items-center justify-center font-medium">
-                      {r.i}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-medium text-sm truncate">{r.n}</div>
-                      <div className="text-xs text-muted-foreground font-light mt-0.5">{r.w}</div>
-                    </div>
-                    <GoogleG className="w-5 h-5 shrink-0 mt-1" />
+          {/* Recensione in evidenza */}
+          <div className="md:col-span-9">
+            <Reveal>
+              <div className="bg-background border border-border p-7 md:p-10">
+                <div className="flex items-start gap-4">
+                  <span className="shrink-0 w-11 h-11 rounded-full bg-warm-stone/40 text-foreground flex items-center justify-center font-medium">
+                    {reviews[0].i}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-sm md:text-base truncate">{reviews[0].n}</div>
+                    <div className="text-xs text-muted-foreground font-light mt-0.5">{reviews[0].w}</div>
                   </div>
-                  <Stars className="text-lg mt-5" />
-                  <p className="text-sm md:text-base font-light leading-relaxed mt-4 flex-1">{r.t}</p>
+                  <GoogleG className="w-5 h-5 shrink-0 mt-1" />
                 </div>
-              </Reveal>
-            ))}
+                <Stars className="text-lg mt-5" />
+                <p className="text-base md:text-lg font-light leading-relaxed mt-4">{reviews[0].t}</p>
+              </div>
+              <a
+                href={GOOGLE_REVIEWS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm md:text-base font-medium underline decoration-warm-clay decoration-2 underline-offset-4 hover:opacity-70 transition-opacity"
+              >
+                Leggi le altre 293 recensioni su Google
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </a>
+            </Reveal>
           </div>
-        </div>
-
-        <div className="mt-14 md:mt-20 flex justify-center">
-          <Cta href={GOOGLE_REVIEWS_URL} target="_blank" rel="noreferrer">
-            Leggi le nostre recensioni
-          </Cta>
         </div>
       </div>
     </section>
@@ -1171,27 +1172,38 @@ function Home() {
 }
 
 function MobileContactBar() {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const update = () => setVisible(window.scrollY > 400);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-  if (!visible) return null;
   return (
-    <nav aria-label="Contatti rapidi" className="mobile-contact-bar fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-warm-clay bg-ink text-primary-foreground md:hidden">
-      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none border-r border-primary-foreground/20 px-1 text-[11px] text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground [&_svg]:size-5">
+    <nav aria-label="Contatti rapidi" className="mobile-contact-bar fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 md:hidden">
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-1.5 rounded-none bg-[#1BA05B] px-1 text-[11px] font-medium text-white hover:bg-[#169150] hover:text-white [&_svg]:size-5">
         <a href="tel:+390239930866"><Phone aria-hidden="true" />Chiama</a>
       </Button>
-      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none border-r border-primary-foreground/20 px-1 text-[11px] text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground [&_svg]:size-5">
-        <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" />WhatsApp</a>
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-1.5 rounded-none bg-[#25D366] px-1 text-[11px] font-medium text-white hover:bg-[#1fc25b] hover:text-white [&_svg]:size-5">
+        <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+          WhatsApp
+        </a>
       </Button>
-      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none bg-warm-clay px-1 text-[11px] text-primary-foreground hover:bg-warm-clay/90 hover:text-primary-foreground [&_svg]:size-5">
-        <a href="#appuntamento" aria-label="Appuntamento: apri il modulo"><CalendarDays aria-hidden="true" />Prenota</a>
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-1.5 rounded-none border-l border-ink/10 bg-white px-1 text-[11px] font-medium text-ink hover:bg-warm-cream hover:text-ink [&_svg]:size-5">
+        <a href="mailto:info@artigianiincitta.it">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285F4" d="M1.8 19.3V5.6h3.4v13.7z" />
+            <path fill="#34A853" d="M18.8 5.6h3.4v13.7h-3.4z" />
+            <path fill="#FBBC05" d="M5.2 9.2 12 16.2 5.2 19.3z" />
+            <path fill="#EA4335" d="M1.8 5.6 12 12.6 22.2 5.6v3.6L12 16.2 1.8 9.2z" />
+          </svg>
+          Email
+        </a>
       </Button>
-      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none px-1 text-[11px] text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground [&_svg]:size-5">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Viale+Italia+10%2C+20094+Corsico+MI%2C+Italia" target="_blank" rel="noreferrer" aria-label="Indicazioni stradali per lo showroom"><MapPin aria-hidden="true" />Indicazioni</a>
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-1.5 rounded-none border-l border-ink/10 bg-white px-1 text-[11px] font-medium text-ink hover:bg-warm-cream hover:text-ink [&_svg]:size-5">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Viale+Italia+10%2C+20094+Corsico+MI%2C+Italia" target="_blank" rel="noreferrer" aria-label="Indicazioni stradali per lo showroom">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#1A73E8" d="M12 9.5 4 9.5C4 13.6 7.8 18 12 22z" />
+            <path fill="#EA4335" d="M12 9.5V1.5A8 8 0 0 0 4 9.5z" />
+            <path fill="#34A853" d="M12 9.5V1.5a8 8 0 0 1 8 8c0 4.1-3.8 8.5-8 12.5z" />
+            <circle cx="12" cy="9.5" r="3.2" fill="#fff" />
+          </svg>
+          Indicazioni
+        </a>
       </Button>
     </nav>
   );
