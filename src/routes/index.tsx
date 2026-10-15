@@ -723,12 +723,12 @@ function Reviews() {
                 href={GOOGLE_REVIEWS_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group mt-6 inline-flex w-full sm:w-auto sm:flex-col items-center sm:items-start justify-between sm:justify-start gap-4 sm:gap-3 bg-ink text-warm-cream px-6 md:px-8 py-5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay"
+                className="group mt-6 inline-flex w-full sm:w-auto items-center justify-between gap-4 sm:gap-6 bg-ink text-warm-cream px-6 md:px-8 py-5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay"
               >
                 <span className="flex items-center gap-4">
                   <GoogleG className="w-6 h-6 shrink-0" />
                   <span className="text-left">
-                    <span className="block text-[12px] tracking-[0.22em] uppercase">Leggi le altre 293 recensioni</span>
+                    <span className="block text-[11px] sm:text-[12px] tracking-[0.12em] sm:tracking-[0.22em] uppercase whitespace-nowrap">Leggi le altre 293 recensioni</span>
                     <span className="block text-xs font-light text-warm-cream/65 mt-1.5">Verificate su Google · 4,5 su 5</span>
                   </span>
                 </span>
