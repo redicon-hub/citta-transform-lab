@@ -1,6 +1,8 @@
 # Mobile attention revision
 - [x] Show only the first reason in "Cinque ragioni solide", with an inviting accordion for the other four.
 - [x] Turn the "read all reviews" line into a convincing button.
+- [x] Bring the technical catalog earlier in the mobile scroll and feature the most searched solution.
+- [x] Add a direct "Letti a scomparsa" link to the mobile menu.
 - [x] Make the mobile contact bar more visible with four actions: phone, WhatsApp, appointment form and showroom directions.
 - [x] Keep the mobile contact bar always visible, with recognisable brand colors: call green, WhatsApp green, Gmail icon, Google Maps pin.
 - [x] Use the original WhatsApp, Gmail and Google Maps marks, four clearly distinct button colors and slightly larger icons; the call button uses the lighter tortora.
