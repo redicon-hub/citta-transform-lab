@@ -1174,7 +1174,7 @@ function Home() {
 function MobileContactBar() {
   return (
     <nav aria-label="Contatti rapidi" className="mobile-contact-bar fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 md:hidden">
-      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-1.5 rounded-none bg-warm-clay px-1 text-[11px] font-medium text-white hover:bg-warm-clay/90 hover:text-white">
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-1.5 rounded-none bg-warm-stone px-1 text-[11px] font-medium text-ink hover:bg-warm-stone/85 hover:text-ink">
         <a href="tel:+390239930866">
           <Phone style={{ width: 26, height: 26 }} aria-hidden="true" />
           Chiama
