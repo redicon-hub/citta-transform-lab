@@ -533,6 +533,14 @@ function Problems() {
   );
 }
 
+const reasons = [
+  { n: "01", t: "Falegnameria dal 1977", d: "Quasi cinquant'anni di mestiere e tre generazioni di artigiani." },
+  { n: "02", t: "Shop online da 15 anni", d: "Pionieri dell'arredo su misura in rete, dal 2011." },
+  { n: "03", t: "600 mq di showroom", d: "Materiali, finiture e progetti da toccare con mano." },
+  { n: "04", t: "Consulenza reale", d: "Architetti e artigiani al tuo fianco, non venditori." },
+  { n: "05", t: "Consegna in tutta Europa", d: "Logistica e installazione gestite direttamente da noi." },
+];
+
 function Craftsmanship() {
   return (
     <section id="perche" className="relative bg-ink text-white overflow-hidden">
