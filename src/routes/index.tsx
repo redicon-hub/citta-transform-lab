@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight } from "lucide-react";
+import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
@@ -97,6 +97,7 @@ function Nav() {
             size="icon"
             aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-panel"
             onClick={() => setMobileMenuOpen((open) => !open)}
             className="group h-11 w-11 rounded-full text-ink hover:bg-secondary"
           >
@@ -174,14 +175,14 @@ function Nav() {
         </div>
       </div>
 
-      <div className={`absolute inset-x-0 top-full z-50 h-[calc(100dvh-128px)] border-t border-border/50 bg-background transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
+      <div id="mobile-navigation-panel" className={`absolute inset-x-0 top-full z-50 h-[calc(100dvh-133px)] border-t border-border/50 bg-background transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:hidden ${mobileMenuOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0 pointer-events-none"}`}>
         <div className="flex h-full flex-col overflow-y-auto px-6 py-7">
           <nav aria-label="Navigazione mobile" className="border-t border-border">
             {[
+              ["Soluzioni / Catalogo", "#catalogo"],
               ["Progetti", "#progetti"],
+              ["Chi siamo", "#perche"],
               ["Contatti", "#contatti"],
-              ["Catalogo", "#catalogo"],
-              ["Consulenza", "#appuntamento"],
             ].map(([label, href]) => (
               <a key={label} href={href} onClick={closeMobileMenu} className="group grid grid-cols-[minmax(0,1fr)_auto] items-center border-b border-border py-5 font-display text-2xl transition-colors hover:text-warm-clay">
                 <span>{label}</span>
@@ -190,7 +191,13 @@ function Nav() {
             ))}
           </nav>
 
-          <div className="mt-auto pt-8 space-y-3">
+          <div className="mt-auto pt-5 space-y-3">
+            <Button asChild variant="outline" className="h-12 w-full justify-start gap-3 text-base">
+              <a href="tel:+390239930866"><Phone className="h-4 w-4" />02 39930866</a>
+            </Button>
+            <Button asChild variant="outline" className="h-12 w-full justify-start gap-3 text-base">
+              <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer"><MessageCircle className="h-4 w-4" />WhatsApp</a>
+            </Button>
             <a href="https://artigianiincitta.it/shop/" className="flex min-h-14 items-center justify-between rounded-full bg-ink px-6 text-sm uppercase tracking-[0.16em] text-warm-cream transition-colors hover:bg-warm-clay">
               <span>Visita lo shop online</span>
               <ShoppingBag className="h-5 w-5" />
@@ -223,7 +230,7 @@ function Hero() {
   }, []);
 
   return (
-    <section ref={ref} className="relative h-screen w-full overflow-hidden bg-ink">
+    <section ref={ref} className="mobile-hero relative h-screen w-full overflow-hidden bg-ink">
       <motion.div style={{ y, opacity }} className="absolute inset-0">
         <div className="absolute inset-0">
           <img src={heroLiving} alt="Soggiorno milanese con parete su misura" className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2500ms] ease-in-out ${phase === 0 ? "opacity-100" : "opacity-0"} animate-slow-zoom`} />
@@ -239,16 +246,25 @@ function Hero() {
             Lo spazio non aumenta.<br />
             <span className="italic font-light">Si progetta meglio.</span>
           </h1>
-          <div className="mt-12 max-w-md text-white/80 text-base md:text-lg font-light leading-relaxed">
+          <p className="mt-5 max-w-md text-primary-foreground text-base leading-relaxed md:hidden">Arredi salvaspazio su misura, progettati e realizzati nella nostra falegnameria.</p>
+          <div className="hidden md:block mt-12 max-w-md text-white/80 text-base md:text-lg font-light leading-relaxed">
             Trasformiamo appartamenti urbani di pregio con soluzioni salvaspazio su misura, progettate intorno alla vostra vita e prodotte interamente nei nostri laboratori.
           </div>
-          <div className="mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center">
+          <div className="hidden md:flex mt-12 flex-col sm:flex-row gap-4 sm:gap-6 sm:items-center">
             <Cta href="#appuntamento" tone="dark" variant="solid">
               Prenota un appuntamento
             </Cta>
             <Cta href="#contatti" tone="dark" variant="outline">
               Scrivici
             </Cta>
+          </div>
+          <div className="mt-6 grid gap-3 md:hidden">
+            <Button asChild className="h-12 bg-warm-cream text-ink hover:bg-secondary text-sm font-medium">
+              <a href="#catalogo">Scopri le soluzioni<ArrowRight className="h-4 w-4" /></a>
+            </Button>
+            <Button asChild variant="outline" className="h-12 border-primary-foreground/70 bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-ink text-sm font-medium">
+              <a href="tel:+390239930866"><Phone className="h-4 w-4" />Parla con un esperto</a>
+            </Button>
           </div>
         </motion.div>
       </div>
@@ -1137,16 +1153,40 @@ function Home() {
   return (
     <div className="bg-background text-foreground">
       <Nav />
-      <Hero />
-      <Manifesto />
-      <Craftsmanship />
-      <Projects />
-      <Problems />
-      <Reviews />
-      <CTA />
-      <Catalog />
-      <Contact />
+      <main className="home-sections">
+        <Hero />
+        <Manifesto />
+        <Craftsmanship />
+        <Projects />
+        <Problems />
+        <Reviews />
+        <CTA />
+        <Catalog />
+        <Contact />
+      </main>
+      <MobileContactBar />
       <Footer />
     </div>
+  );
+}
+
+function MobileContactBar() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const update = () => setVisible(window.scrollY > 400);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+  if (!visible) return null;
+  return (
+    <nav aria-label="Contatti rapidi" className="mobile-contact-bar fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-background md:hidden">
+      <Button asChild variant="ghost" className="h-14 rounded-none border-r border-border text-foreground">
+        <a href="tel:+390239930866"><Phone className="h-4 w-4" />Chiama</a>
+      </Button>
+      <Button asChild variant="ghost" className="h-14 rounded-none text-foreground">
+        <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer"><MessageCircle className="h-4 w-4" />WhatsApp</a>
+      </Button>
+    </nav>
   );
 }
