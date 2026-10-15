@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, MessageCircle } from "lucide-react";
+import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, MessageCircle, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-artigiani.svg";
 import heroLiving from "@/assets/hero-living.jpg";
@@ -1180,12 +1180,18 @@ function MobileContactBar() {
   }, []);
   if (!visible) return null;
   return (
-    <nav aria-label="Contatti rapidi" className="mobile-contact-bar fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-background md:hidden">
-      <Button asChild variant="ghost" className="h-14 rounded-none border-r border-border text-foreground">
-        <a href="tel:+390239930866"><Phone className="h-4 w-4" />Chiama</a>
+    <nav aria-label="Contatti rapidi" className="mobile-contact-bar fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-warm-clay bg-ink text-primary-foreground md:hidden">
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none border-r border-primary-foreground/20 px-1 text-[11px] text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground [&_svg]:size-5">
+        <a href="tel:+390239930866"><Phone aria-hidden="true" />Chiama</a>
       </Button>
-      <Button asChild variant="ghost" className="h-14 rounded-none text-foreground">
-        <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer"><MessageCircle className="h-4 w-4" />WhatsApp</a>
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none border-r border-primary-foreground/20 px-1 text-[11px] text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground [&_svg]:size-5">
+        <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" />WhatsApp</a>
+      </Button>
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none bg-warm-clay px-1 text-[11px] text-primary-foreground hover:bg-warm-clay/90 hover:text-primary-foreground [&_svg]:size-5">
+        <a href="#appuntamento" aria-label="Appuntamento: apri il modulo"><CalendarDays aria-hidden="true" />Appuntamento</a>
+      </Button>
+      <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none px-1 text-[11px] text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground [&_svg]:size-5">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Viale+Italia+10%2C+20094+Corsico+MI%2C+Italia" target="_blank" rel="noreferrer" aria-label="Indicazioni stradali per lo showroom"><MapPin aria-hidden="true" />Indicazioni</a>
       </Button>
     </nav>
   );

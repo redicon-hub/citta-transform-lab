@@ -238,7 +238,7 @@
   #catalogo a > div:last-child { padding: 24px; }
   #catalogo a p { margin-bottom: 20px; }
   #contatti form { padding: 24px; }
-  body:has(.home-sections) { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
+  body:has(.home-sections) { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
   .mobile-contact-bar { padding-bottom: env(safe-area-inset-bottom); }
 }
 
