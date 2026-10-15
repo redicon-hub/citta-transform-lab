@@ -560,26 +560,47 @@ function Craftsmanship() {
         <div className="px-6 md:px-16 py-24 md:py-32 flex flex-col justify-center">
           <Reveal>
             <div className="text-eyebrow text-white/50 mb-8">— 02 Perché sceglierci</div>
-            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-12">
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] mb-10 md:mb-12">
               Cinque ragioni <span className="italic">solide</span>.
             </h2>
-            <ul className="divide-y divide-white/15 border-y border-white/15">
-              {[
-                { n: "01", t: "Falegnameria dal 1977", d: "Quasi cinquant'anni di mestiere e tre generazioni di artigiani." },
-                { n: "02", t: "Shop online da 15 anni", d: "Pionieri dell'arredo su misura in rete, dal 2011." },
-                { n: "03", t: "600 mq di showroom", d: "Materiali, finiture e progetti da toccare con mano." },
-                { n: "04", t: "Consulenza reale", d: "Architetti e artigiani al tuo fianco, non venditori." },
-                { n: "05", t: "Consegna in tutta Europa", d: "Logistica e installazione gestite direttamente da noi." },
-              ].map((r) => (
-                <li key={r.n} className="py-6 flex gap-6 items-start">
-                  <div className="shrink-0 pt-3"><span className="block w-2.5 h-2.5 rounded-full bg-warm-clay" /></div>
-                  <div>
-                    <div className="font-display text-2xl md:text-3xl font-light leading-tight">{r.t}</div>
-                    <div className="text-white/60 text-sm md:text-base font-light mt-2 max-w-md">{r.d}</div>
+            <div className="border-y border-white/15">
+              <div className="py-8 md:py-10 flex gap-5 md:gap-6 items-start">
+                <div className="shrink-0 pt-3"><span className="block w-2.5 h-2.5 rounded-full bg-warm-clay" /></div>
+                <div>
+                  <div className="font-display text-3xl md:text-4xl font-light leading-tight">{reasons[0].t}</div>
+                  <div className="text-white/70 text-base md:text-lg font-light mt-3 max-w-md">{reasons[0].d}</div>
+                </div>
+              </div>
+            </div>
+            <Accordion type="single" collapsible>
+              <AccordionItem value="altre" className="border-white/15">
+                <AccordionTrigger className="group items-center justify-between gap-5 md:gap-6 py-6! md:py-8! text-sm font-normal! hover:no-underline! [&>svg]:hidden [&[data-state=open]_svg]:rotate-45">
+                  <span className="flex flex-col gap-2 text-left">
+                    <span className="font-display text-2xl md:text-3xl font-light leading-tight text-white">Le altre quattro ragioni</span>
+                    <span className="text-white/50 text-xs md:text-sm font-light max-w-sm">Scopri cosa valgono davvero per la tua casa.</span>
+                  </span>
+                  <span className="shrink-0 flex items-center justify-center size-11 border border-white/30 transition-colors duration-500 group-hover:border-white group-hover:bg-white/10">
+                    <Plus className="size-4 transition-transform duration-500" />
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ul className="border-t border-white/10 divide-y divide-white/10">
+                    {reasons.slice(1).map((r) => (
+                      <li key={r.n} className="py-5 flex gap-5 items-start">
+                        <div className="shrink-0 pt-2.5"><span className="block w-2 h-2 rounded-full bg-warm-clay" /></div>
+                        <div>
+                          <div className="font-display text-xl md:text-2xl font-light leading-tight">{r.t}</div>
+                          <div className="text-white/60 text-sm font-light mt-1.5 max-w-md">{r.d}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-7">
+                    <Cta href="#appuntamento" tone="dark" variant="outline" className="w-full sm:w-auto">Parla con un artigiano</Cta>
                   </div>
-                </li>
-              ))}
-            </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </Reveal>
         </div>
       </div>
