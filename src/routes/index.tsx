@@ -32,6 +32,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Progettiamo soluzioni salvaspazio su misura per appartamenti di pregio a Milano. Letti a scomparsa, mobili trasformabili, consulenza architettonica e produzione interna artigianale." },
       { property: "og:title", content: "Artigiani in Città — Lo spazio non si aumenta. Si progetta meglio." },
       { property: "og:description", content: "Consulenza architettonica e artigianato italiano per trasformare piccoli spazi urbani in grandi possibilità." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
