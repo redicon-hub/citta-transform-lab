@@ -488,7 +488,7 @@ function Problems() {
           <div className="md:col-span-9">
             <Reveal>
               <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.05] font-extralight max-w-4xl">
-                Sei sfide ricorrenti, <span className="italic">una risposta su misura</span>.
+                Sei sfide<span className="hidden md:inline"> ricorrenti</span>, <span className="italic">una risposta<span className="hidden md:inline"> su misura</span></span>.
               </h2>
             </Reveal>
           </div>
@@ -501,31 +501,31 @@ function Problems() {
                 href={p.href}
                 target="_blank"
                 rel="noreferrer"
-                className="relative border-r border-b border-foreground/15 p-6 md:p-8 group cursor-pointer overflow-hidden transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay/[0.06] hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(120,70,40,0.18)] hover:z-10"
+                className="relative border-r border-b border-foreground/15 p-4 md:p-8 group cursor-pointer overflow-hidden transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay/[0.06] hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(120,70,40,0.18)] hover:z-10"
               >
-                <div className="mb-5 flex items-center gap-2 transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                <div className="mb-5 hidden md:flex items-center gap-2 transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
                   <span className="block w-2 h-2 rounded-full bg-warm-clay" />
                   <span className="block h-px w-8 bg-warm-clay/60 transition-all duration-[900ms] group-hover:w-14" />
                 </div>
-                <h3 className="font-display text-xl md:text-2xl font-light leading-tight transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">{p.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground font-light leading-relaxed transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">{p.d}</p>
+                <h3 className="font-display text-xl md:text-2xl font-light leading-tight transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1"><span className="mr-3 inline-block align-middle text-[10px] uppercase tracking-[0.18em] text-warm-clay md:hidden">{p.n}</span>{p.t}</h3>
+                <p className="mt-3 hidden text-sm text-muted-foreground font-light leading-relaxed transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 md:block">{p.d}</p>
                 <div className="absolute bottom-0 left-0 h-px w-0 bg-warm-clay transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-                <span className="absolute bottom-5 right-5 text-warm-clay text-lg opacity-0 -translate-x-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0" aria-hidden="true">→</span>
+                <span className="absolute bottom-4 right-4 text-warm-clay text-lg opacity-0 -translate-x-3 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 max-md:translate-x-0 max-md:opacity-100 md:bottom-5 md:right-5" aria-hidden="true">→</span>
               </a>
             ))}
           </div>
         </Reveal>
         <Reveal>
-          <div className="mt-20 md:mt-24 max-w-6xl mx-auto border-t border-foreground/15 pt-12 md:pt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="mt-10 md:mt-24 max-w-6xl mx-auto border-t border-foreground/15 pt-6 md:pt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-8">
             <div className="max-w-xl">
               <div className="text-eyebrow text-warm-clay mb-4">— Ti riconosci in uno di questi?</div>
               <h3 className="font-display text-3xl md:text-4xl font-extralight leading-[1.1]">
                 Raccontaci il tuo spazio. <span className="italic">Ti diciamo come risolverlo</span>.
               </h3>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <Cta href="#appuntamento" tone="light" variant="solid">Prenota un appuntamento</Cta>
-              <Cta href="#contatti" tone="light" variant="outline">Scrivici</Cta>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 shrink-0">
+              <Cta href="#appuntamento" tone="light" variant="solid" className="max-md:px-6 max-md:py-4">Prenota un appuntamento</Cta>
+              <Cta href="#contatti" tone="light" variant="outline" className="max-md:px-6 max-md:py-4">Scrivici</Cta>
             </div>
           </div>
         </Reveal>
