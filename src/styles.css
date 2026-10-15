@@ -191,3 +191,58 @@
   }
   .animate-slow-zoom { animation: slow-zoom 20s ease-in-out infinite alternate; }
 }
+
+@media (max-width: 767px) {
+  .home-sections { display: flex; flex-direction: column; }
+  .home-sections > section { padding-top: 48px; padding-bottom: 48px; scroll-margin-top: 149px; }
+  .home-sections > .mobile-hero {
+    order: 0;
+    height: auto;
+    min-height: 0;
+    padding-top: 133px;
+    padding-bottom: 0;
+  }
+  .mobile-hero > div.relative { padding-top: 72px; padding-bottom: 32px; }
+  .mobile-hero h1 { font-size: 40px; line-height: 1.05; letter-spacing: 0; }
+  .mobile-hero .text-eyebrow { margin-bottom: 20px; font-size: 10px; letter-spacing: 0; }
+  .mobile-hero img { animation: none; }
+  #progetti { order: 1; }
+  #perche { order: 2; padding-top: 0; padding-bottom: 0; }
+  #testimonianze { order: 3; }
+  #manifesto { order: 4; }
+  #problemi { order: 5; }
+  #appuntamento { order: 6; }
+  #catalogo { order: 7; }
+  #contatti { order: 8; }
+  .home-sections h2 { font-size: 32px; letter-spacing: 0; }
+  .home-sections div, .home-sections form { min-width: 0; }
+  .home-sections input, .home-sections select, .home-sections textarea { min-width: 0; max-width: 100%; }
+  .home-sections button, .home-sections a { overflow-wrap: anywhere; }
+  .home-sections section:not(.mobile-hero) div[style*="opacity"] { opacity: 1 !important; transform: none !important; }
+  #appuntamento form, #contatti form { width: 100%; }
+  #appuntamento form button, #contatti form button { padding-left: 16px; padding-right: 16px; letter-spacing: 0; }
+  .home-sections .text-eyebrow { letter-spacing: 0; }
+  #progetti > div > div:first-child,
+  #problemi > div > div:first-child,
+  #catalogo > div > div:first-child { margin-bottom: 28px; gap: 16px; }
+  #progetti a > div:first-of-type > div { padding: 16px; }
+  #progetti a .text-eyebrow { font-size: 11px; }
+  #progetti a .text-eyebrow:first-child { display: none; }
+  #perche > div > div:first-child { height: 280px; }
+  #perche > div > div:last-child { padding-top: 36px; padding-bottom: 36px; }
+  #perche h2 { margin-bottom: 24px; }
+  #perche li { padding-top: 16px; padding-bottom: 16px; }
+  #manifesto p { margin-top: 20px; }
+  #appuntamento > div > div > div > div:first-child { order: 2; }
+  #appuntamento h2 { white-space: normal; }
+  #catalogo a > div:last-child { padding: 24px; }
+  #catalogo a p { margin-bottom: 20px; }
+  #contatti form { padding: 24px; }
+  body:has(.home-sections) { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
+  .mobile-contact-bar { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slow-zoom { animation: none; }
+  .home-sections * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
