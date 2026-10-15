@@ -723,7 +723,7 @@ function Reviews() {
                 href={GOOGLE_REVIEWS_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group mt-6 flex w-full sm:w-auto sm:flex-col items-center sm:items-start justify-between sm:justify-start gap-4 sm:gap-3 bg-ink text-warm-cream px-6 md:px-8 py-5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay"
+                className="group mt-6 inline-flex w-full sm:w-auto sm:flex-col items-center sm:items-start justify-between sm:justify-start gap-4 sm:gap-3 bg-ink text-warm-cream px-6 md:px-8 py-5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-warm-clay"
               >
                 <span className="flex items-center gap-4">
                   <GoogleG className="w-6 h-6 shrink-0" />
