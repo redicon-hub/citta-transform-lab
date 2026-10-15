@@ -1188,7 +1188,7 @@ function MobileContactBar() {
         <a href="https://wa.me/393475078626" target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" />WhatsApp</a>
       </Button>
       <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none bg-warm-clay px-1 text-[11px] text-primary-foreground hover:bg-warm-clay/90 hover:text-primary-foreground [&_svg]:size-5">
-        <a href="#appuntamento" aria-label="Appuntamento: apri il modulo"><CalendarDays aria-hidden="true" />Appuntamento</a>
+        <a href="#appuntamento" aria-label="Appuntamento: apri il modulo"><CalendarDays aria-hidden="true" />Prenota</a>
       </Button>
       <Button asChild variant="ghost" className="h-[76px] min-w-0 flex-col gap-2 rounded-none px-1 text-[11px] text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground [&_svg]:size-5">
         <a href="https://www.google.com/maps/dir/?api=1&destination=Viale+Italia+10%2C+20094+Corsico+MI%2C+Italia" target="_blank" rel="noreferrer" aria-label="Indicazioni stradali per lo showroom"><MapPin aria-hidden="true" />Indicazioni</a>
