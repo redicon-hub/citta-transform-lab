@@ -574,10 +574,10 @@ function Craftsmanship() {
             </div>
             <Accordion type="single" collapsible>
               <AccordionItem value="altre" className="border-white/15">
-                <AccordionTrigger className="group items-center justify-between gap-5 md:gap-6 py-6! md:py-8! text-sm font-normal! hover:no-underline! [&>svg]:hidden [&[data-state=open]_svg]:rotate-45">
+                <AccordionTrigger className="group items-center justify-between gap-5 md:gap-6 py-6! md:py-8! text-sm font-normal! hover:bg-white/[0.04] hover:no-underline! [&>svg]:hidden [&[data-state=open]_svg]:rotate-45">
                   <span className="flex flex-col gap-2 text-left">
                     <span className="font-display text-2xl md:text-3xl font-light leading-tight text-white">Le altre quattro ragioni</span>
-                    <span className="text-white/50 text-xs md:text-sm font-light max-w-sm">Scopri cosa valgono davvero per la tua casa.</span>
+                    <span className="text-white/75 text-xs md:text-sm font-light max-w-sm">Scopri cosa valgono davvero per la tua casa.</span>
                   </span>
                   <span className="shrink-0 flex items-center justify-center size-11 border border-white/30 transition-colors duration-500 group-hover:border-white group-hover:bg-white/10">
                     <Plus className="size-4 transition-transform duration-500" />
