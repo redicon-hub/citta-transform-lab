@@ -120,7 +120,7 @@ function Nav() {
           </a>
         </div>
 
-        <form onSubmit={submitSearch} className="mt-3 grid h-12 grid-cols-[auto_minmax(0,1fr)_40px] items-center rounded-full border border-border bg-muted/65 p-1 pl-4 transition-all duration-300 focus-within:border-warm-clay focus-within:bg-background focus-within:shadow-sm">
+        <form onSubmit={submitSearch} className="mt-3 grid h-12 grid-cols-[auto_minmax(0,1fr)_40px] items-center rounded-full border border-ink/25 bg-muted p-1 pl-4 shadow-sm transition-all duration-300 focus-within:border-ink focus-within:bg-background focus-within:shadow-md">
           <Search className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
           <label htmlFor="mobile-product-search" className="sr-only">Cerca prodotti</label>
           <input
