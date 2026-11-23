@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, Plus } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, Phone, Smartphone, Mail, Search, ShoppingBag, Instagram, Facebook, Youtube, X, CalendarDays, ArrowRight, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import logo from "@/assets/logo-artigiani.svg";
@@ -18,6 +18,8 @@ import projectOffice from "@/assets/project-office.jpg";
 import showroom from "@/assets/showroom.webp";
 import showroomArredo from "@/assets/showroom-arredo-salvaspazio-600mq-corsico-milano.webp.asset.json";
 import showroomIngresso from "@/assets/showroom-ingresso-piano-terra-arredamento-completo-su-misura-corsico-milano.webp.asset.json";
+import showroomVideo from "@/assets/showroom-arredi-salvaspazio-corsico.mp4.asset.json";
+import showroomPoster from "@/assets/showroom-video-poster.jpg.asset.json";
 import ritrattoDef2 from "@/assets/ritratto-def2.jpg.asset.json";
 import catLetti from "@/assets/cat-letti-scomparsa.jpg";
 import catDivaniLetto from "@/assets/cat-divani-letto.jpg";
@@ -218,6 +220,150 @@ function Nav() {
   );
 }
 
+function ShowroomVideo({ className = "" }: { className?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const start = () => {
+    setPlaying(true);
+    void videoRef.current?.play();
+  };
+  return (
+    <div className={className}>
+      {/* Phone body */}
+      <div className="relative rounded-[2.75rem] border border-white/25 bg-black p-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8)]">
+        {/* Screen */}
+        <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.25rem] bg-black">
+          <video
+            ref={videoRef}
+            src={showroomVideo.url}
+            poster={showroomPoster.url}
+            preload="none"
+            playsInline
+            controls={playing}
+            onEnded={() => setPlaying(false)}
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-label="Video di presentazione dello showroom Artigiani in Città"
+          />
+          {/* Dynamic island */}
+          <div className="pointer-events-none absolute top-2 left-1/2 z-10 h-[4.5%] w-[28%] -translate-x-1/2 rounded-full bg-black" />
+          {!playing && (
+            <button
+              type="button"
+              onClick={start}
+              aria-label="Guarda il video dello showroom"
+              className="group absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/25"
+            >
+              <span className="flex items-center justify-center size-14 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 transition-all duration-700 group-hover:bg-white group-hover:text-ink">
+                <Play className="size-4 ml-0.5" strokeWidth={1.25} />
+              </span>
+              <span className="text-center">
+                <span className="block text-eyebrow text-white">Guarda il video</span>
+                <span className="block text-white/50 text-[8px] tracking-[0.18em] uppercase mt-1.5">Lo showroom · 90 secondi</span>
+              </span>
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ShowroomShowcase() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(false);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) void v.play();
+    else v.pause();
+  };
+
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    const next = !v.muted;
+    v.muted = next;
+    setMuted(next);
+  };
+
+  return (
+    <section id="showroom" className="showroom-showcase relative flex flex-col overflow-hidden bg-ink md:hidden">
+      <div className="shrink-0 px-6 pb-4 pt-6">
+        <div className="text-eyebrow text-white/70">— Lo showroom</div>
+      </div>
+      <div className="relative min-h-0 flex-1">
+        <video
+          ref={videoRef}
+          src={showroomVideo.url}
+          poster={showroomPoster.url}
+          preload="none"
+          playsInline
+          muted={muted}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-label="Video di presentazione dello showroom Artigiani in Città"
+        />
+        <div className={`pointer-events-none absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/85 transition-opacity duration-700 ${playing ? "opacity-0" : "opacity-100"}`} />
+        {!playing && (
+          <button
+            type="button"
+            onClick={togglePlay}
+            aria-label="Guarda il video dello showroom"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-5"
+          >
+            <span className="flex items-center justify-center size-20 rounded-full border border-white/60 bg-white/10 backdrop-blur-sm">
+              <Play className="size-6 ml-1" strokeWidth={1} />
+            </span>
+            <span className="text-center">
+              <span className="block text-eyebrow text-white">Guarda il video</span>
+              <span className="block text-white/60 text-[10px] tracking-[0.2em] uppercase mt-2">Lo showroom · 90 secondi</span>
+            </span>
+          </button>
+        )}
+        {playing && (
+          <button
+            type="button"
+            onClick={togglePlay}
+            aria-label="Metti in pausa il video dello showroom"
+            className="absolute inset-0 z-10"
+          />
+        )}
+        <div className="pointer-events-none absolute right-5 top-1/2 z-20 flex -translate-y-1/2 flex-col items-center gap-3">
+          <button
+            type="button"
+            onClick={togglePlay}
+            aria-label={playing ? "Metti in pausa il video dello showroom" : "Riproduci il video dello showroom"}
+            className="pointer-events-auto flex size-11 items-center justify-center rounded-full border border-white/50 bg-black/45 text-white backdrop-blur-md transition-all duration-500 hover:bg-white/25 active:bg-white active:text-ink"
+          >
+            {playing ? (
+              <Pause className="size-4" strokeWidth={1.25} />
+            ) : (
+              <Play className="size-4 ml-0.5" strokeWidth={1.25} />
+            )}
+          </button>
+          <button
+            type="button"
+            onClick={toggleMute}
+            aria-label={muted ? "Riattiva l'audio del video" : "Disattiva l'audio del video"}
+            className={`pointer-events-auto flex size-11 items-center justify-center rounded-full border backdrop-blur-md transition-all duration-500 active:bg-white active:text-ink ${
+              muted ? "border-white/30 bg-black/45 text-white/60" : "border-white/50 bg-black/45 text-white hover:bg-white/25"
+            }`}
+          >
+            {muted ? (
+              <VolumeX className="size-4" strokeWidth={1.25} />
+            ) : (
+              <Volume2 className="size-4" strokeWidth={1.25} />
+            )}
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -241,7 +387,9 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
       </motion.div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-32 px-6 md:px-16 max-w-[1600px] mx-auto">
+      <ShowroomVideo className="hidden md:block absolute right-10 lg:right-16 xl:right-24 top-1/2 -translate-y-1/2 z-20 w-[230px] lg:w-[260px] xl:w-[290px]" />
+
+      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-32 px-6 md:px-16 md:pr-[280px] lg:pr-[320px] xl:pr-[380px] max-w-[1600px] mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}>
           <div className="text-eyebrow text-white/70 mb-8">Studio · Milano · dal 2008</div>
           <h1 className="font-display text-white text-[12vw] md:text-[6.5vw] leading-[0.95] max-w-5xl font-extralight">
@@ -273,6 +421,178 @@ function Hero() {
 
       <div className="absolute bottom-8 right-8 text-white/50 text-[10px] tracking-[0.3em] uppercase z-10 hidden md:block">
         Scroll · 01 / 09
+      </div>
+    </section>
+  );
+}
+
+const blackFridayTiers = [
+  { range: "Sotto i 3.000 €", discount: "10%", saving: "Fino a circa 300 € di risparmio", example: "Una parete attrezzata, un ingresso" },
+  { range: "Da 3.000 € a 10.000 €", discount: "20%", saving: "Fino a 2.000 € di risparmio", example: "Un soggiorno, una camera completa", featured: true },
+  { range: "Oltre 10.000 €", discount: "25%", saving: "Su 12.000 € risparmi 3.000 €", example: "Più ambienti, una casa intera" },
+];
+
+const BF_END = new Date("2026-12-01T23:59:59+01:00").getTime();
+
+function useCountdown(target: number) {
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => {
+    setNow(Date.now());
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  if (now === null) return null;
+  const diff = Math.max(0, target - now);
+  return {
+    d: Math.floor(diff / 86400000),
+    h: Math.floor((diff / 3600000) % 24),
+    m: Math.floor((diff / 60000) % 60),
+    s: Math.floor((diff / 1000) % 60),
+  };
+}
+
+function BlackFriday() {
+  const t = useCountdown(BF_END);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const units = [
+    { label: "Giorni", v: t?.d },
+    { label: "Ore", v: t?.h },
+    { label: "Minuti", v: t?.m },
+    { label: "Secondi", v: t?.s },
+  ];
+  return (
+    <section id="black-friday" className="relative overflow-hidden bg-ink text-white border-t border-white/10">
+      {/* Fascia superiore */}
+      <div className="border-b border-white/10 bg-warm-clay/90">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-16 py-3 flex items-center justify-between gap-4 text-[11px] tracking-[0.2em] uppercase">
+          <span className="flex items-center gap-3">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-60 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+            </span>
+            Black Friday · Offerta attiva
+          </span>
+          <span className="hidden sm:inline text-white/80">24 nov – 1 dic 2026</span>
+        </div>
+      </div>
+
+      {/* Numero gigante di sfondo */}
+      <div aria-hidden className="pointer-events-none select-none absolute -right-[4vw] top-[8%] font-display font-extralight italic leading-none text-white/[0.04] text-[48vw] md:text-[34vw]">
+        25%
+      </div>
+
+      <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 py-16 md:py-28">
+        <Reveal>
+          <div className="text-eyebrow text-warm-clay">— Su misura · 24 nov – 1 dic</div>
+          <h2 className="mt-6 font-display leading-[0.85]">
+            <span className="block whitespace-nowrap font-medium uppercase tracking-[-0.03em] text-[13.5vw] md:text-[10.5vw]">
+              Black <span className="font-light italic text-warm-clay">Friday</span>
+            </span>
+            <span className="mt-8 block font-extralight leading-[1.05] text-[7vw] md:text-[3.2vw] whitespace-normal">
+              Fino al <span className="italic text-warm-clay">25%</span> sul tuo progetto d'arredo.
+            </span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-12 md:gap-8 items-end">
+          <div className="md:col-span-7">
+            <Reveal>
+              <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-xl">
+                Una parete del soggiorno, un ingresso da organizzare o una stanza intera: durante il Black Friday di Artigiani in Città lo sconto cresce con il valore degli arredi che scegli. Portaci le misure, al resto pensiamo noi.
+              </p>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:items-center">
+                <Cta href="#appuntamento" tone="dark" variant="solid">
+                  Richiedi il tuo preventivo Black Friday
+                </Cta>
+                <Cta href="#contatti" tone="dark" variant="outline">
+                  Prenota una visita in showroom
+                </Cta>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Countdown */}
+          <div className="md:col-span-5">
+            <Reveal delay={0.15}>
+              <div className="border border-white/15 bg-white/[0.03] backdrop-blur-sm p-6 md:p-8">
+                <div className="text-eyebrow text-white/60">L'offerta termina tra</div>
+                <div className="mt-6 grid grid-cols-4 gap-2 md:gap-4">
+                  {units.map((u) => (
+                    <div key={u.label} className="text-center">
+                      <div className="font-display font-extralight text-5xl md:text-6xl tabular-nums leading-none">
+                        {u.v === undefined ? "--" : pad(u.v)}
+                      </div>
+                      <div className="mt-3 text-[10px] tracking-[0.2em] uppercase text-white/50">{u.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 pt-6 border-t border-white/10 text-sm text-white/60 leading-relaxed">
+                  Il risparmio viene calcolato direttamente nel tuo preventivo, prima di decidere.
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Fasce cliccabili */}
+        <Reveal delay={0.2}>
+          <div className="mt-16 md:mt-24 flex items-end justify-between gap-6">
+            <div className="text-eyebrow text-white/60">— Scegli la tua fascia</div>
+            <div className="hidden md:block text-sm text-white/50">Più arredi, più risparmi.</div>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {blackFridayTiers.map((tier) => (
+              <a
+                key={tier.range}
+                href="#appuntamento"
+                className={`group relative flex flex-col p-8 md:p-10 border transition-all duration-500 hover:-translate-y-1 ${
+                  tier.featured
+                    ? "border-warm-clay bg-warm-clay/15"
+                    : "border-white/15 hover:border-white/40 bg-white/[0.02]"
+                }`}
+              >
+                {tier.featured && (
+                  <span className="absolute -top-3 left-8 bg-warm-clay px-3 py-1 text-[10px] tracking-[0.2em] uppercase">
+                    La più scelta
+                  </span>
+                )}
+                <div className="text-eyebrow text-white/60">{tier.range}</div>
+                <div className={`mt-6 font-display font-extralight leading-none text-7xl md:text-8xl ${tier.featured ? "text-warm-clay" : ""}`}>
+                  −{tier.discount}
+                </div>
+                <div className="mt-6 text-base text-white">{tier.saving}</div>
+                <div className="mt-1 text-sm text-white/50">{tier.example}</div>
+                <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-between text-[11px] tracking-[0.2em] uppercase">
+                  <span>Calcola il tuo sconto</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                </div>
+              </a>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-white/50 leading-relaxed max-w-3xl">
+            Su un progetto fino a 7.500 € puoi risparmiare fino a 1.500 €. La percentuale della tua fascia si applica all'intero importo degli arredi in promozione.
+          </p>
+        </Reveal>
+
+        {/* Chiusura con CTA */}
+        <Reveal delay={0.1}>
+          <div className="mt-16 md:mt-20 border-t border-white/10 pt-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <p className="font-display font-extralight text-3xl md:text-4xl leading-tight max-w-2xl">
+              Porta le tue idee in showroom: <span className="italic">il preventivo è gratuito.</span>
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Cta href="#appuntamento" tone="dark" variant="solid">
+                Richiedi il preventivo
+              </Cta>
+              <Cta href="tel:+390239930866" tone="dark" variant="outline">
+                Chiamaci ora
+              </Cta>
+            </div>
+          </div>
+          <p className="mt-8 text-[11px] tracking-[0.18em] uppercase text-white/40">
+            Promozione valida dal 24 novembre al 1 dicembre 2026 · Dettagli della promozione in showroom
+          </p>
+        </Reveal>
       </div>
     </section>
   );
@@ -608,6 +928,7 @@ function Craftsmanship() {
     </section>
   );
 }
+
 
 const reviews = [
   {
@@ -1196,6 +1517,8 @@ function Home() {
       <Nav />
       <main className="home-sections">
         <Hero />
+        <BlackFriday />
+        <ShowroomShowcase />
         <Manifesto />
         <Craftsmanship />
         <Projects />
