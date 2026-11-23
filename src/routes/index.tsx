@@ -387,9 +387,9 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
       </motion.div>
 
-      <ShowroomVideo className="hidden md:block absolute right-10 lg:right-16 xl:right-24 top-1/2 -translate-y-1/2 z-20 w-[230px] lg:w-[260px] xl:w-[290px]" />
+      <ShowroomVideo className="hidden md:block absolute right-10 lg:right-16 xl:right-24 top-1/2 -translate-y-1/2 z-20 w-[252px] lg:w-[282px] xl:w-[312px]" />
 
-      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-32 px-6 md:px-16 md:pr-[280px] lg:pr-[320px] xl:pr-[380px] max-w-[1600px] mx-auto">
+      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-32 px-6 md:px-16 md:pr-[312px] lg:pr-[362px] xl:pr-[422px] max-w-[1600px] mx-auto">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}>
           <div className="text-eyebrow text-white/70 mb-8">Studio · Milano · dal 2008</div>
           <h1 className="font-display text-white text-[12vw] md:text-[6.5vw] leading-[0.95] max-w-5xl font-extralight">
