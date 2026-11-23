@@ -214,14 +214,16 @@
     min-height: 460px;
     scroll-margin-top: 133px;
   }
-  #progetti { order: 2; }
-  #perche { order: 3; padding-top: 0; padding-bottom: 0; }
-  #catalogo { order: 4; }
-  #testimonianze { order: 5; }
-  #manifesto { order: 6; }
-  #problemi { order: 7; }
-  #appuntamento { order: 8; }
-  #contatti { order: 9; }
+  /* Mobile only: the showroom video comes right after the slide, above Black Friday. */
+  #black-friday { order: 2; }
+  #progetti { order: 3; }
+  #perche { order: 4; padding-top: 0; padding-bottom: 0; }
+  #catalogo { order: 5; }
+  #testimonianze { order: 6; }
+  #manifesto { order: 7; }
+  #problemi { order: 8; }
+  #appuntamento { order: 9; }
+  #contatti { order: 10; }
   .home-sections h2 { font-size: 32px; letter-spacing: 0; }
   .home-sections div, .home-sections form { min-width: 0; }
   .home-sections input, .home-sections select, .home-sections textarea { min-width: 0; max-width: 100%; }

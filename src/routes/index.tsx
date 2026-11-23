@@ -289,7 +289,7 @@ function ShowroomShowcase() {
   };
 
   return (
-    <section id="showroom" className="showroom-showcase relative flex flex-col overflow-hidden bg-ink md:hidden">
+    <section id="showroom-video" className="showroom-showcase relative flex flex-col overflow-hidden bg-ink md:hidden">
       <div className="shrink-0 px-6 pb-4 pt-6">
         <div className="text-eyebrow text-white/70">— Lo showroom</div>
       </div>
