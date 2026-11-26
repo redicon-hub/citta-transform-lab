@@ -183,8 +183,8 @@ function WallBedsPage() {
         <WallBedHero />
         <DayUse />
         <WallBedCatalog />
-        <Measurements />
         <ProjectForm />
+        <Measurements />
         <Showroom />
         <Faq />
       </main>
@@ -231,6 +231,15 @@ function DayUse() {
             </button>
           ))}
         </div>
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() => selectWallBedSubcategory("tutti")}
+            className="inline-flex items-center gap-3 bg-ink px-8 py-4 text-xs font-medium uppercase tracking-[0.18em] text-warm-cream transition-colors hover:bg-warm-clay"
+          >
+            Fammeli vedere tutti <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -276,31 +285,6 @@ function Measurements() {
               height={334}
               className="aspect-[4/3] w-full bg-secondary object-cover md:aspect-[16/11]"
             />
-            <div className="border-x border-b border-border bg-background p-5">
-              <svg
-                viewBox="0 0 560 110"
-                className="h-auto w-full text-warm-clay"
-                role="img"
-                aria-label="Schema senza misure: parete, letto aperto e spazio libero davanti"
-              >
-                <path
-                  d="M28 18v76M28 94h160M188 94h318M188 94V52h318v42M188 52l52-26h318l-52 26M506 94V26"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <path d="M30 104h480" stroke="currentColor" strokeWidth="1" strokeDasharray="5 7" />
-                <text x="36" y="40" fill="currentColor" fontSize="12">
-                  PARETE
-                </text>
-                <text x="300" y="76" fill="currentColor" fontSize="12">
-                  LETTO APERTO
-                </text>
-                <text x="390" y="106" fill="currentColor" fontSize="10">
-                  SPAZIO DAVANTI
-                </text>
-              </svg>
-            </div>
           </div>
           <div className="flex flex-col justify-center">
             <div className="border-t border-ink/20">

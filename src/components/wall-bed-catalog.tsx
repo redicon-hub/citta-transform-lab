@@ -8,6 +8,14 @@ import {
 } from "@/data/site-categories";
 
 const PER_PAGE = 20;
+const ALL_SLUG = "tutti";
+const allProducts = Array.from(
+  new Map(wallBedSubcategories.flatMap((s) => s.products).map((p) => [p.url, p])).values(),
+);
+const tabs = [
+  { slug: ALL_SLUG, name: "Tutti i letti a scomparsa", products: allProducts },
+  ...wallBedSubcategories,
+];
 const euro = new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
 export function WallBedCatalog() {
@@ -16,10 +24,10 @@ export function WallBedCatalog() {
 
   useEffect(() => {
     const fromUrl = new URLSearchParams(window.location.search).get("sottocategoria");
-    if (fromUrl && wallBedSubcategories.some((s) => s.slug === fromUrl)) setSlug(fromUrl);
+    if (fromUrl && tabs.some((s) => s.slug === fromUrl)) setSlug(fromUrl);
     const onSelect = (event: Event) => {
       const next = (event as CustomEvent<string>).detail;
-      if (wallBedSubcategories.some((s) => s.slug === next)) {
+      if (tabs.some((s) => s.slug === next)) {
         setSlug(next);
         setPage(1);
       }
@@ -28,7 +36,7 @@ export function WallBedCatalog() {
     return () => window.removeEventListener(SELECT_SUBCATEGORY_EVENT, onSelect);
   }, []);
 
-  const current = wallBedSubcategories.find((s) => s.slug === slug) ?? wallBedSubcategories[0]!;
+  const current = tabs.find((s) => s.slug === slug) ?? tabs[0]!;
   const pages = Math.max(1, Math.ceil(current.products.length / PER_PAGE));
   const visible = useMemo(
     () => current.products.slice((page - 1) * PER_PAGE, page * PER_PAGE),
@@ -61,7 +69,7 @@ export function WallBedCatalog() {
           aria-label="Sottocategorie dei letti a scomparsa"
           className="-mx-6 mt-10 flex gap-2 overflow-x-auto px-6 pb-2 md:mx-0 md:flex-wrap md:px-0"
         >
-          {wallBedSubcategories.map((s) => (
+          {tabs.map((s) => (
             <button
               key={s.slug}
               type="button"
@@ -72,14 +80,14 @@ export function WallBedCatalog() {
                 setPage(1);
               }}
               className={cn(
-                "shrink-0 rounded-full border px-4 py-2.5 text-xs transition-colors",
+                "shrink-0 rounded-full border px-5 py-3 text-sm font-medium uppercase tracking-[0.06em] transition-colors",
                 s.slug === slug
                   ? "border-ink bg-ink text-warm-cream"
                   : "border-border bg-background text-ink hover:border-ink",
               )}
             >
-              {shortName(s.name)}
-              <span className={cn("ml-2 text-[10px]", s.slug === slug ? "text-warm-cream/60" : "text-muted-foreground")}>
+              {s.slug === ALL_SLUG ? "Tutti" : shortName(s.name)}
+              <span className={cn("ml-2 text-xs", s.slug === slug ? "text-warm-cream/60" : "text-muted-foreground")}>
                 {s.products.length}
               </span>
             </button>
@@ -91,9 +99,9 @@ export function WallBedCatalog() {
             <strong className="font-medium text-ink">{current.name}</strong> · {current.products.length} modelli
             {pages > 1 && ` · pagina ${page} di ${pages}`}
           </span>
-          <a href={wallBedCategoryUrl(current.slug)} className="shrink-0 underline underline-offset-4 hover:text-ink">
+          {current.slug !== ALL_SLUG && <a href={wallBedCategoryUrl(current.slug)} className="shrink-0 underline underline-offset-4 hover:text-ink">
             Pagina della categoria
-          </a>
+          </a>}
         </div>
 
         <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
@@ -113,15 +121,26 @@ export function WallBedCatalog() {
                   )}
                 </div>
                 <h3 className="mt-3 line-clamp-2 text-[13px] leading-snug md:text-sm">{p.name}</h3>
-                {p.price != null && (
+                {p.price ? (
                   <div className="mt-1.5 flex items-baseline gap-2 text-sm">
                     <span className="font-medium">{euro.format(p.price)}</span>
                     {p.regular != null && (
                       <span className="text-xs text-muted-foreground line-through">{euro.format(p.regular)}</span>
                     )}
                   </div>
-                )}
+                ) : null}
               </a>
+              {!p.price && (
+                <div className="mt-1.5 text-xs">
+                  <span className="block text-muted-foreground">Solo su misura</span>
+                  <a
+                    href="?dettagli=misure#progetto"
+                    className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.08em] text-warm-cream transition-colors hover:bg-warm-clay"
+                  >
+                    Chiedi la quotazione <ArrowRight className="h-3 w-3" />
+                  </a>
+                </div>
+              )}
             </li>
           ))}
         </ul>
