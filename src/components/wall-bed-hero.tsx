@@ -9,7 +9,23 @@ const OPEN =
 // Zoom/curtain settle in ~6s, then the image holds; switch every 10s.
 const CYCLE = 10000;
 
-export function WallBedHero() {
+export type HeroCopy = {
+  closed: string; open: string; closedAlt: string; openAlt: string;
+  crumb: string; eyebrow: string; day: string; night: string; text: string;
+  secondary: { href: string; label: string }; caption: string;
+};
+const BED_COPY: HeroCopy = {
+  closed: CLOSED, open: OPEN,
+  closedAlt: "Letto a scomparsa Penelope chiuso con divano: di giorno un soggiorno",
+  openAlt: "Lo stesso letto a scomparsa Penelope in apertura sopra il divano",
+  crumb: "Letti a scomparsa", eyebrow: "Letti a scomparsa su misura · Milano",
+  day: "Di giorno vivi.", night: "Di notte dormi.",
+  text: "La stessa parete, due stanze. Letti veri con materasso fino a 30 cm, dal singolo 80×190 al king size 180×200, costruiti sulle misure della tua casa.",
+  secondary: { href: "#configurazioni", label: "Cosa farai di giorno?" },
+  caption: "Modello Penelope · materasso alto",
+};
+
+export function WallBedHero({ copy = BED_COPY }: { copy?: HeroCopy }) {
   const [night, setNight] = useState(false);
   const [auto, setAuto] = useState(true);
   const [tick, setTick] = useState(0);
@@ -37,8 +53,8 @@ export function WallBedHero() {
       <div className="absolute inset-0 -z-10">
         {/* Closed: day */}
         <img
-          src={CLOSED}
-          alt="Letto a scomparsa Penelope chiuso con divano: di giorno un soggiorno"
+          src={copy.closed}
+          alt={copy.closedAlt}
           fetchPriority="high"
           className={cn(
             "absolute inset-0 h-full w-full object-cover object-[44%_30%] md:object-[62%_center] transition-transform duration-[6000ms] ease-out",
@@ -47,8 +63,8 @@ export function WallBedHero() {
         />
         {/* Open: night, revealed with a curtain wipe from the top */}
         <img
-          src={OPEN}
-          alt="Lo stesso letto a scomparsa Penelope in apertura sopra il divano"
+          src={copy.open}
+          alt={copy.openAlt}
           className={cn(
             "absolute inset-0 h-full w-full object-cover object-[44%_30%] md:object-[62%_center] transition-[clip-path,transform,filter] duration-[1800ms] ease-[cubic-bezier(0.77,0,0.18,1)]",
             night
@@ -73,21 +89,21 @@ export function WallBedHero() {
           </a>
           <span aria-hidden="true">/</span>
           <span aria-current="page" className="text-warm-cream/90">
-            Letti a scomparsa
+            {copy.crumb}
           </span>
         </nav>
         <div className="text-[10px] uppercase tracking-[0.28em] text-warm-cream/70 md:text-[11px]">
-          Letti a scomparsa su misura · Milano
+          {copy.eyebrow}
         </div>
         <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10">
         <h1 className="max-w-4xl font-display text-[12vw] font-light leading-[0.95] sm:text-6xl md:text-[5.6vw]">
           <span className={cn("block transition-opacity duration-700", night && "opacity-40")}>
-            Di giorno vivi.
+            {copy.day}
           </span>
           <span
             className={cn("block italic transition-opacity duration-700", !night && "opacity-40")}
           >
-            Di notte dormi.
+            {copy.night}
           </span>
         </h1>
           <div
@@ -118,8 +134,7 @@ export function WallBedHero() {
           </div>
         </div>
         <p className="mt-6 max-w-xl text-[15px] font-light leading-relaxed text-warm-cream/80 md:text-lg">
-          La stessa parete, due stanze. Letti veri con materasso fino a 30 cm, dal singolo 80×190 al
-          king size 180×200, costruiti sulle misure della tua casa.
+          {copy.text}
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -131,10 +146,10 @@ export function WallBedHero() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
-            href="#configurazioni"
+            href={copy.secondary.href}
             className="group inline-flex min-h-14 items-center justify-between gap-6 border border-warm-cream/50 px-6 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors hover:border-warm-cream hover:bg-warm-cream/10"
           >
-            Cosa farai di giorno?
+            {copy.secondary.label}
             <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
           </a>
           <a
@@ -157,7 +172,7 @@ export function WallBedHero() {
             )}
           </div>
           <span className="hidden text-[10px] uppercase tracking-[0.18em] text-warm-cream/60 md:inline">
-            Modello Penelope · materasso alto
+            {copy.caption}
           </span>
         </div>
       </div>

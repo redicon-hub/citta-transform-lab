@@ -30,7 +30,7 @@ export function selectWallBedSubcategory(slug: string) {
 export const megaMenuGroups: { title: string; href: string; items: [string, string][] }[] = [
   {
     title: "Divani letto",
-    href: `${SITE}/milano/divani-letto/`,
+    href: "/milano/divani-letto/",
     items: [
       ["Divani letto con materasso alto", `${SITE}/milano/divani-letto/divani-letto-con-materasso-alto/`],
       ["Divani letto comodissimi", `${SITE}/milano/divani-letto/divani-letto-comodissimi/`],

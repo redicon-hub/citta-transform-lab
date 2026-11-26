@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MilanoDivaniLettoIndexRouteImport } from './routes/milano/divani-letto/index'
 import { Route as MilanoLettiAScomparsaIndexRouteImport } from './routes/milano/letti-a-scomparsa/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MilanoDivaniLettoIndexRoute = MilanoDivaniLettoIndexRouteImport.update({
+  id: '/milano/divani-letto/',
+  path: '/milano/divani-letto/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MilanoLettiAScomparsaIndexRoute =
@@ -26,27 +32,31 @@ const MilanoLettiAScomparsaIndexRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/milano/divani-letto/': typeof MilanoDivaniLettoIndexRoute
   '/milano/letti-a-scomparsa/': typeof MilanoLettiAScomparsaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/milano/divani-letto': typeof MilanoDivaniLettoIndexRoute
   '/milano/letti-a-scomparsa': typeof MilanoLettiAScomparsaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/milano/divani-letto/': typeof MilanoDivaniLettoIndexRoute
   '/milano/letti-a-scomparsa/': typeof MilanoLettiAScomparsaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/milano/letti-a-scomparsa/'
+  fullPaths: '/' | '/milano/divani-letto/' | '/milano/letti-a-scomparsa/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/milano/letti-a-scomparsa'
-  id: '__root__' | '/' | '/milano/letti-a-scomparsa/'
+  to: '/' | '/milano/divani-letto' | '/milano/letti-a-scomparsa'
+  id: '__root__' | '/' | '/milano/divani-letto/' | '/milano/letti-a-scomparsa/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MilanoDivaniLettoIndexRoute: typeof MilanoDivaniLettoIndexRoute
   MilanoLettiAScomparsaIndexRoute: typeof MilanoLettiAScomparsaIndexRoute
 }
 
@@ -57,6 +67,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/milano/divani-letto/': {
+      id: '/milano/divani-letto/'
+      path: '/milano/divani-letto'
+      fullPath: '/milano/divani-letto/'
+      preLoaderRoute: typeof MilanoDivaniLettoIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/milano/letti-a-scomparsa/': {
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MilanoDivaniLettoIndexRoute: MilanoDivaniLettoIndexRoute,
   MilanoLettiAScomparsaIndexRoute: MilanoLettiAScomparsaIndexRoute,
 }
 export const routeTree = rootRouteImport

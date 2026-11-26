@@ -692,7 +692,7 @@ function Manifesto() {
 const problems = [
   { n: "01", t: "Monolocali da 25 mq", d: "Spazi compatti che devono accogliere giorno, notte, lavoro e ricevere ospiti.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/" },
   { n: "02", t: "Camere multifunzione", d: "Stanze che cambiano funzione tra giorno e notte, tra lavoro e relax.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/letti-a-scomparsa-con-divano/" },
-  { n: "03", t: "Stanze ospiti occasionali", d: "Ambienti che restano vuoti per mesi e devono trasformarsi in pochi gesti.", href: "https://artigianiincitta.it/milano/divani-letto/" },
+  { n: "03", t: "Stanze ospiti occasionali", d: "Ambienti che restano vuoti per mesi e devono trasformarsi in pochi gesti.", href: "/milano/divani-letto/" },
   { n: "04", t: "Home office discreti", d: "Postazioni di lavoro integrate nell'architettura, invisibili a fine giornata.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/letti-a-scomparsa-con-scrivania/" },
   { n: "05", t: "Camere bambini in evoluzione", d: "Spazi che crescono con loro: dal gioco allo studio, dal letto singolo al doppio.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/camerette-salvaspazio/" },
   { n: "06", t: "Airbnb di alto livello", d: "Massimizzare la capienza senza sacrificare l'eleganza percepita dall'ospite.", href: "https://artigianiincitta.it/milano/letti-a-scomparsa/letti-a-scomparsa-con-divano/" },
@@ -1067,7 +1067,7 @@ function Reviews() {
 
 const collections = [
   { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti, href: "/milano/letti-a-scomparsa/" },
-  { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto, href: "https://artigianiincitta.it/milano/divani-letto/" },
+  { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto, href: "/milano/divani-letto/" },
   { t: "Divani, pouff e poltrone", d: "Imbottiti su misura, tessuti selezionati.", img: catDivaniPouff, href: "https://artigianiincitta.it/milano/divani-poltrone-e-pouf/" },
   { t: "Tavoli e consolle", d: "Allungabili e trasformabili, in legno massello.", img: catTavoli, href: "https://artigianiincitta.it/milano/tavoli-trasformabili/" },
   { t: "Cucine a scomparsa", d: "Blocchi cucina integrati dietro ante filomuro.", img: catCucine, href: "https://artigianiincitta.it/milano/cucine/cucina-a-scomparsa/" },

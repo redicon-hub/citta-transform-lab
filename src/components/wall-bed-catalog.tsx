@@ -5,15 +5,13 @@ import {
   SELECT_SUBCATEGORY_EVENT,
   wallBedCategoryUrl,
   wallBedSubcategories,
+  type WallBedSubcategory,
 } from "@/data/site-categories";
 
 const PER_PAGE = 20;
 const ALL_SLUG = "tutti";
-const allProducts = Array.from(
-  new Map(wallBedSubcategories.flatMap((s) => s.products).map((p) => [p.url, p])).values(),
-);
 // Selection shown in the catalog, in the order of the live site's "Letti a scomparsa" menu.
-const SELECTION: [string, string][] = [
+const BED_SELECTION: [string, string][] = [
   ["letto-a-scomparsa-verticale", "Letto a scomparsa verticale"],
   ["letto-a-scomparsa-orizzontale", "Letto a scomparsa orizzontale"],
   ["letti-a-scomparsa-con-divano", "Letti a scomparsa con divano"],
@@ -26,15 +24,39 @@ const SELECTION: [string, string][] = [
   ["letti-per-bambini-a-scomparsa", "Letti per bambini a scomparsa"],
   ["prezzi-economici", "Letti a scomparsa prezzi economici"],
 ];
-const selected = SELECTION.flatMap(([slug, name]) => {
-  const sub = wallBedSubcategories.find((s) => s.slug === slug);
-  return sub ? [{ ...sub, name }] : [];
-});
-const tabs = [{ slug: ALL_SLUG, name: "Tutti i letti a scomparsa", products: allProducts }, ...selected];
+
+type CatalogProps = {
+  subcategories?: WallBedSubcategory[];
+  selection?: [string, string][];
+  defaultSlug?: string;
+  categoryUrl?: (slug: string) => string;
+  allName?: string;
+  title?: string;
+  tabsLabel?: string;
+};
+
 const euro = new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
-export function WallBedCatalog() {
-  const [slug, setSlug] = useState("letti-a-scomparsa-con-divano");
+export function WallBedCatalog({
+  subcategories = wallBedSubcategories,
+  selection = BED_SELECTION,
+  defaultSlug = "letti-a-scomparsa-con-divano",
+  categoryUrl = wallBedCategoryUrl,
+  allName = "Tutti i letti a scomparsa",
+  title = "Scegli il tuo letto a scomparsa.",
+  tabsLabel = "Sottocategorie dei letti a scomparsa",
+}: CatalogProps = {}) {
+  const { tabs, selected } = useMemo(() => {
+    const all = Array.from(
+      new Map(subcategories.flatMap((s) => s.products).map((p) => [p.url, p])).values(),
+    );
+    const picked = selection.flatMap(([slug, name]) => {
+      const sub = subcategories.find((s) => s.slug === slug);
+      return sub ? [{ ...sub, name }] : [];
+    });
+    return { selected: picked, tabs: [{ slug: ALL_SLUG, name: allName, count: all.length, products: all }, ...picked] };
+  }, [subcategories, selection, allName]);
+  const [slug, setSlug] = useState(defaultSlug);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -49,7 +71,7 @@ export function WallBedCatalog() {
     };
     window.addEventListener(SELECT_SUBCATEGORY_EVENT, onSelect);
     return () => window.removeEventListener(SELECT_SUBCATEGORY_EVENT, onSelect);
-  }, []);
+  }, [tabs]);
 
   const current = tabs.find((s) => s.slug === slug) ?? tabs[0]!;
   const pages = Math.max(1, Math.ceil(current.products.length / PER_PAGE));
@@ -70,7 +92,7 @@ export function WallBedCatalog() {
           <div>
             <div className="text-eyebrow text-warm-clay">Catalogo · {selected.length} famiglie</div>
             <h2 className="mt-3 font-display text-4xl font-light leading-tight md:text-6xl">
-              Scegli il tuo letto a scomparsa.
+              {title}
             </h2>
           </div>
           <p className="max-w-md text-sm font-light leading-relaxed text-muted-foreground">
@@ -81,7 +103,7 @@ export function WallBedCatalog() {
 
         <div
           role="tablist"
-          aria-label="Sottocategorie dei letti a scomparsa"
+          aria-label={tabsLabel}
           className="-mx-6 mt-10 flex gap-2 overflow-x-auto px-6 pb-2 md:mx-0 md:flex-wrap md:px-0"
         >
           {tabs.map((s) => (
@@ -114,7 +136,7 @@ export function WallBedCatalog() {
             <strong className="font-medium text-ink">{current.name}</strong> · {current.products.length} modelli
             {pages > 1 && ` · pagina ${page} di ${pages}`}
           </span>
-          {current.slug !== ALL_SLUG && <a href={wallBedCategoryUrl(current.slug)} className="shrink-0 underline underline-offset-4 hover:text-ink">
+          {current.slug !== ALL_SLUG && <a href={categoryUrl(current.slug)} className="shrink-0 underline underline-offset-4 hover:text-ink">
             Pagina della categoria
           </a>}
         </div>
@@ -206,5 +228,7 @@ function shortName(name: string) {
     .replace(/ (salvaspazio|integrato su misura a Milano|Artigianale)$/i, "")
     .replace(/^Letti a scomparsa /, "")
     .replace(/^Letto a scomparsa /i, "")
+    .replace(/^Divan[io] letto (con )?/i, "")
+    .replace(/^Divani (con )?/i, "")
     .replace(/^./, (c) => c.toUpperCase());
 }
