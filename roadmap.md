@@ -1,4 +1,5 @@
 # Mobile attention revision
+- [x] Build the complete dedicated `/milano/letti-a-scomparsa/` category page with real products, project form, showroom, FAQs and mobile conversion paths.
 - [x] Show only the first reason in "Cinque ragioni solide", with an inviting accordion for the other four.
 - [x] Turn the "read all reviews" line into a convincing button.
 - [x] Bring the technical catalog earlier in the mobile scroll and feature the most searched solution.

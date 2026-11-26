@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MilanoLettiAScomparsaIndexRouteImport } from './routes/milano/letti-a-scomparsa/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MilanoLettiAScomparsaIndexRoute =
+  MilanoLettiAScomparsaIndexRouteImport.update({
+    id: '/milano/letti-a-scomparsa/',
+    path: '/milano/letti-a-scomparsa/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/milano/letti-a-scomparsa/': typeof MilanoLettiAScomparsaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/milano/letti-a-scomparsa': typeof MilanoLettiAScomparsaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/milano/letti-a-scomparsa/': typeof MilanoLettiAScomparsaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/milano/letti-a-scomparsa/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/milano/letti-a-scomparsa'
+  id: '__root__' | '/' | '/milano/letti-a-scomparsa/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MilanoLettiAScomparsaIndexRoute: typeof MilanoLettiAScomparsaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +59,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/milano/letti-a-scomparsa/': {
+      id: '/milano/letti-a-scomparsa/'
+      path: '/milano/letti-a-scomparsa'
+      fullPath: '/milano/letti-a-scomparsa/'
+      preLoaderRoute: typeof MilanoLettiAScomparsaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MilanoLettiAScomparsaIndexRoute: MilanoLettiAScomparsaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

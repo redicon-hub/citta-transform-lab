@@ -182,7 +182,7 @@ function Nav() {
         <div className="flex h-full flex-col overflow-y-auto px-6 py-7">
           <nav aria-label="Navigazione mobile" className="border-t border-border">
             {[
-              ["Letti a scomparsa", "https://artigianiincitta.it/milano/letti-a-scomparsa/"],
+              ["Letti a scomparsa", "/milano/letti-a-scomparsa/"],
               ["Soluzioni / Catalogo", "#catalogo"],
               ["Progetti", "#progetti"],
               ["Chi siamo", "#perche"],
@@ -1066,7 +1066,7 @@ function Reviews() {
 
 
 const collections = [
-  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti, href: "https://artigianiincitta.it/milano/letti-a-scomparsa/" },
+  { t: "Letti a scomparsa", d: "Sistemi murphy con meccanismi italiani premium.", img: catLetti, href: "/milano/letti-a-scomparsa/" },
   { t: "Divani letto", d: "Sedute di giorno, letti comodi di notte.", img: catDivaniLetto, href: "https://artigianiincitta.it/milano/divani-letto/" },
   { t: "Divani, pouff e poltrone", d: "Imbottiti su misura, tessuti selezionati.", img: catDivaniPouff, href: "https://artigianiincitta.it/milano/divani-poltrone-e-pouf/" },
   { t: "Tavoli e consolle", d: "Allungabili e trasformabili, in legno massello.", img: catTavoli, href: "https://artigianiincitta.it/milano/tavoli-trasformabili/" },
