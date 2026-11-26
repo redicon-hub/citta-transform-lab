@@ -272,7 +272,7 @@ function DayUse() {
             onClick={() => selectWallBedSubcategory("tutti")}
             className="inline-flex items-center gap-3 bg-ink px-8 py-4 text-xs font-medium uppercase tracking-[0.18em] text-warm-cream transition-colors hover:bg-warm-clay"
           >
-            Fammeli vedere tutti <ArrowRight className="h-4 w-4" />
+            Visualizza tutti i modelli <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </div>
