@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const CLOSED = "https://artigianiincitta.it/wp-content/uploads/2021/01/Letto-a-scomparsa-peneloper-chiuso-materasso-alto.jpg";
-const OPEN = "https://artigianiincitta.it/wp-content/uploads/2021/01/Letto-a-scomparsa-peneloper-aperto-materasso-alto.jpg";
+const CLOSED =
+  "https://artigianiincitta.it/wp-content/uploads/2026/11/letto-a-scomparsa-penelope-con-divano-materasso-alto-chiuso.webp";
+const OPEN =
+  "https://artigianiincitta.it/wp-content/uploads/2026/11/letto-a-scomparsa-penelope-con-divano-materasso-alto-aperto.webp";
 const CYCLE = 5200;
 
 export function WallBedHero() {
@@ -38,8 +40,8 @@ export function WallBedHero() {
           alt="Letto a scomparsa Penelope chiuso con divano: di giorno un soggiorno"
           fetchPriority="high"
           className={cn(
-            "absolute inset-0 h-full w-full object-cover object-[48%_center] md:object-[62%_center] transition-transform duration-[6000ms] ease-out",
-            night ? "scale-[1.02]" : "scale-[1.1]",
+            "absolute inset-0 h-full w-full object-cover object-[44%_30%] md:object-[62%_center] transition-transform duration-[6000ms] ease-out",
+            night ? "scale-[1.20] md:scale-[1.02]" : "scale-[1.24] md:scale-[1.1]",
           )}
         />
         {/* Open: night, revealed with a curtain wipe from the top */}
@@ -47,10 +49,10 @@ export function WallBedHero() {
           src={OPEN}
           alt="Lo stesso letto a scomparsa Penelope in apertura sopra il divano"
           className={cn(
-            "absolute inset-0 h-full w-full object-cover object-[48%_center] md:object-[62%_center] transition-[clip-path,transform,filter] duration-[1800ms] ease-[cubic-bezier(0.77,0,0.18,1)]",
+            "absolute inset-0 h-full w-full object-cover object-[44%_30%] md:object-[62%_center] transition-[clip-path,transform,filter] duration-[1800ms] ease-[cubic-bezier(0.77,0,0.18,1)]",
             night
-              ? "scale-[1.06] [clip-path:inset(0_0_0_0)] brightness-[0.92]"
-              : "scale-[1.12] [clip-path:inset(0_0_100%_0)]",
+              ? "scale-[1.22] md:scale-[1.06] [clip-path:inset(0_0_0_0)] brightness-[0.92]"
+              : "scale-[1.28] md:scale-[1.12] [clip-path:inset(0_0_100%_0)]",
           )}
         />
         {/* Light sweep on every transition */}
@@ -65,9 +67,13 @@ export function WallBedHero() {
 
       <div className="mx-auto flex min-h-[640px] max-w-[1600px] flex-col justify-end px-6 pb-10 pt-24 md:min-h-[calc(100svh-129px)] md:px-16 md:pb-16">
         <nav aria-label="Breadcrumb" className="mb-8 flex gap-2 text-[11px] text-warm-cream/60">
-          <a href="/" className="hover:text-warm-cream">Home</a>
+          <a href="/" className="hover:text-warm-cream">
+            Home
+          </a>
           <span aria-hidden="true">/</span>
-          <span aria-current="page" className="text-warm-cream/90">Letti a scomparsa</span>
+          <span aria-current="page" className="text-warm-cream/90">
+            Letti a scomparsa
+          </span>
         </nav>
         <div className="text-[10px] uppercase tracking-[0.28em] text-warm-cream/70 md:text-[11px]">
           Letti a scomparsa su misura · Milano
@@ -76,13 +82,15 @@ export function WallBedHero() {
           <span className={cn("block transition-opacity duration-700", night && "opacity-40")}>
             Di giorno vivi.
           </span>
-          <span className={cn("block italic transition-opacity duration-700", !night && "opacity-40")}>
+          <span
+            className={cn("block italic transition-opacity duration-700", !night && "opacity-40")}
+          >
             Di notte dormi.
           </span>
         </h1>
         <p className="mt-6 max-w-xl text-[15px] font-light leading-relaxed text-warm-cream/80 md:text-lg">
-          La stessa parete, due stanze. Letti veri con materasso fino a 30 cm, dal singolo
-          80×190 al king size 180×200, costruiti sulle misure della tua casa.
+          La stessa parete, due stanze. Letti veri con materasso fino a 30 cm, dal singolo 80×190 al
+          king size 180×200, costruiti sulle misure della tua casa.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -103,7 +111,11 @@ export function WallBedHero() {
         </div>
 
         <div className="mt-10 flex items-center gap-5 border-t border-warm-cream/15 pt-5">
-          <div role="group" aria-label="Mostra il letto chiuso o aperto" className="flex rounded-full border border-warm-cream/25 p-1">
+          <div
+            role="group"
+            aria-label="Mostra il letto chiuso o aperto"
+            className="flex rounded-full border border-warm-cream/25 p-1"
+          >
             {[
               { v: false, label: "Giorno", Icon: Sun },
               { v: true, label: "Notte", Icon: Moon },
@@ -115,7 +127,9 @@ export function WallBedHero() {
                 onClick={() => choose(v)}
                 className={cn(
                   "flex h-9 items-center gap-2 rounded-full px-4 text-[10px] uppercase tracking-[0.16em] transition-colors",
-                  night === v ? "bg-warm-cream text-ink" : "text-warm-cream/70 hover:text-warm-cream",
+                  night === v
+                    ? "bg-warm-cream text-ink"
+                    : "text-warm-cream/70 hover:text-warm-cream",
                 )}
               >
                 <Icon className="h-3.5 w-3.5" aria-hidden="true" />
