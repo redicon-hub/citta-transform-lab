@@ -19,6 +19,9 @@ import {
   WHATSAPP_HREF,
   WhatsAppMark,
 } from "@/components/category-shell";
+import { WallBedHero } from "@/components/wall-bed-hero";
+import { WallBedCatalog } from "@/components/wall-bed-catalog";
+import { selectWallBedSubcategory } from "@/data/site-categories";
 import showroomImage from "@/assets/showroom-arredo-salvaspazio-600mq-corsico-milano.webp.asset.json";
 
 const SITE = "https://artigianiincitta.it";
@@ -59,67 +62,6 @@ const configurations = [
     href: `${SITE}${PAGE_PATH}armadio-con-letto-a-scomparsa/`,
     link: "Vedi le composizioni con armadio",
     value: "parete",
-  },
-];
-
-const products = [
-  {
-    name: "Abacus sofa ante orizzontali",
-    configuration: "Con divano · Apertura verticale",
-    detail: "Profondità da chiuso: 36,2 cm",
-    price: "1.617,72 €",
-    previousPrice: "2.232,60 €",
-    image: `${SITE}/wp-content/uploads/2024/10/Letto-a-scomparsa-Abacus-divano-contenitore-ante-orizzontali-in-offerta.jpg`,
-    alt: "Letto a scomparsa Abacus chiuso con divano contenitore e librerie",
-    href: `${SITE}/shop/letti-a-scomparsa/letti-a-scomparsa-con-divano/letto-a-scomparsa-abacus-sofa-con-ante-orizzontali/`,
-  },
-  {
-    name: "Caserta con divano Christian",
-    configuration: "Matrimoniale · Con divano",
-    detail: "Composizione personalizzabile su misura",
-    price: "2.266,76 €",
-    previousPrice: "3.128,08 €",
-    image: `${SITE}/wp-content/uploads/2021/02/letto-a-scomparsa-caserta-con-divano-christian-matrimoniale.jpg`,
-    alt: "Letto a scomparsa Caserta chiuso con divano Christian beige e armadio",
-    href: `${SITE}/shop/letti-a-scomparsa/letti-a-scomparsa-prezzi-economici-personalizzabili-su-misura-modello-caserta-in-offerta/`,
-  },
-  {
-    name: "Hiro — Clever IM22-012",
-    configuration: "Orizzontale · Con scrivania",
-    detail: "Camera e studio nella stessa composizione",
-    image: `${SITE}/wp-content/uploads/2025/03/Camera-studio-letto-a-scomparsa-orizzontale-con-scrivania-Hiro-Clever-composizione-IM22-012.jpg`,
-    alt: "Camera studio con letto a scomparsa orizzontale Hiro e scrivania",
-    href: `${SITE}/shop/letti-a-scomparsa/letti-a-scomparsa-con-scrivania/camera-studio-letto-a-scomparsa-orizzontale-con-scrivania-hiro-clever-composizione-im22-012/`,
-  },
-  {
-    name: "Clei-Table",
-    configuration: "Con tavolo integrato",
-    detail: "Zona pranzo e letto nella stessa parete",
-    price: "3.618,52 €",
-    previousPrice: "4.993,46 €",
-    image: `${SITE}/wp-content/uploads/2023/04/letto-a-scomparsa-con-tavolo-clei-table-apparecchiato-1.jpg`,
-    alt: "Letto a scomparsa Clei-Table con tavolo apparecchiato e librerie laterali",
-    href: `${SITE}/shop/letti-a-scomparsa/letti-a-scomparsa-con-tavolo/letto-a-scomparsa-con-tavolo-clei-table/`,
-  },
-  {
-    name: "Ikeano in pronta consegna",
-    configuration: "Matrimoniale · Verticale",
-    detail: "Materasso ortopedico a molle incluso",
-    price: "3.403,80 €",
-    previousPrice: "4.184,60 €",
-    image: `${SITE}/wp-content/uploads/2024/10/Mobile-letto-a-scomparsa-Ikeano-matrimoniale-offerta-chiuso.jpg`,
-    alt: "Mobile letto a scomparsa Ikeano matrimoniale chiuso con tavolo davanti",
-    href: `${SITE}/shop/letti-a-scomparsa/letto-a-scomparsa-ikeano-in-offerta/`,
-  },
-  {
-    name: "Penelope",
-    configuration: "Componibile · Con o senza divano",
-    detail: "Apertura automatica e parete componibile",
-    price: "2.671,80 €",
-    previousPrice: "3.686,84 €",
-    image: `${SITE}/wp-content/uploads/2019/04/letto-a-scomparsa-con-divano-automatico-aperto-penelope-parete-con-librerie-ed-armadi-composizione-chiusa.jpg`,
-    alt: "Letto a scomparsa Penelope con divano e parete con librerie",
-    href: `${SITE}/shop/letti-a-scomparsa/letto-a-scomparsa-componibile-con-e-senza-divano-modello-penelope/`,
   },
 ];
 
@@ -238,10 +180,10 @@ function WallBedsPage() {
     <div className="bg-background pb-[calc(76px+env(safe-area-inset-bottom))] text-foreground md:pb-0">
       <CategoryHeader categoryLabel="Letti a scomparsa" />
       <main className="pt-[133px] md:pt-[129px]">
-        <Hero />
-        <Configurations />
+        <WallBedHero />
+        <DayUse />
+        <WallBedCatalog />
         <Measurements />
-        <Models />
         <ProjectForm />
         <Showroom />
         <Faq />
@@ -252,169 +194,41 @@ function WallBedsPage() {
   );
 }
 
-function Hero() {
+function DayUse() {
+  const options = [
+    { label: "Divano", text: "Un living con una seduta vera, che di notte diventa camera.", slug: "letti-a-scomparsa-con-divano", image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-divano.jpg` },
+    { label: "Scrivania", text: "Lavori o studi nella stessa stanza in cui dormi.", slug: "letti-a-scomparsa-con-scrivania", image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-scrivania.jpg` },
+    { label: "Tavolo", text: "Pranzi e cene sulla parete che la sera si apre.", slug: "letti-a-scomparsa-con-tavolo", image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-tavolo.jpeg` },
+    { label: "Libreria e armadio", text: "Contenimento e libri attorno al letto, centro stanza libero.", slug: "armadio-con-letto-a-scomparsa", image: `${SITE}/wp-content/uploads/2022/01/armadio-con-letto-a-scomparsa-vedano-al-lambro-componibile-su-misura-con-armadi-librerie-scrivania-t.jpg` },
+  ];
   return (
-    <section className="border-b border-border/60">
-      <div className="mx-auto max-w-[1600px] px-6 md:px-16">
-        <nav
-          aria-label="Breadcrumb"
-          className="flex items-center gap-2 overflow-x-auto whitespace-nowrap py-4 text-[11px] text-muted-foreground md:py-5"
-        >
-          <a href="/" className="hover:text-ink">
-            Home
-          </a>
-          <span aria-hidden="true">/</span>
-          <a href={`${SITE}/milano/`} className="hover:text-ink">
-            Milano
-          </a>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page" className="text-ink">
-            Letti a scomparsa
-          </span>
-        </nav>
-        <div className="grid items-stretch gap-8 pb-8 md:grid-cols-12 md:gap-12 md:pb-16">
-          <div className="flex flex-col justify-center md:col-span-5 md:py-8">
-            <h1 className="font-display text-[10.5vw] font-light leading-[0.98] sm:text-5xl md:text-[4.2vw]">
-              Letti a scomparsa <span className="italic text-warm-clay">a Milano</span>
-            </h1>
-            <p className="mt-5 font-display text-3xl font-light leading-[1.08] md:text-[2.25vw]">
-              Di giorno il tuo soggiorno.
-              <br />
-              <span className="italic">Di notte la tua camera.</span>
-            </p>
-            <p className="mt-5 max-w-xl text-[15px] font-light leading-relaxed text-muted-foreground md:text-base">
-              Con un letto a scomparsa puoi usare la stessa stanza in due modi. Partiamo dalle
-              misure della tua parete e da quello che vuoi farci durante il giorno.
-            </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
-              <CategoryCta
-                href="#progetto"
-                tone="light"
-                className="sm:flex-1 md:flex-none lg:flex-1"
-              >
-                Verifica cosa ci sta nella tua stanza
-              </CategoryCta>
-              <CategoryCta
-                href="#configurazioni"
-                tone="outline"
-                className="sm:flex-1 md:flex-none lg:flex-1"
-              >
-                Guarda i modelli
-              </CategoryCta>
-            </div>
-          </div>
-          <div className="md:col-span-7">
-            <figure className="relative h-full min-h-[280px] overflow-hidden bg-secondary md:min-h-[540px]">
-              <img
-                src={HERO_IMAGE}
-                alt="Letto a scomparsa su misura Novera in apertura, integrato in una parete living in legno"
-                width={1280}
-                height={853}
-                fetchPriority="high"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-ink/85 to-transparent px-5 pb-5 pt-16 text-warm-cream md:px-7 md:pb-6">
-                <span>
-                  <span className="block text-[10px] uppercase tracking-[0.2em] text-warm-cream/70">
-                    Dal catalogo Artigiani in Città
-                  </span>
-                  <span className="mt-1 block font-display text-2xl font-light">
-                    Novera · su misura
-                  </span>
-                </span>
-                <a
-                  href={`${SITE}/shop/letti-a-scomparsa/letto-a-scomparsa-su-misura-novera-con-materasso-alto/`}
-                  className="shrink-0 border-b border-warm-cream/60 pb-1 text-[10px] uppercase tracking-[0.16em]"
-                >
-                  Vedi il modello
-                </a>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Configurations() {
-  return (
-    <section
-      id="configurazioni"
-      className="scroll-mt-36 px-6 py-16 md:scroll-mt-40 md:px-16 md:py-28"
-    >
+    <section id="configurazioni" className="scroll-mt-36 px-6 py-16 md:scroll-mt-40 md:px-16 md:py-28">
       <div className="mx-auto max-w-[1600px]">
         <SectionHeading
           index="01"
           eyebrow="La scelta parte da qui"
-          title="Come vuoi usare la stanza di giorno?"
-          text="Non partire dal meccanismo: parti dalla vita che fai nella stanza. Ecco tre configurazioni realmente presenti nel nostro catalogo."
+          title="Di giorno, cosa ci farai?"
+          text="Scegli come userai la stanza quando il letto è chiuso: ti mostriamo subito i modelli giusti."
         />
-        <div className="mt-10 grid gap-8 md:mt-16 md:grid-cols-12 md:gap-6">
-          <article className="md:col-span-7 md:row-span-2">
-            <a href={configurations[0].href} className="group block">
-              <div className="relative aspect-[16/11] overflow-hidden bg-secondary md:aspect-auto md:h-[520px]">
-                <img
-                  src={configurations[0].image}
-                  alt={configurations[0].alt}
-                  width={1280}
-                  height={359}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]"
-                />
-              </div>
-              <div className="border-x border-b border-border p-6 md:p-8">
-                <div className="text-eyebrow text-warm-clay">{configurations[0].use}</div>
-                <h3 className="mt-3 font-display text-3xl font-light leading-tight md:text-5xl">
-                  {configurations[0].name}
-                </h3>
-                <p className="mt-4 max-w-xl text-sm font-light leading-relaxed text-muted-foreground md:text-base">
-                  {configurations[0].description}
-                </p>
-                <span className="mt-7 inline-flex items-center gap-3 border-b border-ink pb-1 text-[11px] uppercase tracking-[0.18em]">
-                  {configurations[0].link}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </div>
-            </a>
-            <a
-              href={`${PAGE_PATH}?soluzione=divano#progetto`}
-              className="mt-3 inline-flex items-center gap-2 px-1 text-xs text-muted-foreground underline decoration-border underline-offset-4 hover:text-ink"
+        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-4 md:gap-6">
+          {options.map((o, i) => (
+            <button
+              key={o.slug}
+              type="button"
+              onClick={() => selectWallBedSubcategory(o.slug)}
+              className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden bg-ink text-left text-warm-cream md:aspect-[4/5]"
             >
-              Richiedi un progetto con divano
-              <ArrowRight className="h-3.5 w-3.5" />
-            </a>
-          </article>
-          {configurations.slice(1).map((item) => (
-            <article key={item.name} className="md:col-span-5">
-              <a
-                href={item.href}
-                className="group grid grid-cols-[112px_minmax(0,1fr)] border border-border md:block"
-              >
-                <div className="min-h-full overflow-hidden bg-secondary md:aspect-[16/8]">
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <div className="text-[9px] uppercase tracking-[0.16em] text-warm-clay md:text-[10px]">
-                    {item.use}
-                  </div>
-                  <h3 className="mt-2 font-display text-xl font-light leading-tight md:text-3xl">
-                    {item.name}
-                  </h3>
-                  <p className="mt-3 hidden text-sm font-light leading-relaxed text-muted-foreground md:block">
-                    {item.description}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[9px] uppercase tracking-[0.12em] md:text-[10px]">
-                    {item.link}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </div>
-              </a>
-            </article>
+              <img src={o.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" />
+              <span className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
+              <span className="relative p-4 md:p-7">
+                <span className="block text-[10px] uppercase tracking-[0.2em] text-warm-cream/60">0{i + 1}</span>
+                <span className="mt-2 block font-display text-2xl font-light md:text-4xl">{o.label}</span>
+                <span className="mt-2 hidden text-sm font-light leading-relaxed text-warm-cream/75 md:block">{o.text}</span>
+                <span className="mt-4 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em]">
+                  Vedi i modelli <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </span>
+            </button>
           ))}
         </div>
       </div>
@@ -524,89 +338,6 @@ function Measurements() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Models() {
-  return (
-    <section id="modelli" className="scroll-mt-36 px-6 py-16 md:scroll-mt-40 md:px-16 md:py-28">
-      <div className="mx-auto max-w-[1600px]">
-        <SectionHeading
-          index="03"
-          eyebrow="Catalogo"
-          title="Modelli e ambienti reali."
-          text="Una selezione per confrontare le funzioni. Apri la scheda per verificare composizione, varianti, disponibilità e prezzo aggiornato."
-        />
-        <div className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
-          {products.map((product) => (
-            <article
-              key={product.name}
-              className="group flex min-w-0 flex-col border-t border-ink/20 pt-4"
-            >
-              <a href={product.href} className="block overflow-hidden bg-secondary">
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  loading="lazy"
-                  width={1280}
-                  height={800}
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </a>
-              <div className="flex flex-1 flex-col pt-5">
-                <div className="text-[10px] uppercase tracking-[0.16em] text-warm-clay">
-                  {product.configuration}
-                </div>
-                <h3 className="mt-2 font-display text-3xl font-light leading-tight">
-                  <a href={product.href} className="hover:text-warm-clay">
-                    {product.name}
-                  </a>
-                </h3>
-                <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">
-                  {product.detail}
-                </p>
-                <div className="mt-5 flex flex-1 flex-col justify-end">
-                  {product.price ? (
-                    <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span className="font-readable-numbers text-xl text-ink">
-                        {product.price}
-                      </span>
-                      <span className="font-readable-numbers text-sm text-muted-foreground line-through">
-                        {product.previousPrice}
-                      </span>
-                      <span className="w-full text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
-                        IVA inclusa · offerta catalogo
-                      </span>
-                    </p>
-                  ) : (
-                    <p className="text-sm text-muted-foreground">
-                      Prezzo in base alla configurazione scelta
-                    </p>
-                  )}
-                  <a
-                    href={product.href}
-                    className="mt-5 inline-flex items-center justify-between border-t border-border py-3 text-[10px] uppercase tracking-[0.15em] hover:text-warm-clay"
-                  >
-                    Vedi {product.name}
-                    <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-border pt-6 md:flex-row md:items-center">
-          <p className="max-w-2xl text-xs font-light leading-relaxed text-muted-foreground">
-            Prezzi rilevati dalle schede del catalogo e riferiti alle composizioni pubblicate. Il
-            prezzo del progetto su misura dipende da modello, dimensioni, materasso, accessori e
-            finiture.
-          </p>
-          <CategoryCta href={`${SITE}/shop/letti-a-scomparsa/`} tone="outline" className="shrink-0">
-            Vedi tutto il catalogo letti
-          </CategoryCta>
         </div>
       </div>
     </section>

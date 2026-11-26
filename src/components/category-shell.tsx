@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import {
   ArrowRight,
   CalendarDays,
+  ChevronDown,
   Mail,
   MapPin,
   Menu,
@@ -12,6 +13,11 @@ import {
 } from "lucide-react";
 import logo from "@/assets/logo-artigiani.svg";
 import { cn } from "@/lib/utils";
+import {
+  megaMenuGroups,
+  selectWallBedSubcategory,
+  wallBedSubcategories,
+} from "@/data/site-categories";
 
 export const PHONE_DISPLAY = "02 3993 0866";
 export const PHONE_HREF = "tel:+390239930866";
@@ -72,6 +78,8 @@ export function CategoryCta({
 export function CategoryHeader({ categoryLabel }: { categoryLabel: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [megaOpen, setMegaOpen] = useState(false);
+  const [mobileGroup, setMobileGroup] = useState<string | null>("letti");
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -89,11 +97,16 @@ export function CategoryHeader({ categoryLabel }: { categoryLabel: string }) {
 
   const closeMenu = () => setMenuOpen(false);
   const links = [
-    ["Configurazioni", "#configurazioni"],
-    ["Misure", "#misure"],
-    ["Modelli", "#modelli"],
-    ["Showroom", "#showroom"],
+    ["Progetti", "/#progetti"],
+    ["Contatti", "/#contatti"],
+    ["Catalogo", "/#catalogo"],
+    ["Consulenza", "#progetto"],
   ];
+  const pickSub = (slug: string) => {
+    setMegaOpen(false);
+    setMenuOpen(false);
+    selectWallBedSubcategory(slug);
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background text-foreground">
@@ -192,9 +205,77 @@ export function CategoryHeader({ categoryLabel }: { categoryLabel: string }) {
           <img src={logo} alt="Artigiani in Città" className="h-14 w-auto" />
         </a>
         <nav
-          aria-label="Navigazione di categoria"
+          aria-label="Navigazione principale"
           className="ml-4 flex items-center gap-7 text-[11px] uppercase tracking-[0.16em]"
         >
+          <div
+            onMouseEnter={() => setMegaOpen(true)}
+            onMouseLeave={() => setMegaOpen(false)}
+            className="flex h-[92px] items-center"
+          >
+            <button
+              type="button"
+              aria-expanded={megaOpen}
+              aria-controls="category-mega-menu"
+              onClick={() => setMegaOpen((o) => !o)}
+              className="flex items-center gap-1.5 uppercase tracking-[0.16em] hover:text-warm-clay"
+            >
+              Prodotti
+              <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", megaOpen && "rotate-180")} />
+            </button>
+            <div
+              id="category-mega-menu"
+              className={cn(
+                "absolute inset-x-0 top-full border-y border-border bg-background shadow-xl transition-all duration-200",
+                megaOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0",
+              )}
+            >
+              <div className="mx-auto grid max-w-[1600px] grid-cols-12 gap-10 px-12 py-10 normal-case tracking-normal">
+                <div className="col-span-5 border-r border-border pr-10">
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-eyebrow text-warm-clay">Letti a scomparsa</span>
+                    <a href="#modelli" onClick={() => setMegaOpen(false)} className="text-[10px] uppercase tracking-[0.16em] hover:text-warm-clay">
+                      Tutti i modelli →
+                    </a>
+                  </div>
+                  <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm font-light">
+                    {wallBedSubcategories.map((sub) => (
+                      <li key={sub.slug}>
+                        <a
+                          href="#modelli"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            pickSub(sub.slug);
+                          }}
+                          className="hover:text-warm-clay"
+                        >
+                          {sub.name.replace(/ integrato su misura a Milano$/, "")}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="col-span-7 grid grid-cols-4 gap-8">
+                {megaMenuGroups.map((group) => (
+                  <div key={group.title} className="min-w-0">
+                    <a href={group.href} className="text-eyebrow text-warm-clay hover:text-ink">
+                      {group.title}
+                    </a>
+                    <ul className="mt-5 space-y-2.5 text-sm font-light">
+                      {group.items.map(([label, href]) => (
+                        <li key={href}>
+                          <a href={href} className="hover:text-warm-clay">
+                            {label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                </div>
+              </div>
+            </div>
+          </div>
           {links.map(([label, href]) => (
             <a key={href} href={href} className="hover:text-warm-clay">
               {label}
@@ -236,19 +317,57 @@ export function CategoryHeader({ categoryLabel }: { categoryLabel: string }) {
         )}
       >
         <nav aria-label="Navigazione mobile" className="border-t border-border">
-          {[[categoryLabel, "#configurazioni"], ...links.slice(1), ["Homepage", "/"]].map(
-            ([label, href]) => (
-              <a
-                key={`${label}-${href}`}
-                href={href}
-                onClick={closeMenu}
-                className="group flex items-center justify-between border-b border-border py-5 font-display text-2xl hover:text-warm-clay"
-              >
-                {label}
-                <ArrowRight className="h-4 w-4 text-warm-clay transition-transform group-hover:translate-x-1" />
-              </a>
-            ),
-          )}
+          {[
+            { id: "letti", title: categoryLabel, items: wallBedSubcategories.map((sub) => [sub.name.replace(/ integrato su misura a Milano$/, ""), sub.slug] as [string, string]) },
+            ...megaMenuGroups.map((g) => ({ id: g.title, title: g.title, items: g.items })),
+          ].map((group) => {
+            const open = mobileGroup === group.id;
+            return (
+              <div key={group.id} className="border-b border-border">
+                <button
+                  type="button"
+                  aria-expanded={open}
+                  onClick={() => setMobileGroup(open ? null : group.id)}
+                  className="flex w-full items-center justify-between py-5 text-left font-display text-2xl"
+                >
+                  {group.title}
+                  <ChevronDown className={cn("h-5 w-5 text-warm-clay transition-transform", open && "rotate-180")} />
+                </button>
+                {open && (
+                  <ul className="grid gap-1 pb-5">
+                    {group.items.map(([label, target]) => (
+                      <li key={target}>
+                        <a
+                          href={group.id === "letti" ? "#modelli" : target}
+                          onClick={(e) => {
+                            if (group.id === "letti") {
+                              e.preventDefault();
+                              pickSub(target);
+                            } else closeMenu();
+                          }}
+                          className="flex min-h-10 items-center justify-between text-[15px] font-light text-ink/80 hover:text-warm-clay"
+                        >
+                          {label}
+                          <ArrowRight className="h-3.5 w-3.5 text-warm-clay" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
+          {[...links, ["Homepage", "/"]].map(([label, href]) => (
+            <a
+              key={`${label}-${href}`}
+              href={href}
+              onClick={closeMenu}
+              className="group flex items-center justify-between border-b border-border py-4 text-sm uppercase tracking-[0.14em] hover:text-warm-clay"
+            >
+              {label}
+              <ArrowRight className="h-4 w-4 text-warm-clay" />
+            </a>
+          ))}
         </nav>
         <div className="mt-6 space-y-3 pb-8">
           <a
