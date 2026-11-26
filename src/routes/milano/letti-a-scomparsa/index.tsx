@@ -182,8 +182,8 @@ function WallBedsPage() {
       <main className="pt-[133px] md:pt-[129px]">
         <WallBedHero />
         <DayUse />
-        <WallBedCatalog />
         <ProjectForm />
+        <WallBedCatalog />
         <Measurements />
         <Showroom />
         <Faq />
@@ -196,13 +196,36 @@ function WallBedsPage() {
 
 function DayUse() {
   const options = [
-    { label: "Divano", text: "Un living con una seduta vera, che di notte diventa camera.", slug: "letti-a-scomparsa-con-divano", image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-divano.jpg` },
-    { label: "Scrivania", text: "Lavori o studi nella stessa stanza in cui dormi.", slug: "letti-a-scomparsa-con-scrivania", image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-scrivania.jpg` },
-    { label: "Tavolo", text: "Pranzi e cene sulla parete che la sera si apre.", slug: "letti-a-scomparsa-con-tavolo", image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-tavolo.jpeg` },
-    { label: "Libreria e armadio", text: "Contenimento e libri attorno al letto, centro stanza libero.", slug: "armadio-con-letto-a-scomparsa", image: `${SITE}/wp-content/uploads/2022/01/armadio-con-letto-a-scomparsa-vedano-al-lambro-componibile-su-misura-con-armadi-librerie-scrivania-t.jpg` },
+    {
+      label: "Divano",
+      text: "Un living con una seduta vera, che di notte diventa camera.",
+      slug: "letti-a-scomparsa-con-divano",
+      image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-divano.jpg`,
+    },
+    {
+      label: "Scrivania",
+      text: "Lavori o studi nella stessa stanza in cui dormi.",
+      slug: "letti-a-scomparsa-con-scrivania",
+      image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-scrivania.jpg`,
+    },
+    {
+      label: "Tavolo",
+      text: "Pranzi e cene sulla parete che la sera si apre.",
+      slug: "letti-a-scomparsa-con-tavolo",
+      image: `${SITE}/wp-content/uploads/2024/09/letti-a-scomparsa-con-tavolo.jpeg`,
+    },
+    {
+      label: "Libreria e armadio",
+      text: "Contenimento e libri attorno al letto, centro stanza libero.",
+      slug: "armadio-con-letto-a-scomparsa",
+      image: `${SITE}/wp-content/uploads/2022/01/armadio-con-letto-a-scomparsa-vedano-al-lambro-componibile-su-misura-con-armadi-librerie-scrivania-t.jpg`,
+    },
   ];
   return (
-    <section id="configurazioni" className="scroll-mt-36 px-6 py-16 md:scroll-mt-40 md:px-16 md:py-28">
+    <section
+      id="configurazioni"
+      className="scroll-mt-36 px-6 py-16 md:scroll-mt-40 md:px-16 md:py-28"
+    >
       <div className="mx-auto max-w-[1600px]">
         <SectionHeading
           index="01"
@@ -218,14 +241,26 @@ function DayUse() {
               onClick={() => selectWallBedSubcategory(o.slug)}
               className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden bg-ink text-left text-warm-cream md:aspect-[4/5]"
             >
-              <img src={o.image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" />
+              <img
+                src={o.image}
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
+              />
               <span className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
               <span className="relative p-4 md:p-7">
-                <span className="block text-[10px] uppercase tracking-[0.2em] text-warm-cream/60">0{i + 1}</span>
-                <span className="mt-2 block font-display text-2xl font-light md:text-4xl">{o.label}</span>
-                <span className="mt-2 hidden text-sm font-light leading-relaxed text-warm-cream/75 md:block">{o.text}</span>
+                <span className="block text-[10px] uppercase tracking-[0.2em] text-warm-cream/60">
+                  0{i + 1}
+                </span>
+                <span className="mt-2 block font-display text-2xl font-light md:text-4xl">
+                  {o.label}
+                </span>
+                <span className="mt-2 hidden text-sm font-light leading-relaxed text-warm-cream/75 md:block">
+                  {o.text}
+                </span>
                 <span className="mt-4 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em]">
-                  Vedi i modelli <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  Vedi i modelli{" "}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
               </span>
             </button>
@@ -270,7 +305,7 @@ function Measurements() {
     >
       <div className="mx-auto max-w-[1500px]">
         <SectionHeading
-          index="02"
+          index="03"
           eyebrow="Prima del modello"
           title="Quanto spazio serve davvero?"
           text="Dipende dal modello e dalla configurazione. Per capirlo bastano tre osservazioni della tua stanza, senza affidarsi a misure universali."
@@ -344,7 +379,7 @@ function ProjectForm() {
     >
       <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <div className="text-eyebrow text-warm-clay">— 04 Il tuo progetto</div>
+          <div className="text-eyebrow text-warm-clay">— 02 Il tuo progetto</div>
           <h2 className="mt-6 font-display text-[10vw] font-extralight leading-[1.02] sm:text-5xl md:text-[4vw]">
             Vediamo quale letto ci sta{" "}
             <span className="italic text-warm-clay">nella tua stanza.</span>
@@ -611,7 +646,7 @@ function Showroom() {
           className="h-full min-h-[300px] w-full object-cover md:min-h-[520px]"
         />
         <div className="flex flex-col justify-center bg-warm-cream p-7 md:p-12 lg:p-16">
-          <div className="text-eyebrow text-warm-clay">— 05 Showroom Milano</div>
+          <div className="text-eyebrow text-warm-clay">— 04 Showroom Milano</div>
           <h2 className="mt-5 font-display text-4xl font-light leading-tight md:text-5xl">
             Porta la tua stanza.
             <br />
@@ -664,7 +699,7 @@ function Faq() {
     >
       <div className="mx-auto grid max-w-[1400px] gap-10 md:grid-cols-12 md:gap-16">
         <div className="md:col-span-4">
-          <div className="text-eyebrow text-muted-foreground">— 06 Domande frequenti</div>
+          <div className="text-eyebrow text-muted-foreground">— 05 Domande frequenti</div>
           <h2 className="mt-5 font-display text-5xl font-extralight leading-[1.02]">
             Prima di <span className="italic">scegliere.</span>
           </h2>

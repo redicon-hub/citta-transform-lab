@@ -93,20 +93,27 @@ export function WallBedHero() {
           king size 180×200, costruiti sulle misure della tua casa.
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <a
+            href="#progetto"
+            className="group inline-flex min-h-14 items-center justify-between gap-6 bg-warm-cream px-6 text-[11px] font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:bg-warm-clay hover:text-warm-cream"
+          >
+            Richiedi il progetto
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
           <a
             href="#configurazioni"
-            className="group inline-flex min-h-14 items-center justify-between gap-6 bg-warm-cream px-6 text-[11px] font-medium uppercase tracking-[0.16em] text-ink transition-colors hover:bg-warm-clay hover:text-warm-cream"
+            className="group inline-flex min-h-14 items-center justify-between gap-6 border border-warm-cream/50 px-6 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors hover:border-warm-cream hover:bg-warm-cream/10"
           >
             Cosa farai di giorno?
             <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
           </a>
           <a
             href="#modelli"
-            className="group inline-flex min-h-14 items-center justify-between gap-6 border border-warm-cream/50 px-6 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors hover:border-warm-cream hover:bg-warm-cream/10"
+            className="group inline-flex min-h-11 items-center gap-2 px-1 text-[11px] font-medium uppercase tracking-[0.16em] text-warm-cream/70 transition-colors hover:text-warm-cream"
           >
             Sfoglia tutti i modelli
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
 
