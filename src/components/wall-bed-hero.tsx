@@ -6,7 +6,8 @@ const CLOSED =
   "https://artigianiincitta.it/wp-content/uploads/2026/11/letto-a-scomparsa-penelope-con-divano-materasso-alto-chiuso.webp";
 const OPEN =
   "https://artigianiincitta.it/wp-content/uploads/2026/11/letto-a-scomparsa-penelope-con-divano-materasso-alto-aperto.webp";
-const CYCLE = 5200;
+// Zoom/curtain settle in ~6s, then the image holds; switch every 10s.
+const CYCLE = 10000;
 
 export function WallBedHero() {
   const [night, setNight] = useState(false);
@@ -78,7 +79,8 @@ export function WallBedHero() {
         <div className="text-[10px] uppercase tracking-[0.28em] text-warm-cream/70 md:text-[11px]">
           Letti a scomparsa su misura · Milano
         </div>
-        <h1 className="mt-5 max-w-4xl font-display text-[12vw] font-light leading-[0.95] sm:text-6xl md:text-[5.6vw]">
+        <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10">
+        <h1 className="max-w-4xl font-display text-[12vw] font-light leading-[0.95] sm:text-6xl md:text-[5.6vw]">
           <span className={cn("block transition-opacity duration-700", night && "opacity-40")}>
             Di giorno vivi.
           </span>
@@ -88,6 +90,33 @@ export function WallBedHero() {
             Di notte dormi.
           </span>
         </h1>
+          <div
+            role="group"
+            aria-label="Mostra il letto chiuso o aperto"
+            className="flex w-fit shrink-0 self-start md:self-auto rounded-full border border-warm-cream/40 bg-ink/40 p-1.5 shadow-lg backdrop-blur-md"
+          >
+            {[
+              { v: false, label: "Giorno", Icon: Sun },
+              { v: true, label: "Notte", Icon: Moon },
+            ].map(({ v, label, Icon }) => (
+              <button
+                key={label}
+                type="button"
+                aria-pressed={night === v}
+                onClick={() => choose(v)}
+                className={cn(
+                  "flex h-11 items-center gap-2 rounded-full px-5 text-[11px] font-medium uppercase tracking-[0.18em] transition-colors md:h-12 md:px-6",
+                  night === v
+                    ? "bg-warm-cream text-ink"
+                    : "text-warm-cream/70 hover:text-warm-cream",
+                )}
+              >
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
         <p className="mt-6 max-w-xl text-[15px] font-light leading-relaxed text-warm-cream/80 md:text-lg">
           La stessa parete, due stanze. Letti veri con materasso fino a 30 cm, dal singolo 80×190 al
           king size 180×200, costruiti sulle misure della tua casa.
@@ -118,32 +147,6 @@ export function WallBedHero() {
         </div>
 
         <div className="mt-10 flex items-center gap-5 border-t border-warm-cream/15 pt-5">
-          <div
-            role="group"
-            aria-label="Mostra il letto chiuso o aperto"
-            className="flex rounded-full border border-warm-cream/25 p-1"
-          >
-            {[
-              { v: false, label: "Giorno", Icon: Sun },
-              { v: true, label: "Notte", Icon: Moon },
-            ].map(({ v, label, Icon }) => (
-              <button
-                key={label}
-                type="button"
-                aria-pressed={night === v}
-                onClick={() => choose(v)}
-                className={cn(
-                  "flex h-9 items-center gap-2 rounded-full px-4 text-[10px] uppercase tracking-[0.16em] transition-colors",
-                  night === v
-                    ? "bg-warm-cream text-ink"
-                    : "text-warm-cream/70 hover:text-warm-cream",
-                )}
-              >
-                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-                {label}
-              </button>
-            ))}
-          </div>
           <div className="hidden h-px flex-1 overflow-hidden bg-warm-cream/15 sm:block">
             {auto && (
               <div

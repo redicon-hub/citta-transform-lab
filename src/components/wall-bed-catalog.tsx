@@ -12,10 +12,25 @@ const ALL_SLUG = "tutti";
 const allProducts = Array.from(
   new Map(wallBedSubcategories.flatMap((s) => s.products).map((p) => [p.url, p])).values(),
 );
-const tabs = [
-  { slug: ALL_SLUG, name: "Tutti i letti a scomparsa", products: allProducts },
-  ...wallBedSubcategories,
+// Selection shown in the catalog, in the order of the live site's "Letti a scomparsa" menu.
+const SELECTION: [string, string][] = [
+  ["letto-a-scomparsa-verticale", "Letto a scomparsa verticale"],
+  ["letto-a-scomparsa-orizzontale", "Letto a scomparsa orizzontale"],
+  ["letti-a-scomparsa-con-divano", "Letti a scomparsa con divano"],
+  ["letti-a-scomparsa-con-scrivania", "Letti a scomparsa con scrivania"],
+  ["letti-a-scomparsa-con-tavolo", "Letti a scomparsa con tavolo"],
+  ["letto-con-tv-a-scomparsa", "Letto con tv a scomparsa"],
+  ["castello", "Letti a scomparsa a castello"],
+  ["letti-a-scomparsa-elettrici-motorizzati", "Letto a scomparsa motorizzato"],
+  ["letto-a-scomparsa-girevole", "Letto a scomparsa girevole"],
+  ["letti-per-bambini-a-scomparsa", "Letti per bambini a scomparsa"],
+  ["prezzi-economici", "Letti a scomparsa prezzi economici"],
 ];
+const selected = SELECTION.flatMap(([slug, name]) => {
+  const sub = wallBedSubcategories.find((s) => s.slug === slug);
+  return sub ? [{ ...sub, name }] : [];
+});
+const tabs = [{ slug: ALL_SLUG, name: "Tutti i letti a scomparsa", products: allProducts }, ...selected];
 const euro = new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
 export function WallBedCatalog() {
@@ -53,7 +68,7 @@ export function WallBedCatalog() {
       <div className="mx-auto max-w-[1600px]">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="text-eyebrow text-warm-clay">Catalogo · {wallBedSubcategories.length} famiglie</div>
+            <div className="text-eyebrow text-warm-clay">Catalogo · {selected.length} famiglie</div>
             <h2 className="mt-3 font-display text-4xl font-light leading-tight md:text-6xl">
               Scegli il tuo letto a scomparsa.
             </h2>
