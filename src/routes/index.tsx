@@ -427,10 +427,12 @@ function Hero() {
 }
 
 const blackFridayTiers = [
-  { range: "Sotto i 3.000 €", discount: "10%", saving: "Fino a circa 300 € di risparmio", example: "Una parete attrezzata, un ingresso" },
-  { range: "Da 3.000 € a 10.000 €", discount: "20%", saving: "Fino a 2.000 € di risparmio", example: "Un soggiorno, una camera completa", featured: true },
-  { range: "Oltre 10.000 €", discount: "25%", saving: "Su 12.000 € risparmi 3.000 €", example: "Più ambienti, una casa intera" },
+  { range: "Carrello sotto i 3.000 €", discount: "10%", code: "bf2610", saving: "Fino a circa 300 € di risparmio" },
+  { range: "Carrello da 3.000 € a 10.000 €", discount: "20%", code: "bf2620", saving: "Fino a 2.000 € di risparmio", featured: true },
+  { range: "Carrello oltre 10.000 €", discount: "25%", code: "bf2625", saving: "Su 12.000 € risparmi 3.000 €" },
 ];
+
+const BF_SHOP_URL = "https://artigianiincitta.it/shop/";
 
 const BF_END = new Date("2026-12-01T23:59:59+01:00").getTime();
 
@@ -449,6 +451,28 @@ function useCountdown(target: number) {
     m: Math.floor((diff / 60000) % 60),
     s: Math.floor((diff / 1000) % 60),
   };
+}
+
+function CouponCode({ code }: { code: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        void navigator.clipboard?.writeText(code.toUpperCase());
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }}
+      className="mt-6 flex w-full items-center justify-between border border-dashed border-white/40 px-4 py-3 text-left transition-colors hover:border-white"
+      aria-label={`Copia il codice ${code.toUpperCase()}`}
+    >
+      <span>
+        <span className="block text-[10px] tracking-[0.2em] uppercase text-white/50">Codice</span>
+        <span className="font-readable-numbers text-xl tracking-[0.12em] uppercase">{code}</span>
+      </span>
+      <span className="text-[11px] tracking-[0.2em] uppercase text-warm-clay">{copied ? "Copiato" : "Copia"}</span>
+    </button>
+  );
 }
 
 function BlackFriday() {
@@ -470,7 +494,7 @@ function BlackFriday() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-60 animate-ping" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
             </span>
-            Black Friday · Offerta attiva
+            Black Friday · Solo online
           </span>
           <span className="hidden sm:inline text-white/80">24 nov – 1 dic 2026</span>
         </div>
@@ -483,13 +507,13 @@ function BlackFriday() {
 
       <div className="relative max-w-[1600px] mx-auto px-6 md:px-16 py-16 md:py-28">
         <Reveal>
-          <div className="text-eyebrow text-warm-clay">— Su misura · 24 nov – 1 dic</div>
+          <div className="text-eyebrow text-warm-clay">— Shop online · 24 nov – 1 dic</div>
           <h2 className="mt-6 font-display leading-[0.85]">
             <span className="block whitespace-nowrap font-medium uppercase tracking-[-0.03em] text-[13.5vw] md:text-[10.5vw]">
               Black <span className="font-light italic text-warm-clay">Friday</span>
             </span>
             <span className="mt-8 block font-extralight leading-[1.05] text-[7vw] md:text-[3.2vw] whitespace-normal">
-              Fino al <span className="italic text-warm-clay">25%</span> sul tuo progetto d'arredo.
+              Fino al <span className="italic text-warm-clay">25%</span> online, su prodotti selezionati.
             </span>
           </h2>
         </Reveal>
@@ -498,14 +522,11 @@ function BlackFriday() {
           <div className="md:col-span-7">
             <Reveal>
               <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-xl">
-                Una parete del soggiorno, un ingresso da organizzare o una stanza intera: durante il Black Friday di Artigiani in Città lo sconto cresce con il valore degli arredi che scegli. Portaci le misure, al resto pensiamo noi.
+                Lo sconto vale solo sullo shop online e sui prodotti selezionati. Aggiungi i prodotti al carrello, inserisci il codice della tua fascia e controlla che lo sconto sia applicato prima di pagare.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:items-center">
-                <Cta href="#appuntamento" tone="dark" variant="solid">
-                  Richiedi il tuo preventivo Black Friday
-                </Cta>
-                <Cta href="#contatti" tone="dark" variant="outline">
-                  Prenota una visita in showroom
+                <Cta href={BF_SHOP_URL} tone="dark" variant="solid">
+                  Vai ai prodotti in promozione
                 </Cta>
               </div>
             </Reveal>
@@ -527,7 +548,7 @@ function BlackFriday() {
                   ))}
                 </div>
                 <div className="mt-8 pt-6 border-t border-white/10 text-sm text-white/60 leading-relaxed">
-                  Il risparmio viene calcolato direttamente nel tuo preventivo, prima di decidere.
+                  Aggiungi al carrello, inserisci il codice e verifica che lo sconto sia applicato nel riepilogo.
                 </div>
               </div>
             </Reveal>
@@ -537,14 +558,13 @@ function BlackFriday() {
         {/* Fasce cliccabili */}
         <Reveal delay={0.2}>
           <div className="mt-16 md:mt-24 flex items-end justify-between gap-6">
-            <div className="text-eyebrow text-white/60">— Scegli la tua fascia</div>
+            <div className="text-eyebrow text-white/60">— Il codice della tua fascia</div>
             <div className="hidden md:block text-sm text-white/50">Più arredi, più risparmi.</div>
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {blackFridayTiers.map((tier) => (
-              <a
+              <div
                 key={tier.range}
-                href="#appuntamento"
                 className={`group relative flex flex-col p-8 md:p-10 border transition-all duration-500 hover:-translate-y-1 ${
                   tier.featured
                     ? "border-warm-clay bg-warm-clay/15"
@@ -561,16 +581,16 @@ function BlackFriday() {
                   −{tier.discount}
                 </div>
                 <div className="mt-6 text-base text-white">{tier.saving}</div>
-                <div className="mt-1 text-sm text-white/50">{tier.example}</div>
-                <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-between text-[11px] tracking-[0.2em] uppercase">
-                  <span>Calcola il tuo sconto</span>
+                <CouponCode code={tier.code} />
+                <a href={BF_SHOP_URL} className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-[11px] tracking-[0.2em] uppercase">
+                  <span>Aggiungi al carrello</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
-                </div>
-              </a>
+                </a>
+              </div>
             ))}
           </div>
           <p className="mt-6 text-sm text-white/50 leading-relaxed max-w-3xl">
-            Su un progetto fino a 7.500 € puoi risparmiare fino a 1.500 €. La percentuale della tua fascia si applica all'intero importo degli arredi in promozione.
+            Come funziona: 1. aggiungi al carrello i prodotti selezionati · 2. inserisci il codice della tua fascia · 3. verifica nel riepilogo che lo sconto sia applicato. Codici validi solo online.
           </p>
         </Reveal>
 
@@ -578,11 +598,11 @@ function BlackFriday() {
         <Reveal delay={0.1}>
           <div className="mt-16 md:mt-20 border-t border-white/10 pt-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
             <p className="font-display font-extralight text-3xl md:text-4xl leading-tight max-w-2xl">
-              Porta le tue idee in showroom: <span className="italic">il preventivo è gratuito.</span>
+              Sconto solo online, <span className="italic">sui prodotti selezionati.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Cta href="#appuntamento" tone="dark" variant="solid">
-                Richiedi il preventivo
+              <Cta href={BF_SHOP_URL} tone="dark" variant="solid">
+                Vai allo shop online
               </Cta>
               <Cta href="tel:+390239930866" tone="dark" variant="outline">
                 Chiamaci ora
@@ -590,7 +610,7 @@ function BlackFriday() {
             </div>
           </div>
           <p className="mt-8 text-[11px] tracking-[0.18em] uppercase text-white/40">
-            Promozione valida dal 24 novembre al 1 dicembre 2026 · Dettagli della promozione in showroom
+            Promozione valida solo online dal 24 novembre al 1 dicembre 2026 · Solo su prodotti selezionati
           </p>
         </Reveal>
       </div>
