@@ -450,6 +450,7 @@ function useCountdown(target: number) {
     h: Math.floor((diff / 3600000) % 24),
     m: Math.floor((diff / 60000) % 60),
     s: Math.floor((diff / 1000) % 60),
+    expired: diff === 0,
   };
 }
 
@@ -477,6 +478,9 @@ function CouponCode({ code }: { code: string }) {
 
 function BlackFriday() {
   const t = useCountdown(BF_END);
+  // Hide the whole section once the promotion ends: the server render checks the
+  // request time, the client hides it as soon as the countdown reaches zero.
+  if (t ? t.expired : Date.now() >= BF_END) return null;
   const pad = (n: number) => String(n).padStart(2, "0");
   const units = [
     { label: "Giorni", v: t?.d },
